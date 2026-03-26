@@ -169,7 +169,7 @@ export default function PrivilegesPage() {
               intervenants experts. Siwa, le Nil, Louxor, chaque séjour a son âme.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Réserver ma place →
               </a>
               <a href="#programmes" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
@@ -325,7 +325,7 @@ export default function PrivilegesPage() {
                     href={getWhatsAppUrl(p.ctaMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-whatsapp"
+                    className="btn btn-primary"
                   >
                     {WHATSAPP_ICON}
                     Réserver ma place, {p.urgency}
@@ -387,7 +387,7 @@ export default function PrivilegesPage() {
             de réservation sous 24h.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               {WHATSAPP_ICON}
               Écrire à Sophie
             </a>

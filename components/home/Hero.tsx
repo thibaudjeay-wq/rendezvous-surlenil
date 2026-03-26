@@ -103,7 +103,7 @@ export default function Hero() {
               href={HERO_WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-whatsapp"
+              className="btn btn-primary"
               title="Écrire à Sophie Godineau, travel planner Égypte francophone"
             >
               Écrire à Sophie →

@@ -152,7 +152,7 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-whatsapp text-xs"
+              className="btn btn-primary text-xs"
               style={{ paddingTop: '10px', paddingBottom: '10px' }}
             >
               Parlons de votre voyage →
@@ -250,7 +250,7 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-whatsapp text-center justify-center w-full"
+              className="btn btn-primary text-center justify-center w-full"
             >
               Parlons de votre voyage →
             </a>
@@ -258,7 +258,7 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-whatsapp text-center justify-center w-full"
+              className="btn btn-primary text-center justify-center w-full"
             >
               Écrire sur WhatsApp
             </a>

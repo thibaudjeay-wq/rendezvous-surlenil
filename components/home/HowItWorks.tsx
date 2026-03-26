@@ -103,7 +103,7 @@ export default function HowItWorks() {
             href={HOW_WA}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-whatsapp inline-flex"
+            className="btn btn-primary inline-flex"
             title="Commencer à organiser son voyage en Égypte avec Sophie"
           >
             Commencer par un message à Sophie →

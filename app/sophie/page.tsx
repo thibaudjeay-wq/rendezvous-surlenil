@@ -676,7 +676,7 @@ export default function SophiePage() {
             href={WHATSAPP_SOPHIE}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-whatsapp inline-flex items-center gap-3"
+            className="btn btn-primary inline-flex items-center gap-3"
             style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem', fontSize: '0.875rem' }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">

@@ -46,7 +46,7 @@
   --color-border:       #E8D5B7;   /* sable — bordures */
   --color-accent:       #C4902A;   /* mustard — accent principal */
   --color-accent-warm:  #CE8D5C;   /* pêche — accent chaud secondaire */
-  --color-whatsapp:     #25D366;
+  --color-whatsapp:     #2A5A54;
 
   /* Spacing sections */
   --spacing-section: 6rem;
@@ -180,9 +180,9 @@ body {
   padding: 0.875rem 2rem;
 }
 .btn-whatsapp:hover {
-  background: #1fba5c;
+  background: #1E6860;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 8px 24px rgba(42, 90, 84, 0.3);
 }
 .btn-ghost {
   background: transparent;
