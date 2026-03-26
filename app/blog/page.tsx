@@ -159,7 +159,7 @@ export default async function BlogPage() {
           </h1>
           <p className="max-w-xl mx-auto text-lg" style={{ color: 'rgba(250,247,242,0.72)', fontWeight: 300, lineHeight: 1.7 }}>
             Récits de voyage, portraits de lieux, conseils pratiques, les carnets d&apos;une Française
-            qui vit à Louxor depuis plus de 10 ans.
+            qui parcourt l&apos;Égypte depuis plus de 10 ans.
           </p>
 
           {/* Catégories dans le hero si Sanity connecté */}

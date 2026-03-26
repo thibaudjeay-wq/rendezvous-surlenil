@@ -210,7 +210,7 @@ export default function PrivilegesPage() {
               {
                 icon: <CheckCircle size={18} style={{ color: '#C4902A' }} aria-hidden="true" />,
                 title: 'Sophie avec le groupe',
-                desc: 'Sophie accompagne ces séjours en groupe. Une référence disponible à tout moment pour les imprévus.',
+                desc: 'Sophie accompagne ces séjours en groupe. Une référence joignable pour anticiper et gérer les imprévus.',
               },
             ].map(({ icon, title, desc }) => (
               <div

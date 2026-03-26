@@ -17,7 +17,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Sophie Godineau',
   jobTitle: 'Travel Planner Égypte',
-  description: 'Travel planner spécialisée en Égypte, basée à Louxor depuis plus de 10 ans.',
+  description: 'Travel planner spécialisée en Égypte. Dix ans de voyages, de rencontres et de terrain pour construire une Égypte sur mesure, authentique et hors des sentiers touristiques.',
   worksFor: {
     '@type': 'TouristAgency',
     name: 'Rendez-vous sur le Nil',
