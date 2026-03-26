@@ -17,7 +17,7 @@ const sejours = [
     title: "Louxor j'adore",
     duration: '8 jours / 7 nuits',
     badge: undefined,
-    image: '/photos/thebaide/rooftop-femme-the.png',
+    image: '/photos/thebaide/rooftop-femme-the.jpg',
     imageAlt: 'Temple de Karnak au lever du soleil, Louxor',
     description:
       'Immersion totale à Louxor. La Thébaïde comme point de chute, Karnak au crépuscule, montgolfière au lever du soleil sur la Vallée des Rois. Une excursion à Dendérah ou Esna vient compléter ce tour de force archéologique.',

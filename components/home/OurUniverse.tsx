@@ -48,7 +48,7 @@ const experiences = [
     label: 'La Thébaïde, Louxor',
     description: 'Notre duplex à Louxor, rive est, 4 chambres, rooftop panoramique',
     href: '/la-thebaide',
-    image: '/photos/thebaide/rooftop-femme-the.png',
+    image: '/photos/thebaide/rooftop-femme-the.jpg',
     tag: null,
   },
 ]

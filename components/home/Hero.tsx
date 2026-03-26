@@ -36,7 +36,7 @@ export default function Hero() {
           style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
         >
           <Image
-            src="/photos/hero/hero-nil.png"
+            src="/photos/hero/hero-nil.jpg"
             alt="Coucher de soleil sur le Nil, Louxor, Égypte, Rendez-vous sur le Nil"
             fill
             priority

@@ -309,7 +309,7 @@ export default function LaThebaidePage() {
             <div className="lg:col-span-5 flex flex-col gap-4 lg:sticky lg:top-28">
               <div className="img-portrait-lg overflow-hidden rounded-sm">
                 <Image
-                  src="/photos/thebaide/rooftop-femme-the.png"
+                  src="/photos/thebaide/rooftop-femme-the.jpg"
                   alt="La Thébaïde, rooftop panoramique avec vue sur Louxor"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -319,7 +319,7 @@ export default function LaThebaidePage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="img-square overflow-hidden rounded-sm">
                   <Image
-                    src="/photos/thebaide/chambre-noire.png"
+                    src="/photos/thebaide/chambre-noire.jpg"
                     alt="Chambre noire de La Thébaïde à Louxor"
                     fill
                     sizes="20vw"
@@ -328,7 +328,7 @@ export default function LaThebaidePage() {
                 </div>
                 <div className="img-square overflow-hidden rounded-sm">
                   <Image
-                    src="/photos/thebaide/rooftop-transats.png"
+                    src="/photos/thebaide/rooftop-transats.jpg"
                     alt="Transats et pergola sur le rooftop de La Thébaïde"
                     fill
                     sizes="20vw"
