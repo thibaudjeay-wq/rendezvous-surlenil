@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  // Sanity Studio packages — exclure du bundle serveur Next.js
+  serverExternalPackages: ['sanity', '@sanity/vision', 'styled-components'],
+
   images: {
     remotePatterns: [
       {
