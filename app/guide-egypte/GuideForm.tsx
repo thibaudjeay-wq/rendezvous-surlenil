@@ -57,28 +57,32 @@ export default function GuideForm() {
       <div className="text-center py-6">
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-          style={{ background: 'rgba(39, 174, 96, 0.1)' }}
+          style={{ background: 'rgba(196, 144, 42, 0.1)' }}
         >
-          <CheckCircle size={32} style={{ color: '#27AE60' }} />
+          <CheckCircle size={32} style={{ color: '#C4902A' }} />
         </div>
         <h3
-          className="mb-3"
+          className="mb-2"
           style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}
         >
-          Merci {firstName} !
+          Merci {firstName}&nbsp;!
         </h3>
         <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
-          Votre guide arrive dans votre boîte mail dans quelques minutes.
-          <br />
-          Pensez à vérifier vos spams si vous ne le recevez pas.
+          Le guide arrive dans votre boîte mail dans quelques minutes.
         </p>
+
         <a
-          href="/blog"
-          className="btn btn-ghost"
-          style={{ color: '#C4902A', borderColor: '#C4902A' }}
+          href="https://heyzine.com/flip-book/1ceed35b47.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary inline-flex justify-center w-full mb-4"
         >
-          Explorer le blog en attendant →
+          Lire le guide maintenant →
         </a>
+
+        <p className="text-xs" style={{ color: '#8A9BAB' }}>
+          Vous ne trouvez pas l&apos;email ? Vérifiez vos spams.
+        </p>
       </div>
     )
   }
