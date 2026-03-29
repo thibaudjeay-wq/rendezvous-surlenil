@@ -1,8 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Sanity Studio packages — exclure du bundle serveur Next.js
-  serverExternalPackages: ['sanity', '@sanity/vision', 'styled-components'],
+  // Sanity Studio — transpiler pour compatibilité React 19
+  transpilePackages: ['sanity', '@sanity/ui', '@sanity/icons', '@sanity/vision', 'next-sanity'],
+  serverExternalPackages: ['styled-components'],
 
   images: {
     remotePatterns: [
