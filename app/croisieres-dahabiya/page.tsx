@@ -1,7 +1,36 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Ship, Users, Star, Sunset, CheckCircle, XCircle, ChevronDown } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
+import { sanityClient } from '@/lib/sanity/client'
+import { dahabiyaExperiencesQuery } from '@/lib/sanity/queries'
+import { urlFor } from '@/lib/sanity/image'
+
+export const revalidate = 3600
+
+type SanityDahabiyaExp = {
+  _id: string
+  title: string
+  slug: { current: string }
+  duration?: string
+  priceDisplay?: string
+  priceAmount?: number
+  priceSuffix?: string
+  highlights?: Array<{ icon?: string; label: string; value: string }>
+  included?: string[]
+  notIncluded?: string[]
+  ctaWhatsappMessage?: string
+  featured?: boolean
+  mainImage?: { asset: { _id: string; url: string; metadata: { lqip?: string } }; alt?: string }
+  gallery?: Array<{ asset: { _id: string; url: string; metadata: { lqip?: string } }; alt?: string }>
+}
+
+function formatPrice(exp: SanityDahabiyaExp): string {
+  if (exp.priceDisplay === 'on-request' || exp.priceDisplay === 'private-quote') return 'Sur devis'
+  if (exp.priceAmount) return `À partir de ${exp.priceAmount.toLocaleString('fr-FR')} €`
+  return 'Sur devis'
+}
 
 export const metadata: Metadata = {
   title: 'Croisières en Dahabiya sur le Nil, Louxor à Assouan',
@@ -110,8 +139,36 @@ const faq = [
   },
 ]
 
-export default function CroisiereDahabiyaPage() {
+export default async function CroisiereDahabiyaPage() {
   const whatsappMain = getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya sur le Nil. Pouvez-vous m\'envoyer plus d\'informations ? 🛶')
+
+  let sanityExps: SanityDahabiyaExp[] = []
+  try {
+    if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+      sanityExps = await sanityClient.fetch<SanityDahabiyaExp[]>(dahabiyaExperiencesQuery)
+    }
+  } catch { /* fallback statique */ }
+
+  // Formules depuis Sanity si disponibles, sinon fallback statique
+  const activeFormules = sanityExps.length > 0
+    ? sanityExps.map((exp) => ({
+        name: exp.title,
+        duration: exp.duration ?? '',
+        price: formatPrice(exp),
+        priceSuffix: exp.priceSuffix ?? '/ personne',
+        highlights: exp.highlights?.map((h) => h.value) ?? [],
+        featured: exp.featured ?? false,
+        cta: getWhatsAppUrl(exp.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya. 🛶'),
+      }))
+    : formules
+
+  // Inclus / non inclus depuis la première expérience Sanity
+  const featuredExp = sanityExps.find((e) => e.featured) ?? sanityExps[0]
+  const activeIncluded = featuredExp?.included?.length ? featuredExp.included : included
+  const activeNotIncluded = featuredExp?.notIncluded?.length ? featuredExp.notIncluded : notIncluded
+
+  // Galerie depuis Sanity si disponible
+  const sanityGallery = featuredExp?.gallery?.length ? featuredExp.gallery : null
 
   return (
     <>
@@ -216,29 +273,50 @@ export default function CroisiereDahabiyaPage() {
               </div>
             </div>
 
-            {/* Galerie 2 images */}
+            {/* Galerie — Sanity si dispo, sinon statique */}
             <div className="grid grid-cols-2 gap-4">
               <div className="overflow-hidden rounded-sm" style={{ aspectRatio: '3/4' }}>
-                <img
-                  src="/photos/dahabiya/salon-coucher.jpg"
-                  alt="Salon de la dahabiya au coucher de soleil sur le Nil"
-                  className="w-full h-full object-cover"
-                />
+                {sanityGallery?.[0]?.asset ? (
+                  <Image
+                    src={urlFor(sanityGallery[0]).width(600).height(800).url()}
+                    alt={sanityGallery[0].alt ?? 'Dahabiya sur le Nil'}
+                    width={600} height={800}
+                    className="w-full h-full object-cover"
+                    placeholder={sanityGallery[0].asset.metadata?.lqip ? 'blur' : undefined}
+                    blurDataURL={sanityGallery[0].asset.metadata?.lqip}
+                  />
+                ) : (
+                  <img src="/photos/dahabiya/salon-coucher.jpg" alt="Salon de la dahabiya au coucher de soleil sur le Nil" className="w-full h-full object-cover" />
+                )}
               </div>
               <div className="flex flex-col gap-4">
                 <div className="overflow-hidden rounded-sm flex-1">
-                  <img
-                    src="/photos/voyageurs/couple-cabine-nil.jpg"
-                    alt="Couple regardant le Nil depuis la cabine de la dahabiya"
-                    className="w-full h-full object-cover"
-                  />
+                  {sanityGallery?.[1]?.asset ? (
+                    <Image
+                      src={urlFor(sanityGallery[1]).width(400).height(300).url()}
+                      alt={sanityGallery[1].alt ?? 'Dahabiya'}
+                      width={400} height={300}
+                      className="w-full h-full object-cover"
+                      placeholder={sanityGallery[1].asset.metadata?.lqip ? 'blur' : undefined}
+                      blurDataURL={sanityGallery[1].asset.metadata?.lqip}
+                    />
+                  ) : (
+                    <img src="/photos/voyageurs/couple-cabine-nil.jpg" alt="Couple regardant le Nil depuis la cabine de la dahabiya" className="w-full h-full object-cover" />
+                  )}
                 </div>
                 <div className="overflow-hidden rounded-sm flex-1">
-                  <img
-                    src="/photos/dahabiya/table-nil.jpg"
-                    alt="Table dressée sur le pont de la dahabiya avec vue sur le Nil"
-                    className="w-full h-full object-cover"
-                  />
+                  {sanityGallery?.[2]?.asset ? (
+                    <Image
+                      src={urlFor(sanityGallery[2]).width(400).height(300).url()}
+                      alt={sanityGallery[2].alt ?? 'Dahabiya'}
+                      width={400} height={300}
+                      className="w-full h-full object-cover"
+                      placeholder={sanityGallery[2].asset.metadata?.lqip ? 'blur' : undefined}
+                      blurDataURL={sanityGallery[2].asset.metadata?.lqip}
+                    />
+                  ) : (
+                    <img src="/photos/dahabiya/table-nil.jpg" alt="Table dressée sur le pont de la dahabiya avec vue sur le Nil" className="w-full h-full object-cover" />
+                  )}
                 </div>
               </div>
             </div>
@@ -264,7 +342,7 @@ export default function CroisiereDahabiyaPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            {formules.map((f) => (
+            {activeFormules.map((f) => (
               <div
                 key={f.name}
                 className="flex flex-col p-7 rounded-sm relative"
@@ -400,7 +478,7 @@ export default function CroisiereDahabiyaPage() {
                 ✅ Ce qui est inclus
               </h3>
               <ul className="flex flex-col gap-3">
-                {included.map((item) => (
+                {activeIncluded.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm" style={{ color: '#5C6E7E' }}>
                     <CheckCircle size={14} style={{ color: '#27AE60', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
                     {item}
@@ -418,7 +496,7 @@ export default function CroisiereDahabiyaPage() {
                 ❌ Non inclus
               </h3>
               <ul className="flex flex-col gap-3">
-                {notIncluded.map((item) => (
+                {activeNotIncluded.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm" style={{ color: '#5C6E7E' }}>
                     <XCircle size={14} style={{ color: '#C0392B', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
                     {item}

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { sanityClient } from '@/lib/sanity/client'
+import { testimonialsFeaturedQuery } from '@/lib/sanity/queries'
 import Hero from '@/components/home/Hero'
 import ReassuranceBar from '@/components/home/ReassuranceBar'
 import AboutSophie from '@/components/home/AboutSophie'
@@ -10,6 +12,8 @@ import HowItWorks from '@/components/home/HowItWorks'
 import WhyUs from '@/components/home/WhyUs'
 import Testimonials from '@/components/home/Testimonials'
 import QuizModal from '@/components/quiz/QuizModal'
+
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Croisière Dahabiya sur le Nil & Séjours Haut de Gamme | Rendez-vous sur le Nil',
@@ -41,7 +45,27 @@ const jsonLd = {
   ],
 }
 
-export default function HomePage() {
+export type SanityTestimonial = {
+  _id: string
+  authorName: string
+  authorLocation?: string
+  rating?: number
+  quote: string
+  authorPhoto?: { asset: { url: string }; alt?: string }
+  experience?: { title: string; type: string }
+}
+
+export default async function HomePage() {
+  let testimonials: SanityTestimonial[] = []
+
+  try {
+    if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+      testimonials = await sanityClient.fetch<SanityTestimonial[]>(testimonialsFeaturedQuery)
+    }
+  } catch {
+    // Fallback aux témoignages statiques
+  }
+
   return (
     <>
       {/* JSON-LD structuré */}
@@ -60,7 +84,7 @@ export default function HomePage() {
       <AboutSophie />
 
       {/* 4. Témoignages, preuve sociale juste après Sophie */}
-      <Testimonials />
+      <Testimonials items={testimonials} />
 
       {/* 5. Lead magnet, intercept avant de décider */}
       <LeadMagnet />
@@ -68,13 +92,13 @@ export default function HomePage() {
       {/* 6. Nos univers, les offres, maintenant qu'on a confiance */}
       <OurUniverse />
 
-      {/* 6. Dahabiya, l'expérience phare */}
+      {/* 7. Dahabiya, l'expérience phare */}
       <FeaturedDahabiya />
 
-      {/* 7. Orientation, aide au choix de la bonne formule */}
+      {/* 8. Orientation, aide au choix de la bonne formule */}
       <OrientationBlock />
 
-      {/* 8. Comment ça se passe, processus rassurant */}
+      {/* 9. Comment ça se passe, processus rassurant */}
       <HowItWorks />
 
       {/* 10. Preuves qualitatives */}

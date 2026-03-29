@@ -126,6 +126,50 @@ export const allCategoriesQuery = groq`
   }
 `
 
+// ─── Témoignages ──────────────────────────────────────────
+export const testimonialsFeaturedQuery = groq`
+  *[_type == "testimonial" && featured == true] | order(_createdAt desc) [0...20] {
+    _id, authorName, authorLocation, rating, quote,
+    authorPhoto { ${imageFields} },
+    experience->{ title, type }
+  }
+`
+
+// ─── Expériences par type (enrichi) ───────────────────────
+export const dahabiyaExperiencesQuery = groq`
+  *[_type == "experience" && type == "dahabiya"] | order(order asc) {
+    _id, title, slug, tagline,
+    mainImage { ${imageFields} },
+    gallery[0...6] { ${imageFields} },
+    highlights,
+    included, notIncluded,
+    priceDisplay, priceAmount, priceSuffix, duration,
+    ctaWhatsappMessage, featured
+  }
+`
+
+export const signatureExperiencesQuery = groq`
+  *[_type == "experience" && type == "sejour-signature"] | order(order asc) {
+    _id, title, slug, tagline,
+    mainImage { ${imageFields} },
+    highlights,
+    priceDisplay, priceAmount, priceSuffix, duration,
+    ctaWhatsappMessage, featured,
+    included
+  }
+`
+
+export const privilegesExperiencesQuery = groq`
+  *[_type == "experience" && type in ["sejour-privilege", "sejour-thematique"]] | order(order asc) {
+    _id, title, slug, tagline,
+    mainImage { ${imageFields} },
+    highlights,
+    priceDisplay, priceAmount, priceSuffix, duration,
+    thematicDates,
+    ctaWhatsappMessage, featured
+  }
+`
+
 // ─── Sitemap ──────────────────────────────────────────────
 export const sitemapQuery = groq`{
   "experiences": *[_type == "experience"]{ slug, _updatedAt },

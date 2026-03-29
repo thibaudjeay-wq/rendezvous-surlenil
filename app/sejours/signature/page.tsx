@@ -3,6 +3,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle, ChevronDown, Anchor, Sun } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
+import { sanityClient } from '@/lib/sanity/client'
+import { signatureExperiencesQuery } from '@/lib/sanity/queries'
+import { urlFor } from '@/lib/sanity/image'
+
+type SanityHighlight = { icon?: string; label?: string; value?: string }
+type SanitySignatureExp = {
+  _id: string
+  title: string
+  slug: { current: string }
+  tagline?: string
+  mainImage?: { asset: { _id: string; url: string }; alt?: string; hotspot?: { x: number; y: number } }
+  highlights?: SanityHighlight[]
+  priceDisplay?: string
+  priceAmount?: number
+  priceSuffix?: string
+  duration?: string
+  ctaWhatsappMessage?: string
+  featured?: boolean
+  included?: string[]
+}
 
 export const metadata: Metadata = {
   title: 'Séjours Signature, CASBAH, YALLA, PACHA, SAFARA, SMALA, HABIBI',
@@ -160,10 +180,25 @@ const faq = [
   },
 ]
 
-export default function SignaturePage() {
+export const revalidate = 3600
+
+export default async function SignaturePage() {
+  let sanityExps: SanitySignatureExp[] = []
+  try {
+    if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+      sanityExps = await sanityClient.fetch<SanitySignatureExp[]>(signatureExperiencesQuery)
+    }
+  } catch {
+    // Fallback aux séjours statiques
+  }
+
   const whatsappUrl = getWhatsAppUrl(
     'Bonjour Sophie, je suis intéressé(e) par un Séjour Signature en Égypte. Pouvez-vous me présenter les options disponibles ? 🌿'
   )
+
+  // Included: prefer from first Sanity exp with data, else static
+  const sanityIncluded = sanityExps.find(e => e.included && e.included.length > 0)?.included
+  const activeIncluded = sanityIncluded ?? included
 
   return (
     <>
@@ -341,76 +376,171 @@ export default function SignaturePage() {
           </div>
 
           <div className="flex flex-col gap-16">
-            {sejours.map((s, i) => (
-              <div
-                key={s.code}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
-              >
-                {/* Image */}
-                <div className="img-section overflow-hidden rounded-sm relative">
-                  <Image
-                    src={s.image}
-                    alt={s.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                  {s.badge && (
-                    <span
-                      className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10"
-                      style={{ background: '#C4902A', color: 'white' }}
+            {sanityExps.length > 0
+              ? sanityExps.map((exp, i) => {
+                  const imgSrc = exp.mainImage ? urlFor(exp.mainImage).width(900).height(600).url() : null
+                  const highlightLabels = exp.highlights?.map(h =>
+                    h.value ? `${h.label} : ${h.value}` : (h.label ?? '')
+                  ).filter(Boolean) ?? []
+                  const ctaMsg = exp.ctaWhatsappMessage
+                    ?? `Bonjour Sophie, je suis intéressé(e) par le séjour "${exp.title}" (${exp.duration ?? ''}). Pouvez-vous m'en dire plus ? 🌿`
+                  const priceLabel =
+                    exp.priceDisplay === 'on-request' ? 'Sur demande'
+                    : exp.priceDisplay === 'private-quote' ? 'Sur devis'
+                    : exp.priceAmount
+                      ? `${exp.priceDisplay === 'from' ? 'À partir de ' : ''}${exp.priceAmount.toLocaleString('fr-FR')} €${exp.priceSuffix ? ' ' + exp.priceSuffix : ''}`
+                      : null
+
+                  return (
+                    <div
+                      key={exp._id}
+                      className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
                     >
-                      {s.badge}
-                    </span>
-                  )}
-                  {/* Code name overlay */}
-                  <div
-                    className="absolute bottom-4 left-4 px-3 py-2 rounded-sm z-10"
-                    style={{ background: 'rgba(13,33,55,0.88)', backdropFilter: 'blur(6px)' }}
-                  >
-                    <p
-                      className="text-xs font-bold tracking-[0.18em] uppercase"
-                      style={{ color: '#C4902A' }}
+                      {/* Image */}
+                      <div className="img-section overflow-hidden rounded-sm relative">
+                        {imgSrc ? (
+                          <Image
+                            src={imgSrc}
+                            alt={exp.mainImage?.alt ?? exp.title}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 bg-stone-200" />
+                        )}
+                        {exp.featured && (
+                          <span
+                            className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10"
+                            style={{ background: '#C4902A', color: 'white' }}
+                          >
+                            Coup de cœur
+                          </span>
+                        )}
+                        {priceLabel && (
+                          <div
+                            className="absolute bottom-4 left-4 px-3 py-2 rounded-sm z-10"
+                            style={{ background: 'rgba(13,33,55,0.88)', backdropFilter: 'blur(6px)' }}
+                          >
+                            <p className="text-xs font-bold tracking-[0.12em]" style={{ color: '#C4902A' }}>
+                              {priceLabel}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Texte */}
+                      <div>
+                        {exp.duration && (
+                          <p className="eyebrow mb-1" style={{ color: '#C4902A' }}>{exp.duration}</p>
+                        )}
+                        <h3
+                          className="mb-1"
+                          style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
+                        >
+                          {exp.title}
+                        </h3>
+                        {exp.tagline && (
+                          <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
+                            {exp.tagline}
+                          </p>
+                        )}
+                        {highlightLabels.length > 0 && (
+                          <ul className="flex flex-col gap-2.5 mb-8">
+                            {highlightLabels.map((h) => (
+                              <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
+                                <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
+                                {h}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        <div className="flex flex-wrap gap-3">
+                          <a
+                            href={getWhatsAppUrl(ctaMsg)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary"
+                          >
+                            Demander une proposition →
+                          </a>
+                          {exp.slug?.current && (
+                            <Link href={`/experiences/${exp.slug.current}`} className="btn btn-secondary">
+                              Voir le programme
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })
+              : sejours.map((s, i) => (
+                <div
+                  key={s.code}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
+                >
+                  {/* Image */}
+                  <div className="img-section overflow-hidden rounded-sm relative">
+                    <Image
+                      src={s.image}
+                      alt={s.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                    {s.badge && (
+                      <span
+                        className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10"
+                        style={{ background: '#C4902A', color: 'white' }}
+                      >
+                        {s.badge}
+                      </span>
+                    )}
+                    <div
+                      className="absolute bottom-4 left-4 px-3 py-2 rounded-sm z-10"
+                      style={{ background: 'rgba(13,33,55,0.88)', backdropFilter: 'blur(6px)' }}
                     >
-                      {s.code}
+                      <p className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: '#C4902A' }}>
+                        {s.code}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Texte */}
+                  <div>
+                    <p className="eyebrow mb-1" style={{ color: '#C4902A' }}>{s.code}</p>
+                    <h3
+                      className="mb-1"
+                      style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
+                    >
+                      {s.title}
+                    </h3>
+                    <p className="text-sm mb-6" style={{ color: '#8A9BAB' }}>
+                      {s.duration}
                     </p>
+                    <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
+                      {s.description}
+                    </p>
+                    <ul className="flex flex-col gap-2.5 mb-8">
+                      {s.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
+                          <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={getWhatsAppUrl(s.ctaMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      Demander une proposition pour ce séjour →
+                    </a>
                   </div>
                 </div>
-
-                {/* Texte */}
-                <div>
-                  <p className="eyebrow mb-1" style={{ color: '#C4902A' }}>{s.code}</p>
-                  <h3
-                    className="mb-1"
-                    style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p className="text-sm mb-6" style={{ color: '#8A9BAB' }}>
-                    {s.duration}
-                  </p>
-                  <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
-                    {s.description}
-                  </p>
-                  <ul className="flex flex-col gap-2.5 mb-8">
-                    {s.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
-                        <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={getWhatsAppUrl(s.ctaMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Demander une proposition pour ce séjour →
-                  </a>
-                </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
       </section>
@@ -428,7 +558,7 @@ export default function SignaturePage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {included.map((item) => (
+            {activeIncluded.map((item) => (
               <div
                 key={item}
                 className="flex items-start gap-3 p-4 rounded-sm"

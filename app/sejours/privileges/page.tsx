@@ -3,6 +3,48 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle, ChevronDown, Users, Calendar } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
+import { sanityClient } from '@/lib/sanity/client'
+import { privilegesExperiencesQuery } from '@/lib/sanity/queries'
+import { urlFor } from '@/lib/sanity/image'
+
+export const revalidate = 3600
+
+type ThematicDate = {
+  label: string
+  startDate?: string
+  endDate?: string
+  priceAmount?: number
+  availableSpots?: number
+  spotsLeft?: number
+  status?: 'available' | 'limited' | 'full'
+}
+
+type SanityPrivilegeExp = {
+  _id: string
+  title: string
+  slug: { current: string }
+  tagline?: string
+  duration?: string
+  priceDisplay?: string
+  priceAmount?: number
+  priceSuffix?: string
+  highlights?: Array<{ label: string; value: string }>
+  thematicDates?: ThematicDate[]
+  ctaWhatsappMessage?: string
+  featured?: boolean
+  mainImage?: { asset: { _id: string; url: string; metadata: { lqip?: string } }; alt?: string }
+}
+
+function formatDateFr(iso?: string) {
+  if (!iso) return ''
+  return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+}
+
+const STATUS_LABELS: Record<string, { label: string; color: string; bg: string }> = {
+  available: { label: 'Disponible', color: '#27AE60', bg: 'rgba(39,174,96,0.1)' },
+  limited: { label: 'Quelques places', color: '#E67E22', bg: 'rgba(230,126,34,0.1)' },
+  full: { label: 'Complet', color: '#C0392B', bg: 'rgba(192,57,43,0.1)' },
+}
 
 export const metadata: Metadata = {
   title: 'Séjours Privilèges, OASIS FLOW SIWA, CROQUE & VOGUE, DÉESSE DU NIL',
@@ -112,10 +154,17 @@ const faq = [
   },
 ]
 
-export default function PrivilegesPage() {
+export default async function PrivilegesPage() {
   const whatsappUrl = getWhatsAppUrl(
     'Bonjour Sophie, je suis intéressé(e) par un Séjour Privilèges en Égypte. Pouvez-vous me présenter les programmes disponibles ? 🌿'
   )
+
+  let sanityPrivileges: SanityPrivilegeExp[] = []
+  try {
+    if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+      sanityPrivileges = await sanityClient.fetch<SanityPrivilegeExp[]>(privilegesExperiencesQuery)
+    }
+  } catch { /* fallback statique */ }
 
   return (
     <>
@@ -243,97 +292,162 @@ export default function PrivilegesPage() {
             </h2>
           </div>
 
-          <div className="flex flex-col gap-20">
-            {programmes.map((p, i) => (
-              <div
-                key={p.code}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
-              >
-                {/* Image */}
-                <div className="img-section overflow-hidden rounded-sm relative">
-                  <Image
-                    src={p.image}
-                    alt={p.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                  {p.featured && (
-                    <span
-                      className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10"
-                      style={{ background: '#C4902A', color: 'white' }}
-                    >
-                      Coup de cœur
-                    </span>
-                  )}
-                  {/* Dates pill */}
-                  <div
-                    className="absolute bottom-4 left-4 px-3 py-2 rounded-sm z-10"
-                    style={{ background: 'rgba(13,33,55,0.88)', backdropFilter: 'blur(6px)' }}
-                  >
-                    <p className="text-[10px] tracking-widest uppercase mb-0.5" style={{ color: '#C4902A' }}>Dates</p>
-                    <p className="text-xs font-medium" style={{ color: 'white' }}>{p.dates}</p>
-                  </div>
-                </div>
-
-                {/* Texte */}
-                <div>
-                  {/* Code + urgency */}
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span
-                      className="text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-sm"
-                      style={{ background: '#0F3D38', color: '#C4902A' }}
-                    >
-                      {p.code}
-                    </span>
-                    <span className="text-xs" style={{ color: '#C4902A' }}>
-                      {p.spots}
-                    </span>
+          {/* ── Sanity version (avec dates thématiques dynamiques) ── */}
+          {sanityPrivileges.length > 0 ? (
+            <div className="flex flex-col gap-20">
+              {sanityPrivileges.map((p, i) => (
+                <div
+                  key={p._id}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
+                >
+                  {/* Image */}
+                  <div className="img-section overflow-hidden rounded-sm relative">
+                    {p.mainImage?.asset ? (
+                      <Image
+                        src={urlFor(p.mainImage).width(700).height(500).url()}
+                        alt={p.mainImage.alt ?? p.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                        placeholder={p.mainImage.asset.metadata?.lqip ? 'blur' : undefined}
+                        blurDataURL={p.mainImage.asset.metadata?.lqip}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#E8D5B7]" />
+                    )}
+                    {p.featured && (
+                      <span className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10" style={{ background: '#C4902A', color: 'white' }}>
+                        Coup de cœur
+                      </span>
+                    )}
                   </div>
 
-                  <h3
-                    className="mb-1"
-                    style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
-                  >
-                    {p.title}
-                  </h3>
-                  <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>
-                    {p.dates}
-                  </p>
-                  <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>
-                    {p.duration} · {p.theme}
-                  </p>
-                  <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
-                    {p.description}
-                  </p>
+                  {/* Texte */}
+                  <div>
+                    <h3 className="mb-2" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>
+                      {p.title}
+                    </h3>
+                    {p.tagline && <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.tagline}</p>}
+                    {p.duration && <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration}</p>}
 
-                  <ul className="flex flex-col gap-2.5 mb-4">
-                    {p.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
-                        <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
+                    {p.highlights && p.highlights.length > 0 && (
+                      <ul className="flex flex-col gap-2.5 mb-8">
+                        {p.highlights.map((h) => (
+                          <li key={h.label} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
+                            <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
+                            {h.value}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
-                  <p className="text-xs mb-8 flex items-center gap-1.5" style={{ color: '#8A9BAB' }}>
-                    <Users size={11} aria-hidden="true" />
-                    Intervenants : {p.intervenants}
-                  </p>
+                    {/* Dates thématiques depuis Sanity */}
+                    {p.thematicDates && p.thematicDates.length > 0 && (
+                      <div className="flex flex-col gap-3 mb-8">
+                        <p className="text-xs font-semibold tracking-[0.1em] uppercase mb-1" style={{ color: '#8A9BAB' }}>
+                          Dates disponibles
+                        </p>
+                        {p.thematicDates.map((d, di) => {
+                          const statusInfo = STATUS_LABELS[d.status ?? 'available']
+                          return (
+                            <div
+                              key={di}
+                              className="flex items-center justify-between gap-4 p-4 rounded-sm"
+                              style={{ background: '#FDF8F0', border: '1px solid #E8D5B7' }}
+                            >
+                              <div>
+                                {d.label && <p className="text-sm font-medium mb-0.5" style={{ color: '#0F3D38' }}>{d.label}</p>}
+                                <p className="text-xs flex items-center gap-1.5" style={{ color: '#5C6E7E' }}>
+                                  <Calendar size={11} aria-hidden="true" />
+                                  {d.startDate && formatDateFr(d.startDate)}
+                                  {d.endDate && ` → ${formatDateFr(d.endDate)}`}
+                                </p>
+                                {(d.spotsLeft !== undefined || d.availableSpots !== undefined) && (
+                                  <p className="text-xs mt-1" style={{ color: '#8A9BAB' }}>
+                                    {d.spotsLeft !== undefined ? `${d.spotsLeft} place${d.spotsLeft > 1 ? 's' : ''} restante${d.spotsLeft > 1 ? 's' : ''}` : `${d.availableSpots} places`}
+                                  </p>
+                                )}
+                              </div>
+                              <div className="flex flex-col items-end gap-2 flex-shrink-0">
+                                {d.priceAmount && (
+                                  <p className="text-sm font-semibold" style={{ color: '#0F3D38' }}>{d.priceAmount.toLocaleString('fr-FR')} €</p>
+                                )}
+                                <span
+                                  className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                                  style={{ background: statusInfo.bg, color: statusInfo.color }}
+                                >
+                                  {statusInfo.label}
+                                </span>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )}
 
-                  <a
-                    href={getWhatsAppUrl(p.ctaMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    {WHATSAPP_ICON}
-                    Réserver ma place, {p.urgency}
-                  </a>
+                    <a
+                      href={getWhatsAppUrl(p.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par un Séjour Privilèges. 🌿')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      {WHATSAPP_ICON}
+                      Réserver ma place →
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            /* ── Fallback statique ── */
+            <div className="flex flex-col gap-20">
+              {programmes.map((p, i) => (
+                <div
+                  key={p.code}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
+                >
+                  <div className="img-section overflow-hidden rounded-sm relative">
+                    <Image src={p.image} alt={p.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                    {p.featured && (
+                      <span className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10" style={{ background: '#C4902A', color: 'white' }}>
+                        Coup de cœur
+                      </span>
+                    )}
+                    <div className="absolute bottom-4 left-4 px-3 py-2 rounded-sm z-10" style={{ background: 'rgba(13,33,55,0.88)', backdropFilter: 'blur(6px)' }}>
+                      <p className="text-[10px] tracking-widest uppercase mb-0.5" style={{ color: '#C4902A' }}>Dates</p>
+                      <p className="text-xs font-medium" style={{ color: 'white' }}>{p.dates}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      <span className="text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-sm" style={{ background: '#0F3D38', color: '#C4902A' }}>{p.code}</span>
+                      <span className="text-xs" style={{ color: '#C4902A' }}>{p.spots}</span>
+                    </div>
+                    <h3 className="mb-1" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>{p.title}</h3>
+                    <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.dates}</p>
+                    <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration} · {p.theme}</p>
+                    <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>{p.description}</p>
+                    <ul className="flex flex-col gap-2.5 mb-4">
+                      {p.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
+                          <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-xs mb-8 flex items-center gap-1.5" style={{ color: '#8A9BAB' }}>
+                      <Users size={11} aria-hidden="true" />
+                      Intervenants : {p.intervenants}
+                    </p>
+                    <a href={getWhatsAppUrl(p.ctaMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                      {WHATSAPP_ICON}
+                      Réserver ma place, {p.urgency}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

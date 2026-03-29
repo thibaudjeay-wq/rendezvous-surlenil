@@ -228,7 +228,7 @@ export const experience = defineType({
       type: 'array',
       group: 'tarif',
       description: 'Uniquement pour les séjours thématiques. Laisser vide sinon.',
-      hidden: ({ document }) => document?.type !== 'sejour-thematique',
+      hidden: ({ document }) => !(['sejour-thematique', 'sejour-privilege'] as string[]).includes(document?.type as string),
       of: [
         defineArrayMember({
           type: 'object',

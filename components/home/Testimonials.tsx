@@ -1,4 +1,6 @@
-const items = [
+import type { SanityTestimonial } from '@/app/page'
+
+const STATIC_ITEMS = [
   { name: 'Maurice', quote: 'De tous mes voyages, je te mets sur la première marche.' },
   { name: 'Annie', quote: "J'ai enfin pu réaliser le voyage dont je rêvais et je me suis sentie en totale sécurité." },
   { name: 'Véronique', quote: "Plus riche, plus merveilleux encore que ce que j'imaginais." },
@@ -11,8 +13,15 @@ const items = [
   { name: 'Patricia & Anne-Marie', quote: "Nous gardons d'excellents souvenirs… merci pour votre écoute." },
 ]
 
-export default function Testimonials() {
-  const all = [...items, ...items]
+type Item = { name: string; quote: string }
+
+export default function Testimonials({ items }: { items?: SanityTestimonial[] }) {
+  const data: Item[] =
+    items && items.length > 0
+      ? items.map((t) => ({ name: t.authorName, quote: t.quote }))
+      : STATIC_ITEMS
+
+  const all = [...data, ...data]
 
   return (
     <section
@@ -47,7 +56,7 @@ export default function Testimonials() {
 
       {/* Accessible fallback, screen readers only */}
       <ul className="sr-only">
-        {items.map((item) => (
+        {data.map((item) => (
           <li key={item.name}>
             <blockquote>
               <p>{item.quote}</p>
@@ -61,7 +70,7 @@ export default function Testimonials() {
       <div className="marquee-viewport" aria-hidden="true">
         <div
           className="marquee-track"
-          style={{ animationDuration: '55s' }}
+          style={{ animationDuration: `${Math.max(40, data.length * 5.5)}s` }}
         >
           {all.map((item, i) => (
             <div
@@ -101,7 +110,7 @@ export default function Testimonials() {
                     color: '#C4902A',
                   }}
                 >
-                 , {item.name}
+                  — {item.name}
                 </p>
               </div>
 
