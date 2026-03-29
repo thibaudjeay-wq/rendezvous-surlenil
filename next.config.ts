@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
     ]
   },
 
+  // Patch Sanity structureTool pour polyfiller useEffectEvent (incompatible React stable)
+  webpack(config) {
+    config.module.rules.push({
+      test: /node_modules[\\/]sanity[\\/]lib[\\/]_chunks-es[\\/]structureTool\.js$/,
+      use: [{ loader: require.resolve('./patches/sanity-studio-loader.js') }],
+    })
+    return config
+  },
+
   // Headers de sécurité + SEO
   async headers() {
     return [
