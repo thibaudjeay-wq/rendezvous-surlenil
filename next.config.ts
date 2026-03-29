@@ -36,6 +36,8 @@ const nextConfig: NextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       react: path.resolve('./patches/react.js'),
+      'react/jsx-runtime': path.resolve('./node_modules/react/jsx-runtime'),
+      'react/jsx-dev-runtime': path.resolve('./node_modules/react/jsx-dev-runtime'),
     }
     return config
   },
