@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed": "node -r dotenv/config scripts/seed.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^2.0.3",
