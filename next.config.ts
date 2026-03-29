@@ -1,9 +1,6 @@
 import type { NextConfig } from 'next'
-import path from 'path'
 
 const nextConfig: NextConfig = {
-  // Sanity Studio — transpiler pour compatibilité React 19
-  transpilePackages: ['sanity', '@sanity/ui', '@sanity/icons', '@sanity/vision', 'next-sanity'],
   serverExternalPackages: ['styled-components'],
 
   images: {
@@ -29,17 +26,6 @@ const nextConfig: NextConfig = {
       // { source: '/dahabiya', destination: '/croisieres-dahabiya', permanent: true },
       // { source: '/contact-us', destination: '/contact', permanent: true },
     ]
-  },
-
-  // Polyfill useEffectEvent pour Sanity Studio (non exporté par React stable)
-  webpack(config) {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      react: path.resolve('./patches/react.js'),
-      'react/jsx-runtime': path.resolve('./node_modules/react/jsx-runtime'),
-      'react/jsx-dev-runtime': path.resolve('./node_modules/react/jsx-dev-runtime'),
-    }
-    return config
   },
 
   // Headers de sécurité + SEO
