@@ -471,6 +471,249 @@ async function seedExperiences() {
   }
 }
 
+// ─── 5. Croisières Dahabiya ───────────────────────────────
+async function seedDahabiya() {
+  console.log('\n⛵  Croisières Dahabiya')
+
+  const formules = [
+    {
+      _id: 'seed-exp-dahabiya-escapade',
+      title: 'Croisière Escapade',
+      slug: 'croisiere-dahabiya-escapade',
+      tagline: 'Louxor → Assouan en 4 nuits. La découverte idéale du Nil en dahabiya, petit groupe intimiste.',
+      duration: '4 nuits / 5 jours',
+      order: 1,
+      featured: false,
+      priceDisplay: 'from',
+      priceAmount: 2400,
+      priceSuffix: '/ pour 2 personnes',
+      ctaWhatsappMessage: "Bonjour Sophie, je suis intéressé(e) par la formule Escapade (4 nuits). Pouvez-vous m'en dire plus ? 🛶",
+      highlights: [
+        hl('Itinéraire', 'Louxor → Assouan'),
+        hl('Ambiance', 'Petit groupe intimiste'),
+        hl('Escales', '4 escales majeures'),
+        hl('Repas', 'À bord inclus'),
+      ],
+    },
+    {
+      _id: 'seed-exp-dahabiya-immersion',
+      title: 'Croisière Immersion',
+      slug: 'croisiere-dahabiya-immersion',
+      tagline: 'La formule complète : 7 nuits de Louxor à Assouan, 8 escales sélectionnées, excursions et guide francophone inclus.',
+      duration: '7 nuits / 8 jours',
+      order: 2,
+      featured: true,
+      priceDisplay: 'from',
+      priceAmount: 3800,
+      priceSuffix: '/ pour 2 personnes',
+      ctaWhatsappMessage: "Bonjour Sophie, je suis intéressé(e) par la formule Immersion (7 nuits). Pouvez-vous m'en dire plus ? 🛶",
+      highlights: [
+        hl('Itinéraire', 'Louxor → Assouan'),
+        hl('Ambiance', 'Petit groupe intimiste'),
+        hl('Escales', '8 escales sélectionnées'),
+        hl('Excursions', 'Incluses'),
+        hl('Guide', 'Local francophone'),
+      ],
+      included: [
+        'Nuitées à bord de la dahabiya',
+        'Pension complète (repas sur le bateau)',
+        'Équipage local expérimenté',
+        'Guide francophone sur les sites',
+        "Droits d'entrée des temples",
+        "Transferts depuis/vers l'aéroport ou votre hôtel",
+        'Accompagnement WhatsApp avant le départ',
+      ],
+      notIncluded: [
+        'Vol international',
+        'Assurance voyage (recommandée)',
+        'Pourboires locaux',
+        'Dépenses personnelles',
+      ],
+    },
+    {
+      _id: 'seed-exp-dahabiya-grand-voyage',
+      title: 'Grand Voyage en Dahabiya',
+      slug: 'croisiere-dahabiya-grand-voyage',
+      tagline: 'Privatisation complète de la dahabiya pour 12 nuits. Itinéraire sur mesure, flexibilité totale, guide dédié.',
+      duration: '12 nuits / 13 jours',
+      order: 3,
+      featured: false,
+      priceDisplay: 'private-quote',
+      priceSuffix: '/ privatisation complète',
+      ctaWhatsappMessage: "Bonjour Sophie, je suis intéressé(e) par une croisière longue durée. J'aimerais en discuter avec vous 🛶",
+      highlights: [
+        hl('Itinéraire', 'Sur mesure'),
+        hl('Privatisation', 'Bateau privatisé'),
+        hl('Trajet', 'Louxor ↔ Assouan'),
+        hl('Guide', 'Dédié'),
+        hl('Flexibilité', 'Totale'),
+      ],
+    },
+  ]
+
+  for (const exp of formules) {
+    await upsert({
+      _id: exp._id,
+      _type: 'experience',
+      title: exp.title,
+      slug: { _type: 'slug', current: exp.slug },
+      type: 'dahabiya',
+      tagline: exp.tagline,
+      duration: exp.duration,
+      order: exp.order,
+      featured: exp.featured,
+      priceDisplay: exp.priceDisplay,
+      priceAmount: exp.priceAmount,
+      priceSuffix: exp.priceSuffix,
+      highlights: exp.highlights,
+      included: exp.included,
+      notIncluded: exp.notIncluded,
+      ctaWhatsappMessage: exp.ctaWhatsappMessage,
+    })
+  }
+}
+
+// ─── 6. Séjours Privilèges ────────────────────────────────
+async function seedPrivileges() {
+  console.log('\n👑  Séjours Privilèges')
+
+  const programmes = [
+    {
+      _id: 'seed-exp-oasis-flow',
+      title: 'OASIS FLOW SIWA — Yoga, oasis & sérénité',
+      slug: 'oasis-flow-siwa',
+      tagline: "Yoga du matin sur les dunes, baignades dans les sources naturelles, dîners sous les étoiles. Siwa, l'oasis au bout du monde.",
+      duration: '8 jours / 7 nuits',
+      order: 1,
+      featured: false,
+      priceDisplay: 'on-request',
+      priceSuffix: '/ personne',
+      ctaWhatsappMessage: 'Bonjour Sophie, je suis intéressé(e) par le séjour OASIS FLOW SIWA (8-15 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
+      highlights: [
+        hl('Lieu', 'Siwa, oasis isolée à 500 km du Caire'),
+        hl('Activité', 'Séances de yoga quotidiennes avec Louise'),
+        hl('Expériences', 'Sources naturelles, baignades, dunes'),
+        hl('Hébergement', 'Lodge traditionnel'),
+        hl('Accompagnement', 'Sophie présente sur toute la durée'),
+        hl('Repas & transferts', 'Inclus'),
+      ],
+      thematicDates: [
+        {
+          _key: 'td-oasis-2026',
+          label: 'OASIS FLOW SIWA — Novembre 2026',
+          startDate: '2026-11-08',
+          endDate: '2026-11-15',
+          status: 'available',
+        },
+      ],
+    },
+    {
+      _id: 'seed-exp-croque-vogue',
+      title: 'CROQUE & VOGUE — Aquarelle & croisière sur le Nil',
+      slug: 'croque-et-vogue',
+      tagline: "Croisière en dahabiya entre Assouan et Louxor, pinceau en main. Ateliers aquarelle quotidiens sur les plus beaux sites d'Égypte.",
+      duration: '12 jours / 11 nuits',
+      order: 2,
+      featured: true,
+      priceDisplay: 'on-request',
+      priceSuffix: '/ personne',
+      ctaWhatsappMessage: 'Bonjour Sophie, je suis intéressé(e) par le séjour CROQUE & VOGUE (15-26 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
+      highlights: [
+        hl('Transport', 'Croisière en dahabiya'),
+        hl('Ateliers', 'Aquarelle avec Isabelle Corcket & Robbie'),
+        hl('Sites', 'Assouan, Kom Ombo, Edfou, Louxor'),
+        hl('Accompagnement', 'Sophie présente sur toute la durée'),
+        hl('Repas & hébergement', 'Cabine privée, repas à bord'),
+      ],
+      thematicDates: [
+        {
+          _key: 'td-croque-2026',
+          label: 'CROQUE & VOGUE — Novembre 2026',
+          startDate: '2026-11-15',
+          endDate: '2026-11-26',
+          status: 'available',
+        },
+      ],
+    },
+    {
+      _id: 'seed-exp-deesse-nil',
+      title: 'DÉESSE DU NIL — Voyage 100 % féminin',
+      slug: 'deesse-du-nil',
+      tagline: 'Un voyage entre femmes accompagné par Sophie. Louxor, temples, bien-être. Se ressourcer en sororité dans les sites les plus sacrés.',
+      duration: '8 jours / 7 nuits',
+      order: 3,
+      featured: false,
+      priceDisplay: 'on-request',
+      priceSuffix: '/ personne',
+      ctaWhatsappMessage: 'Bonjour Sophie, je suis intéressée par le séjour DÉESSE DU NIL (27 janvier–3 février 2027). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
+      highlights: [
+        hl('Lieux', 'Louxor & temples féminins sacrés'),
+        hl('Accompagnatrice', 'Sophie Godineau'),
+        hl('Hébergement', 'La Thébaïde'),
+        hl('Expérience', 'Montgolfière au lever du soleil'),
+        hl('Public', 'Séjour exclusivement féminin'),
+      ],
+      thematicDates: [
+        {
+          _key: 'td-deesse-2027',
+          label: 'DÉESSE DU NIL — Janvier 2027',
+          startDate: '2027-01-27',
+          endDate: '2027-02-03',
+          status: 'available',
+        },
+      ],
+    },
+  ]
+
+  for (const prog of programmes) {
+    await upsert({
+      _id: prog._id,
+      _type: 'experience',
+      title: prog.title,
+      slug: { _type: 'slug', current: prog.slug },
+      type: 'sejour-privilege',
+      tagline: prog.tagline,
+      duration: prog.duration,
+      order: prog.order,
+      featured: prog.featured,
+      priceDisplay: prog.priceDisplay,
+      priceSuffix: prog.priceSuffix,
+      highlights: prog.highlights,
+      thematicDates: prog.thematicDates,
+      ctaWhatsappMessage: prog.ctaWhatsappMessage,
+    })
+  }
+}
+
+// ─── 7. Témoignages ───────────────────────────────────────
+async function seedTestimonials() {
+  console.log('\n⭐  Témoignages')
+
+  const testimonials = [
+    { id: 'seed-testi-1', name: 'Maurice', quote: 'De tous mes voyages, je te mets sur la première marche.' },
+    { id: 'seed-testi-2', name: 'Annie', quote: "J'ai enfin pu réaliser le voyage dont je rêvais et je me suis sentie en totale sécurité." },
+    { id: 'seed-testi-3', name: 'Véronique', quote: "Plus riche, plus merveilleux encore que ce que j'imaginais." },
+    { id: 'seed-testi-4', name: 'Christine & Jean-Marc', quote: 'La Thébaïde est un havre de paix… une semaine merveilleuse.' },
+    { id: 'seed-testi-5', name: 'Allan', quote: 'Not just our travel agents, we feel like we made new friends.' },
+    { id: 'seed-testi-6', name: 'Elisabeth', quote: 'Des moments exceptionnels… une organisation parfaite.' },
+    { id: 'seed-testi-7', name: 'Mireille & Anaïs', quote: 'Croisière unique et intime… équipage bienveillant.' },
+    { id: 'seed-testi-8', name: 'Nelly, Lucas & Victor', quote: 'Un voyage sur mesure, authentique et immersif.' },
+    { id: 'seed-testi-9', name: 'Nicolas & famille', quote: 'Une croisière très confortable avec un personnel attentionné.' },
+    { id: 'seed-testi-10', name: 'Patricia & Anne-Marie', quote: "Nous gardons d'excellents souvenirs… merci pour votre écoute." },
+  ]
+
+  for (const t of testimonials) {
+    await upsert({
+      _id: t.id,
+      _type: 'testimonial',
+      authorName: t.name,
+      quote: t.quote,
+      rating: 5,
+      featured: true,
+    })
+  }
+}
+
 // ─── Main ──────────────────────────────────────────────────
 async function main() {
   console.log(`\n🌍  Seed Rendez-vous sur le Nil → projet ${PROJECT_ID}\n`)
@@ -479,6 +722,9 @@ async function main() {
   const catIds = await seedCategories()
   await seedPosts(authorId, catIds)
   await seedExperiences()
+  await seedDahabiya()
+  await seedPrivileges()
+  await seedTestimonials()
 
   console.log('\n✅  Seed terminé — rechargez le Studio Sanity pour voir le contenu.')
 }
