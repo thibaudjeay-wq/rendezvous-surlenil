@@ -79,12 +79,42 @@ async function seedAuthor() {
 async function seedCategories() {
   console.log('\n🏷️  Catégories')
   const cats = [
-    { id: 'seed-cat-conseils',     slug: 'conseils-pratiques', title: 'Conseils pratiques', icon: '🗓️', desc: 'Saisons, budget, visas, préparation du voyage.' },
-    { id: 'seed-cat-experiences',  slug: 'experiences',        title: 'Expériences',        icon: '✨', desc: 'Bivouac, montgolfière, dahabiya, rencontres.' },
-    { id: 'seed-cat-sur-mesure',   slug: 'sur-mesure',         title: 'Voyage sur mesure',  icon: '🗺️', desc: 'Comment construire un voyage personnalisé en Égypte.' },
-    { id: 'seed-cat-croisieres',   slug: 'croisieres',         title: 'Croisières',         icon: '⛵', desc: 'Dahabiya, felouque, navigation sur le Nil.' },
-    { id: 'seed-cat-louxor',       slug: 'louxor',             title: 'Louxor',             icon: '🏛️', desc: 'Temples, nécropoles et vie quotidienne à Louxor.' },
-    { id: 'seed-cat-desert',       slug: 'desert',             title: 'Désert',             icon: '🌵', desc: 'Désert blanc, Siwa, oasis du désert occidental.' },
+    {
+      id: 'seed-cat-conseils', slug: 'conseils-pratiques', title: 'Conseils pratiques', icon: '🗓️',
+      desc: 'Saisons, budget, visas, préparation du voyage.',
+      seoTitle: 'Conseils pratiques pour voyager en Égypte — Rendez-vous sur le Nil',
+      seoDesc: 'Saisons, budget, visas, santé, préparation : tous les conseils terrain de Sophie Godineau pour partir sereinement en Égypte.',
+    },
+    {
+      id: 'seed-cat-experiences', slug: 'experiences', title: 'Expériences', icon: '✨',
+      desc: 'Bivouac, montgolfière, dahabiya, rencontres.',
+      seoTitle: 'Expériences uniques en Égypte — Rendez-vous sur le Nil',
+      seoDesc: 'Bivouac dans le désert blanc, montgolfière sur le Nil, nuit à bord d\'une dahabiya : les expériences hors du commun que Sophie propose en Égypte.',
+    },
+    {
+      id: 'seed-cat-sur-mesure', slug: 'sur-mesure', title: 'Voyage sur mesure', icon: '🗺️',
+      desc: 'Comment construire un voyage personnalisé en Égypte.',
+      seoTitle: 'Voyage sur mesure en Égypte — Rendez-vous sur le Nil',
+      seoDesc: 'Comment construire un voyage en Égypte vraiment personnalisé ? Sophie explique ce que signifie le sur mesure, loin des circuits standardisés.',
+    },
+    {
+      id: 'seed-cat-croisieres', slug: 'croisieres', title: 'Croisières', icon: '⛵',
+      desc: 'Dahabiya, felouque, navigation sur le Nil.',
+      seoTitle: 'Croisières sur le Nil en dahabiya — Rendez-vous sur le Nil',
+      seoDesc: 'Dahabiya privatisée, felouque, navigation lente entre Louxor et Assouan : tout savoir sur les croisières sur le Nil selon Sophie Godineau.',
+    },
+    {
+      id: 'seed-cat-louxor', slug: 'louxor', title: 'Louxor', icon: '🏛️',
+      desc: 'Temples, nécropoles et vie quotidienne à Louxor.',
+      seoTitle: 'Louxor : temples, nécropoles et secrets de la ville — Rendez-vous sur le Nil',
+      seoDesc: 'Sophie vit à Louxor depuis plus de 10 ans. Ses adresses, ses temples préférés, les endroits que les circuits ne montrent jamais.',
+    },
+    {
+      id: 'seed-cat-desert', slug: 'desert', title: 'Désert', icon: '🌵',
+      desc: 'Désert blanc, Siwa, oasis du désert occidental.',
+      seoTitle: 'Désert égyptien : Siwa, désert blanc, oasis — Rendez-vous sur le Nil',
+      seoDesc: 'Désert blanc, oasis de Siwa, mer de sable : les destinations désert en Égypte que Sophie recommande et intègre dans ses voyages sur mesure.',
+    },
   ]
   for (const c of cats) {
     await upsert({
@@ -94,6 +124,7 @@ async function seedCategories() {
       slug: { _type: 'slug', current: c.slug },
       description: c.desc,
       icon: c.icon,
+      seo: { metaTitle: c.seoTitle, metaDescription: c.seoDesc },
     })
   }
   return Object.fromEntries(cats.map(c => [c.slug, c.id]))
@@ -110,6 +141,7 @@ async function seedPosts(authorId, catIds) {
       slug: 'quand-partir-en-egypte',
       excerpt: "L'Égypte se visite toute l'année, mais tous les mois ne se ressemblent pas. Températures, affluence, fêtes locales, Nil en crue : voici le calendrier honnête pour choisir votre moment.",
       publishedAt: '2024-11-10T08:00:00Z',
+      featured: true,
       catId: catIds['conseils-pratiques'],
       tags: ['saison', 'météo', 'planification', 'Louxor'],
       showLeadMagnet: true,
@@ -261,6 +293,7 @@ async function seedPosts(authorId, catIds) {
       slug: { _type: 'slug', current: p.slug },
       publishedAt: p.publishedAt,
       excerpt: p.excerpt,
+      featured: p.featured ?? false,
       tags: p.tags,
       showLeadMagnet: p.showLeadMagnet,
       body: p.body,
@@ -714,6 +747,42 @@ async function seedTestimonials() {
   }
 }
 
+// ─── 8. Réglages du site ──────────────────────────────────
+async function seedSiteSettings() {
+  console.log('\n⚙️  Réglages du site')
+  await upsert({
+    _id: 'seed-site-settings',
+    _type: 'siteSettings',
+    siteName: 'Rendez-vous sur le Nil',
+    tagline: 'Voyages premium en Égypte',
+    whatsappNumber: '33601315023',
+    whatsappDefaultMessage: "Bonjour Sophie, j'ai découvert Rendez-vous sur le Nil et je souhaite échanger avec vous sur un projet de voyage en Égypte 🌿",
+    email: 'sophie@rendezvous-surlenil.com',
+  })
+}
+
+// ─── 9. Lead Magnet — Guide PDF ───────────────────────────
+async function seedLeadMagnet() {
+  console.log('\n📥  Guide PDF')
+  await upsert({
+    _id: 'seed-lead-magnet',
+    _type: 'leadMagnet',
+    title: 'Le Guide Complet pour Voyager en Égypte',
+    subtitle: 'Tout ce que vous devez savoir avant de partir',
+    description: 'Destinations incontournables, conseils terrain, les erreurs à éviter, les bonnes adresses... Sophie partage tout dans ce guide de 20 pages.',
+    pdfUrl: 'https://heyzine.com/flip-book/1ceed35b47.html',
+    ctaLabel: 'Recevoir mon guide gratuit',
+    thankYouMessage: 'Merci ! Votre guide arrive par email dans quelques minutes.',
+    benefits: [
+      'Les 10 incontournables en Égypte',
+      'Quelle saison choisir selon votre style de voyage',
+      'Croisière dahabiya vs circuit classique : le vrai comparatif',
+      'Budget réaliste et conseils pratiques',
+      'Les bonnes adresses de Sophie sur place',
+    ],
+  })
+}
+
 // ─── Main ──────────────────────────────────────────────────
 async function main() {
   console.log(`\n🌍  Seed Rendez-vous sur le Nil → projet ${PROJECT_ID}\n`)
@@ -725,6 +794,8 @@ async function main() {
   await seedDahabiya()
   await seedPrivileges()
   await seedTestimonials()
+  await seedSiteSettings()
+  await seedLeadMagnet()
 
   console.log('\n✅  Seed terminé — rechargez le Studio Sanity pour voir le contenu.')
 }

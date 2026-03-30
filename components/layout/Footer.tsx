@@ -104,6 +104,34 @@ export default function Footer() {
 
         <hr style={{ border: 'none', borderTop: '1px solid #1E6860', marginBottom: '2rem' }} />
 
+        {/* Partenaire assurance */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 py-5 px-6 rounded-sm" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid #1E6860' }}>
+          <div className="flex items-center gap-4">
+            <div className="flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.chapkadirect.fr/templates/chapka/images/logo-chapka.png"
+                alt="Chapka Assurances"
+                style={{ height: '32px', width: 'auto', filter: 'brightness(0) invert(1) opacity(0.85)' }}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+              />
+            </div>
+            <div>
+              <p className="text-xs font-semibold" style={{ color: '#FAF7F2' }}>Assurance voyage recommandée</p>
+              <p className="text-xs" style={{ color: '#8A9BAB' }}>Chapka Assurances — notre partenaire pour voyager sereinement en Égypte</p>
+            </div>
+          </div>
+          <a
+            href="https://www.chapkadirect.fr/index.php?action=produit&id=924"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="flex-shrink-0 text-xs font-medium px-4 py-2 rounded-sm transition-colors"
+            style={{ background: 'rgba(196,144,42,0.15)', color: '#C4902A', border: '1px solid rgba(196,144,42,0.35)', whiteSpace: 'nowrap' }}
+          >
+            Obtenir un devis →
+          </a>
+        </div>
+
         {/* Contact rapide */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
           <div className="flex flex-wrap gap-6 text-sm" style={{ color: '#5C6E7E' }}>
