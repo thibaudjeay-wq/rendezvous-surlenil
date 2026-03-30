@@ -107,13 +107,15 @@ export default function Footer() {
         {/* Partenaire assurance */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 py-5 px-6 rounded-sm" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid #1E6860' }}>
           <div className="flex items-center gap-4">
-            <div className="flex-shrink-0">
+            <div
+              className="flex-shrink-0 flex items-center justify-center px-3 py-1.5 rounded-sm"
+              style={{ background: 'white' }}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://www.chapkadirect.fr/templates/chapka/images/logo-chapka.png"
+                src="/partners/chapka.png"
                 alt="Chapka Assurances"
-                style={{ height: '32px', width: 'auto', filter: 'brightness(0) invert(1) opacity(0.85)' }}
-                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+                style={{ height: '28px', width: 'auto' }}
               />
             </div>
             <div>
