@@ -113,7 +113,7 @@ export default function Footer() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/partners/chapka.png"
+                src="/partners/chapka.webp"
                 alt="Chapka Assurances"
                 style={{ height: '28px', width: 'auto' }}
               />
