@@ -28,6 +28,7 @@ type SanityPost = {
   slug: { current: string }
   excerpt?: string
   publishedAt?: string
+  featured?: boolean
   mainImage?: { asset: { _id: string; url: string; metadata: { lqip: string } }; alt?: string; hotspot?: object; crop?: object }
   categories?: Array<{ title: string; slug: { current: string } }>
   tags?: string[]
@@ -137,8 +138,9 @@ export default async function BlogPage() {
     // Sanity pas encore configuré, fallback static
   }
 
-  const featured = posts[0]
-  const rest = posts.slice(1)
+  const featuredIndex = isSanityConnected ? posts.findIndex((p) => p.featured) : -1
+  const featured = featuredIndex >= 0 ? posts[featuredIndex] : posts[0]
+  const rest = posts.filter((p) => p !== featured)
   const whatsappUrl = getWhatsAppUrl(
     "Bonjour Sophie, j'ai lu votre blog et j'aimerais discuter d'un projet de voyage en Égypte. Êtes-vous disponible ? 🌿"
   )

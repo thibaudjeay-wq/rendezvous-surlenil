@@ -57,6 +57,14 @@ export const post = defineType({
       validation: (R) => R.max(160),
     }),
     defineField({
+      name: 'featured',
+      title: '⭐ Article mis en avant (À la une)',
+      type: 'boolean',
+      group: 'content',
+      initialValue: false,
+      description: 'Si activé, cet article apparaît en tête de la page blog.',
+    }),
+    defineField({
       name: 'body',
       title: 'Contenu de l\'article',
       type: 'array',
@@ -72,6 +80,21 @@ export const post = defineType({
           ],
         }),
       ],
+    }),
+    defineField({
+      name: 'gallery',
+      title: '📷 Galerie photos',
+      type: 'array',
+      group: 'content',
+      description: 'Photos complémentaires affichées en grille après le corps de l\'article.',
+      of: [defineArrayMember({
+        type: 'image',
+        options: { hotspot: true },
+        fields: [
+          { name: 'alt', title: 'Description (SEO)', type: 'string' },
+          { name: 'caption', title: 'Légende', type: 'string' },
+        ],
+      })],
     }),
     defineField({
       name: 'author',

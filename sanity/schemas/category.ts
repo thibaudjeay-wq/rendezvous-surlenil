@@ -32,6 +32,11 @@ export const category = defineType({
       type: 'string',
       description: 'Ex : 🛶, 🏛️, 🌅',
     }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seoObject',
+    }),
   ],
   preview: {
     select: { title: 'title', subtitle: 'description' },

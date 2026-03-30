@@ -16,14 +16,24 @@ type SanityBlock = { _type: string; style?: string; children?: Array<{ _key?: st
 type SanityImageBlock = { _type: 'image'; asset: { _id: string; url: string; metadata: { lqip: string; dimensions: { width: number; height: number } } }; alt?: string; caption?: string }
 type SanityBodyBlock = SanityBlock | SanityImageBlock
 
+type SanityGalleryImage = {
+  asset: { _id: string; url: string; metadata: { lqip: string; dimensions: { width: number; height: number } } }
+  alt?: string
+  caption?: string
+  hotspot?: object
+  crop?: object
+}
+
 type Post = {
   _id: string
   title: string
   slug: { current: string }
   excerpt?: string
   publishedAt?: string
+  _updatedAt?: string
   mainImage?: { asset: { _id: string; url: string; metadata: { lqip: string } }; alt?: string; hotspot?: object; crop?: object }
   body?: SanityBodyBlock[]
+  gallery?: SanityGalleryImage[]
   categories?: Array<{ title: string; slug: { current: string } }>
   tags?: string[]
   author?: { name: string; role?: string; bio?: string; photo?: { asset: { url: string } } }
@@ -423,17 +433,25 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const waUrl = getWhatsAppUrl(cta?.whatsappMessage ?? "Bonjour Sophie, j'ai lu votre article et j'aimerais en savoir plus sur un voyage en Égypte 🌿")
   const defaultWaUrl = getWhatsAppUrl("Bonjour Sophie, j'ai lu votre article et j'aimerais organiser un voyage en Égypte. Êtes-vous disponible ? 🌿")
 
-  // JSON-LD Article
+  const articleUrl = `https://rendezvous-surlenil.com/blog/${slug}`
+
+  // JSON-LD BlogPosting
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
+    dateModified: post._updatedAt ?? post.publishedAt,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
     author: { '@type': 'Person', name: post.author?.name ?? 'Sophie Godineau' },
-    publisher: { '@type': 'Organization', name: 'Rendez-vous sur le Nil' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Rendez-vous sur le Nil',
+      logo: { '@type': 'ImageObject', url: 'https://rendezvous-surlenil.com/logo.png' },
+    },
     image: post.mainImage?.asset ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
-    url: `https://rendezvous-surlenil.com/blog/${slug}`,
+    url: articleUrl,
   }
 
   return (
@@ -569,6 +587,33 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                 <p className="text-sm" style={{ color: '#8A9BAB' }}>
                   Contenu de l&apos;article à venir…
                 </p>
+              )}
+
+              {/* Galerie photos */}
+              {post.gallery && post.gallery.length > 0 && (
+                <div className="mt-10 pt-8" style={{ borderTop: '1px solid #E8D5B7' }}>
+                  <p className="eyebrow mb-5">Galerie</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {post.gallery.map((img, i) => (
+                      <figure key={i} className="relative overflow-hidden rounded-sm" style={{ aspectRatio: '4/3' }}>
+                        <Image
+                          src={urlFor(img).width(600).height(450).url()}
+                          alt={img.alt ?? post.title}
+                          fill
+                          sizes="(max-width: 640px) 50vw, 33vw"
+                          className="object-cover"
+                          placeholder={img.asset.metadata?.lqip ? 'blur' : undefined}
+                          blurDataURL={img.asset.metadata?.lqip}
+                        />
+                        {img.caption && (
+                          <figcaption className="absolute bottom-0 inset-x-0 px-2 py-1.5 text-[10px] text-center" style={{ background: 'rgba(15,61,56,0.75)', color: 'rgba(250,247,242,0.9)' }}>
+                            {img.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                </div>
               )}
 
               {/* Tags */}

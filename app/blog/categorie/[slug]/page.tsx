@@ -27,6 +27,7 @@ type SanityCategory = {
   description?: string
   icon?: string
   count: number
+  seo?: { metaTitle?: string; metaDescription?: string }
 }
 
 function formatDate(iso?: string): string {
@@ -53,8 +54,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const category = await sanityClient.fetch<SanityCategory>(categoryBySlugQuery, { slug })
     if (!category) throw new Error()
     return {
-      title: `${category.title}, Blog Rendez-vous sur le Nil`,
-      description: category.description ?? `Articles sur le thème "${category.title}", conseils et inspirations pour voyager en Égypte.`,
+      title: category.seo?.metaTitle ?? `${category.title}, Blog Rendez-vous sur le Nil`,
+      description: category.seo?.metaDescription ?? category.description ?? `Articles sur le thème "${category.title}", conseils et inspirations pour voyager en Égypte.`,
       alternates: { canonical: `https://rendezvous-surlenil.com/blog/categorie/${slug}` },
     }
   } catch {

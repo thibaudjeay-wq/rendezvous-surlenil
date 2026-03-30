@@ -78,8 +78,8 @@ export const experiencesByTypeQuery = groq`
 
 // ─── Blog — listing ───────────────────────────────────────
 export const postsQuery = groq`
-  *[_type == "post"] | order(publishedAt desc) [$from...$to] {
-    _id, title, slug, excerpt, publishedAt,
+  *[_type == "post"] | order(featured desc, publishedAt desc) [$from...$to] {
+    _id, title, slug, excerpt, publishedAt, featured,
     mainImage { ${imageFields} },
     categories[]->{ title, slug },
     tags,
@@ -92,12 +92,13 @@ export const postsCountQuery = groq`count(*[_type == "post"])`
 // ─── Blog — article ───────────────────────────────────────
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
-    _id, title, slug, excerpt, publishedAt,
+    _id, title, slug, excerpt, publishedAt, _updatedAt,
     mainImage { ${imageFields} },
     body,
+    gallery[] { ${imageFields}, caption },
     categories[]->{ title, slug },
     tags,
-    author->{ name, role, photo { ${imageFields} }, bio },
+    author->{ name, role, photo { ${imageFields} }, "bio": pt::text(bio) },
     relatedExperiences[]->{ ${experienceCard} },
     ctaInArticle, showLeadMagnet,
     ${seoFields}
@@ -115,7 +116,8 @@ export const postsByCategoryQuery = groq`
 
 export const categoryBySlugQuery = groq`
   *[_type == "category" && slug.current == $slug][0] {
-    title, slug, description, icon
+    title, slug, description, icon,
+    seo { metaTitle, metaDescription }
   }
 `
 

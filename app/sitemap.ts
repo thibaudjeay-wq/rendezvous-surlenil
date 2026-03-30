@@ -24,9 +24,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const { sanityClient } = await import('@/lib/sanity/client')
       const { sitemapQuery } = await import('@/lib/sanity/queries')
       const data = await sanityClient.fetch<{
+        experiences: Array<{ slug: { current: string }; _updatedAt: string }>
         posts: Array<{ slug: { current: string }; _updatedAt: string }>
         categories: Array<{ slug: { current: string }; _updatedAt: string }>
       }>(sitemapQuery)
+
+      const experienceRoutes: MetadataRoute.Sitemap = (data?.experiences ?? []).map((e) => ({
+        url: `${BASE_URL}/experiences/${e.slug.current}`,
+        lastModified: e._updatedAt,
+        priority: 0.8,
+        changeFrequency: 'monthly' as const,
+      }))
 
       const postRoutes: MetadataRoute.Sitemap = (data?.posts ?? []).map((p) => ({
         url: `${BASE_URL}/blog/${p.slug.current}`,
@@ -42,7 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'weekly' as const,
       }))
 
-      return [...staticRoutes, ...postRoutes, ...categoryRoutes]
+      return [...staticRoutes, ...experienceRoutes, ...postRoutes, ...categoryRoutes]
     }
   } catch {
     // Sanity non configuré — sitemap statique uniquement

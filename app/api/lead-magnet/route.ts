@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-const GUIDE_URL = 'https://heyzine.com/flip-book/1ceed35b47.html'
+import { getLeadMagnetPdfUrl } from '@/lib/sanity/settings'
 
 interface LeadMagnetPayload {
   firstName: string
@@ -9,7 +8,7 @@ interface LeadMagnetPayload {
   consent: boolean
 }
 
-function buildGuideEmail(firstName: string): string {
+function buildGuideEmail(firstName: string, GUIDE_URL: string): string {
   return `<!DOCTYPE html>
 <html lang="fr">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
@@ -83,6 +82,7 @@ function buildGuideEmail(firstName: string): string {
 
 export async function POST(req: NextRequest) {
   try {
+    const GUIDE_URL = await getLeadMagnetPdfUrl()
     const body: LeadMagnetPayload = await req.json()
     const { firstName, email, consent } = body
 
@@ -136,7 +136,7 @@ export async function POST(req: NextRequest) {
         sender: { name: 'Sophie — Rendez-vous sur le Nil', email: 'sophie@rendezvous-surlenil.com' },
         to: [{ email: cleanEmail, name: cleanFirstName }],
         subject: `${cleanFirstName}, votre guide Égypte est prêt ✦`,
-        htmlContent: buildGuideEmail(cleanFirstName),
+        htmlContent: buildGuideEmail(cleanFirstName, GUIDE_URL),
       }),
     })
 
