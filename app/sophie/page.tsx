@@ -628,7 +628,7 @@ export default function SophiePage() {
         </div>
         <div
           className="absolute inset-0 z-0"
-          style={{ background: 'linear-gradient(to bottom, rgba(13,33,55,0.75) 0%, rgba(13,33,55,0.96) 100%)' }}
+          style={{ background: 'linear-gradient(to bottom, rgba(15,61,56,0.75) 0%, rgba(15,61,56,0.96) 100%)' }}
           aria-hidden="true"
         />
 
