@@ -72,7 +72,7 @@ export default function Header() {
                 Rendez-vous sur le Nil
               </span>
               <span
-                className="hidden sm:block text-[10px] tracking-[0.18em] uppercase font-medium mt-0.5"
+                className="hidden md:block text-[10px] tracking-[0.18em] uppercase font-medium mt-0.5"
                 style={{ color: '#CE8D5C' }}
               >
                 Voyages en Égypte
