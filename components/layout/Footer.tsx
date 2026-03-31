@@ -19,6 +19,14 @@ function FacebookIcon() {
   )
 }
 
+function TripAdvisorIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 3.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 13.5c-2.761 0-5.2-1.4-6.676-3.538A5.985 5.985 0 0 1 9 14a5.97 5.97 0 0 1 3 .804A5.97 5.97 0 0 1 15 14c1.282 0 2.47.402 3.44 1.085C16.978 17.17 14.638 19 12 19z"/>
+    </svg>
+  )
+}
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -57,7 +65,7 @@ export default function Footer() {
             {/* Réseaux */}
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/rendezvous_surlenil/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -66,13 +74,22 @@ export default function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/p/Rendez-vous-sur-le-Nil-61553079940605/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="footer-social-btn"
               >
                 <FacebookIcon />
+              </a>
+              <a
+                href="https://www.tripadvisor.fr/Attraction_Review-g294205-d32969157-Reviews-Rendez_vous_sur_le_Nil_La_Thebaide-Luxor_Nile_River_Valley.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TripAdvisor"
+                className="footer-social-btn"
+              >
+                <TripAdvisorIcon />
               </a>
             </div>
           </div>
