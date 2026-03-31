@@ -13,7 +13,7 @@ export default function AboutSophie() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Texte, gauche */}
-          <div className="order-2 lg:order-1 reveal-left">
+          <div className="order-2 lg:order-1">
             <p className="eyebrow mb-4">Deux personnes. Un pays. Un réseau construit sur le terrain.</p>
             <h2
               id="about-sophie-heading"
@@ -74,7 +74,7 @@ export default function AboutSophie() {
           </div>
 
           {/* Photo, droite */}
-          <div className="order-1 lg:order-2 relative reveal-right">
+          <div className="order-1 lg:order-2 relative">
             <div className="img-portrait-lg overflow-hidden rounded-sm img-zoom">
               <Image
                 src="/photos/sophie/sophie-nasser-marche.jpg"

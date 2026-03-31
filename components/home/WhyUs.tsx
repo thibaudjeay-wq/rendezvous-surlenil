@@ -47,7 +47,7 @@ export default function WhyUs() {
       `}</style>
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-16">
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Notre ADN</p>
           <h2
             id="whyus-heading"
@@ -62,7 +62,7 @@ export default function WhyUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
           {args.map(({ icon: Icon, title, description }, i) => (
-            <div key={title} className={`whyus-card flex gap-5 p-7 rounded-sm reveal reveal-delay-${i + 1}`}>
+            <div key={title} className={`whyus-card flex gap-5 p-7 rounded-sm-delay-${i + 1}`}>
               <div className="flex-shrink-0">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center"

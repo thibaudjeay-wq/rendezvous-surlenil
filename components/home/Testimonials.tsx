@@ -36,7 +36,7 @@ export default function Testimonials({ items }: { items?: SanityTestimonial[] })
       aria-labelledby="testimonials-heading"
     >
       {/* Header */}
-      <div className="text-center mb-14 px-6 reveal">
+      <div className="text-center mb-14 px-6">
         <p className="eyebrow mb-4">Ils l&apos;ont vécu</p>
         <h2
           id="testimonials-heading"

@@ -23,7 +23,7 @@ export default function FeaturedDahabiya() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Images, côté gauche */}
-          <div className="relative reveal-left">
+          <div className="relative">
             <div className="img-portrait-lg overflow-hidden rounded-sm img-zoom">
               <Image
                 src="/photos/dahabiya/dahabiya-voiles-rayees.jpg"
@@ -65,7 +65,7 @@ export default function FeaturedDahabiya() {
           </div>
 
           {/* Texte, côté droit */}
-          <div className="lg:py-8 reveal-right">
+          <div className="lg:py-8">
             <p className="eyebrow mb-4">L&apos;expérience phare</p>
             <h2
               id="dahabiya-heading"

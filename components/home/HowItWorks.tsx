@@ -35,7 +35,7 @@ export default function HowItWorks() {
       aria-labelledby="how-heading"
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-16">
           <p className="eyebrow mb-4">Notre approche</p>
           <h2
             id="how-heading"
@@ -50,7 +50,7 @@ export default function HowItWorks() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
           {steps.map(({ number, title, body }, i) => (
-            <div key={number} className={`relative reveal reveal-delay-${i + 1}`}>
+            <div key={number} className={`relative-delay-${i + 1}`}>
               {/* Connecteur horizontal (desktop) */}
               {i < steps.length - 1 && (
                 <div
