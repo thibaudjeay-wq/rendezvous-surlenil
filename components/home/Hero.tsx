@@ -57,7 +57,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="hidden md:flex items-center gap-3 mb-6">
             <div className="animate-hero-line" style={{ width: '32px', height: '1px', background: '#C4902A' }} />
-            <span className="eyebrow animate-hero-eyebrow" style={{ color: '#CE8D5C' }}>
+            <span className="eyebrow animate-hero-eyebrow" style={{ color: 'rgba(250,247,242,0.75)' }}>
               Voyages premium en Égypte
             </span>
           </div>
@@ -92,7 +92,7 @@ export default function Hero() {
           {/* Ancre réalité */}
           <p
             className="mb-8 text-sm font-medium animate-hero-anchor"
-            style={{ color: 'rgba(201,169,110,0.9)', letterSpacing: '0.03em' }}
+            style={{ color: 'rgba(250,247,242,0.65)', letterSpacing: '0.03em' }}
           >
             Spécialiste de l&apos;Égypte. Chaque voyage pensé sur mesure.
           </p>
