@@ -50,7 +50,7 @@ export default function Hero() {
 
       {/* Contenu hero */}
       <div
-        className="relative z-10 flex flex-col justify-end h-full px-6 md:px-16 pb-20 md:pb-28 max-w-[1200px] mx-auto"
+        className="relative z-10 flex flex-col justify-end h-full px-6 md:px-16 pb-12 md:pb-28 max-w-[1200px] mx-auto"
         style={{ minHeight: '100svh' }}
       >
         <div className="max-w-2xl">
@@ -81,7 +81,7 @@ export default function Hero() {
 
           {/* Sous-titre */}
           <p
-            className="text-base md:text-lg leading-relaxed mb-10 animate-hero-sub"
+            className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 animate-hero-sub"
             style={{ color: 'rgba(250, 247, 242, 0.85)', maxWidth: '520px', fontWeight: 300 }}
           >
             Sophie connaît l&apos;Égypte de l&apos;intérieur depuis plus de dix ans. Nasser y est né.
@@ -118,7 +118,7 @@ export default function Hero() {
           </div>
 
           {/* Réassurance + social proof */}
-          <div className="animate-hero-social">
+          <div className="hidden sm:block animate-hero-social">
             <p className="text-xs mb-3" style={{ color: 'rgba(250,247,242,0.5)' }}>
               Réponse sous 24h, en français
             </p>
@@ -136,7 +136,7 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
+          className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-50"
           aria-hidden="true"
         >
           <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: 'white' }}>

@@ -36,7 +36,7 @@ export default function FeaturedDahabiya() {
 
             {/* Image secondaire flottante */}
             <div
-              className="absolute -bottom-6 -right-4 lg:-right-8 w-48 md:w-56 rounded-sm shadow-xl overflow-hidden"
+              className="hidden sm:block absolute -bottom-6 -right-4 lg:-right-8 w-48 md:w-56 rounded-sm shadow-xl overflow-hidden"
               style={{ border: '4px solid #FAF7F2' }}
             >
               <div className="img-square">
@@ -52,7 +52,7 @@ export default function FeaturedDahabiya() {
 
             {/* Badge */}
             <div
-              className="absolute top-6 -right-4 lg:-right-6 px-4 py-3 shadow-lg"
+              className="hidden sm:block absolute top-6 -right-4 lg:-right-6 px-4 py-3 shadow-lg"
               style={{ background: '#0F3D38', borderRadius: '2px' }}
             >
               <p className="text-[10px] tracking-[0.14em] uppercase mb-1" style={{ color: '#C4902A' }}>

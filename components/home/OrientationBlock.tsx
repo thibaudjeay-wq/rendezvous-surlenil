@@ -62,7 +62,7 @@ export default function OrientationBlock() {
         >
           {/* Header */}
           <div
-            className="grid grid-cols-2 px-6 py-3 text-[11px] font-semibold tracking-[0.12em] uppercase"
+            className="grid grid-cols-2 px-4 sm:px-6 py-3 text-[11px] font-semibold tracking-[0.12em] uppercase"
             style={{ background: '#0F3D38', color: '#C4902A' }}
           >
             <span>Votre situation</span>
@@ -72,7 +72,7 @@ export default function OrientationBlock() {
           {rows.map((row, i) => (
             <div
               key={row.href}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0 px-6 py-4 group transition-colors"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-0 px-4 sm:px-6 py-3.5 sm:py-4 group transition-colors"
               style={{
                 background: i % 2 === 0 ? 'white' : '#FDFAF5',
                 borderTop: i > 0 ? '1px solid #F0E6D3' : undefined,

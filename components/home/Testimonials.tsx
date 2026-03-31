@@ -30,8 +30,8 @@ export default function Testimonials({ items }: { items?: SanityTestimonial[] })
         background: '#FAF7F2',
         borderTop: '1px solid #E8D5B7',
         borderBottom: '1px solid #E8D5B7',
-        paddingTop: '5rem',
-        paddingBottom: '5rem',
+        paddingTop: 'clamp(2.5rem, 6vw, 5rem)',
+        paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
       }}
       aria-labelledby="testimonials-heading"
     >
@@ -80,8 +80,8 @@ export default function Testimonials({ items }: { items?: SanityTestimonial[] })
               {/* Quote card */}
               <div
                 style={{
-                  paddingLeft: '2.5rem',
-                  paddingRight: '2.5rem',
+                  paddingLeft: '1.25rem',
+                  paddingRight: '1.25rem',
                   paddingTop: '0.5rem',
                   paddingBottom: '0.5rem',
                   minWidth: '260px',

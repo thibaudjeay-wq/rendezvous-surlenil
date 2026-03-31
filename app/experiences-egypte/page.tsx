@@ -129,7 +129,7 @@ export default function ExperiencesEgyptePage() {
         </nav>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-32 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
           style={{ minHeight: '92vh' }}
         >
           <div className="max-w-3xl">
@@ -167,7 +167,7 @@ export default function ExperiencesEgyptePage() {
       </section>
 
       {/* ─── Introduction ──────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#0F3D38' }}>
+      <section className="py-12 md:py-28" style={{ background: '#0F3D38' }}>
         <div className="max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <p className="eyebrow mb-6" style={{ color: '#C4902A' }}>Pourquoi ces expériences</p>
           <h2
@@ -204,7 +204,7 @@ export default function ExperiencesEgyptePage() {
           <article
             key={exp.id}
             id={exp.id}
-            className="py-20 md:py-28"
+            className="py-12 md:py-28"
             style={{
               background: i % 2 === 0 ? '#FAF7F2' : '#FDF8F0',
               borderTop: i > 0 ? '1px solid #E8D5B7' : 'none',
@@ -303,7 +303,7 @@ export default function ExperiencesEgyptePage() {
       </section>
 
       {/* ─── Pourquoi différent ────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#0F3D38' }} aria-labelledby="diff-heading">
+      <section className="py-12 md:py-28" style={{ background: '#0F3D38' }} aria-labelledby="diff-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Ce qui nous distingue</p>
@@ -375,7 +375,7 @@ export default function ExperiencesEgyptePage() {
       </section>
 
       {/* ─── Intégration Nil + Désert ──────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="combo-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="combo-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>

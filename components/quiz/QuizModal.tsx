@@ -227,7 +227,7 @@ export default function QuizModal() {
       <div
         className={[
           'fixed z-40 transition-all duration-500 md:hidden',
-          'bottom-[5.5rem] right-4',
+          'bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4',
           'flex flex-col items-end',
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
         ].join(' ')}

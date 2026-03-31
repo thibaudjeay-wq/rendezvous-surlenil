@@ -184,7 +184,7 @@ export default async function PrivilegesPage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-28 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
           style={{ minHeight: '75vh' }}
         >
           <nav
@@ -230,7 +230,7 @@ export default async function PrivilegesPage() {
       </section>
 
       {/* ─── Concept ────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#0F3D38' }}>
+      <section className="py-12 md:py-28" style={{ background: '#0F3D38' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
             <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Ce qui définit les Privilèges</p>
@@ -279,7 +279,7 @@ export default async function PrivilegesPage() {
       </section>
 
       {/* ─── Programmes ────────────────────────────────────── */}
-      <section id="programmes" className="py-20 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="programmes-heading">
+      <section id="programmes" className="py-12 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="programmes-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <p className="eyebrow mb-4">Saison 2026 – 2027</p>
@@ -452,7 +452,7 @@ export default async function PrivilegesPage() {
       </section>
 
       {/* ─── FAQ ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FDF8F0' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FDF8F0' }}>
         <div className="max-w-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">Questions fréquentes</p>
@@ -485,7 +485,7 @@ export default async function PrivilegesPage() {
       </section>
 
       {/* ─── CTA ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 text-center" style={{ background: '#0F3D38' }}>
+      <section className="py-12 md:py-28 text-center" style={{ background: '#0F3D38' }}>
         <div className="max-w-xl mx-auto px-6">
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Places limitées</p>
           <h2

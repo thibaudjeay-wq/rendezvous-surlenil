@@ -14,7 +14,7 @@ export default function LeadMagnet() {
       className="relative overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #2A5A54 0%, #0F3D38 60%, #2A5A54 100%)',
-        padding: '80px 0',
+        padding: 'clamp(40px, 8vw, 80px) 0',
       }}
     >
       {/* Décoration */}

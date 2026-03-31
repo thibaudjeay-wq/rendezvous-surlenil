@@ -90,7 +90,7 @@ export default function SurMesurePage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-32 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
           style={{ minHeight: '80vh' }}
         >
           <nav
@@ -143,7 +143,7 @@ export default function SurMesurePage() {
       </section>
 
       {/* ─── Pourquoi Sophie ────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
@@ -202,9 +202,9 @@ export default function SurMesurePage() {
       </section>
 
       {/* ─── Les 2 formules ─────────────────────────────────── */}
-      <section id="formules" className="py-20 md:py-32" style={{ background: '#FDF8F0' }} aria-labelledby="formules-heading">
+      <section id="formules" className="py-12 md:py-32" style={{ background: '#FDF8F0' }} aria-labelledby="formules-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <p className="eyebrow mb-4">Deux façons de travailler ensemble</p>
             <h2
               id="formules-heading"
@@ -429,9 +429,9 @@ export default function SurMesurePage() {
       </section>
 
       {/* ─── Comment ça marche ──────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#0F3D38' }} aria-labelledby="process-heading">
+      <section className="py-12 md:py-28" style={{ background: '#0F3D38' }} aria-labelledby="process-heading">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Comment ça marche</p>
             <h2
               id="process-heading"
@@ -483,7 +483,7 @@ export default function SurMesurePage() {
       </section>
 
       {/* ─── FAQ ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }}>
         <div className="max-w-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">Questions fréquentes</p>
@@ -529,9 +529,9 @@ export default function SurMesurePage() {
       </section>
 
       {/* ─── Témoignages ────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="temoignages-mesure-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="temoignages-mesure-heading">
         <div className="max-w-[1100px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <p className="eyebrow mb-4">Ce qu&apos;ils en disent</p>
             <h2
               id="temoignages-mesure-heading"
@@ -592,7 +592,7 @@ export default function SurMesurePage() {
       </section>
 
       {/* ─── CTA final ──────────────────────────────────────── */}
-      <section className="py-20 md:py-28 text-center" style={{ background: '#0F3D38' }}>
+      <section className="py-12 md:py-28 text-center" style={{ background: '#0F3D38' }}>
         <div className="max-w-xl mx-auto px-6">
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Votre Égypte commence par une conversation</p>
           <h2

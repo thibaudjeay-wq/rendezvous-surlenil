@@ -134,7 +134,7 @@ export default function SophiePage() {
 
         <div
           className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-          style={{ minHeight: '100svh', paddingTop: '120px', paddingBottom: '80px' }}
+          style={{ minHeight: '100svh', paddingTop: 'clamp(80px, 12vw, 120px)', paddingBottom: 'clamp(48px, 8vw, 80px)' }}
         >
           {/* Texte, 7 colonnes */}
           <div className="lg:col-span-7">
@@ -383,7 +383,7 @@ export default function SophiePage() {
 
       {/* ─── MON RÔLE, Editorial ─────────────────────────────────────── */}
       <section
-        className="py-20 md:py-28"
+        className="py-12 md:py-28"
         style={{ background: 'white' }}
         aria-labelledby="role-heading"
       >
@@ -566,7 +566,7 @@ export default function SophiePage() {
 
       {/* ─── DIFFÉRENCIATION ──────────────────────────────────────────── */}
       <section
-        className="py-20 md:py-28"
+        className="py-12 md:py-28"
         style={{ background: '#FDF8F0' }}
         aria-labelledby="difference-heading"
       >

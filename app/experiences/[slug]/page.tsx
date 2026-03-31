@@ -223,7 +223,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-28 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
           style={{ minHeight: '65vh' }}
         >
           <nav

@@ -166,7 +166,7 @@ export default function LaThebaidePage() {
 
         {/* Contenu hero */}
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-32 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
           style={{ minHeight: '90vh' }}
         >
           <div className="max-w-3xl">
@@ -659,7 +659,7 @@ export default function LaThebaidePage() {
 
       {/* ─── Tarifs & séjour ────────────────────────────────── */}
       <section
-        className="py-20 md:py-24"
+        className="py-12 md:py-24"
         style={{ background: '#0F3D38', borderTop: '1px solid #2A5A54' }}
         aria-labelledby="tarifs-heading"
       >
@@ -743,7 +743,7 @@ export default function LaThebaidePage() {
       </section>
 
       {/* ─── FAQ ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }}>
         <div className="max-w-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">Questions fréquentes</p>
@@ -789,9 +789,9 @@ export default function LaThebaidePage() {
       </section>
 
       {/* ─── Témoignages La Thébaïde ─────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="temoignages-thebaide-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="temoignages-thebaide-heading">
         <div className="max-w-[1100px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <p className="eyebrow mb-4">Ce qu&apos;ils en disent</p>
             <h2
               id="temoignages-thebaide-heading"

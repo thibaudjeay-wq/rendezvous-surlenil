@@ -9,6 +9,11 @@
  */
 
 import { createClient } from '@sanity/client'
+import { createReadStream } from 'fs'
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const TOKEN = process.env.SANITY_WRITE_TOKEN
@@ -58,6 +63,19 @@ function hl(label, value) {
 async function upsert(doc) {
   await client.createOrReplace(doc)
   console.log(`  ✓  ${doc._type}  ${doc._id}`)
+}
+
+async function uploadImage(relPublicPath, altText = '') {
+  const filePath = join(__dirname, '..', 'public', relPublicPath)
+  const filename = relPublicPath.split('/').pop()
+  try {
+    const asset = await client.assets.upload('image', createReadStream(filePath), { filename })
+    console.log(`  📷  image uploadée : ${filename}`)
+    return { _type: 'image', asset: { _type: 'reference', _ref: asset._id }, alt: altText }
+  } catch {
+    console.warn(`  ⚠️  image introuvable : ${relPublicPath}`)
+    return undefined
+  }
 }
 
 // ─── 1. Auteur Sophie ──────────────────────────────────────
@@ -137,6 +155,7 @@ async function seedPosts(authorId, catIds) {
   const posts = [
     {
       _id: 'seed-post-quand-partir',
+      image: 'photos/blog/femme-roseaux-dores.jpg',
       title: 'Quand partir en Égypte ? Le guide complet mois par mois',
       slug: 'quand-partir-en-egypte',
       excerpt: "L'Égypte se visite toute l'année, mais tous les mois ne se ressemblent pas. Températures, affluence, fêtes locales, Nil en crue : voici le calendrier honnête pour choisir votre moment.",
@@ -166,6 +185,7 @@ async function seedPosts(authorId, catIds) {
     },
     {
       _id: 'seed-post-desert-blanc',
+      image: 'photos/voyageurs/festin-dunes.jpg',
       title: "Dormir dans le désert blanc en Égypte : une expérience hors du temps",
       slug: 'dormir-desert-blanc-egypte',
       excerpt: "À 45 kilomètres de Farafra, le désert blanc est l'un des paysages les plus irréels d'Afrique. Des formations calcaires sculptées par le vent, une nuit sous les étoiles, un silence total.",
@@ -192,6 +212,7 @@ async function seedPosts(authorId, catIds) {
     },
     {
       _id: 'seed-post-sur-mesure',
+      image: 'photos/voyageurs/sophie-nil-travel-planner.jpg',
       title: "Voyage sur mesure en Égypte : ce que les agences ne vous disent pas",
       slug: 'voyage-sur-mesure-egypte',
       excerpt: "Le « sur mesure » est devenu un argument marketing galvaudé. Sophie explique ce que signifie vraiment construire un voyage en Égypte personnalisé.",
@@ -217,6 +238,7 @@ async function seedPosts(authorId, catIds) {
     },
     {
       _id: 'seed-post-dahabiya',
+      image: 'photos/dahabiya/dahabiya-voiles-nil.jpg',
       title: "Qu'est-ce qu'une dahabiya ? Tout ce qu'il faut savoir",
       slug: 'qu-est-ce-qu-une-dahabiya',
       excerpt: "Le voilier traditionnel égyptien qui a séduit Agatha Christie et les grands explorateurs du XIXe siècle. Aujourd'hui rénové, il offre l'expérience la plus intime du Nil.",
@@ -240,6 +262,7 @@ async function seedPosts(authorId, catIds) {
     },
     {
       _id: 'seed-post-temples',
+      image: 'photos/blog/femme-mur-temple.jpg',
       title: 'Louxor : 5 temples méconnus que les circuits ne montrent jamais',
       slug: 'louxor-5-temples-meconnus',
       excerpt: "Medinet Habou, Deir el-Medina, la chapelle rouge de Hatshepsout, Louxor cache des merveilles que 90% des touristes ne voient jamais.",
@@ -264,6 +287,7 @@ async function seedPosts(authorId, catIds) {
     },
     {
       _id: 'seed-post-siwa',
+      image: 'photos/voyageurs/femme-coucher-siwa.jpg',
       title: "Siwa : l'oasis secrète à la frontière libyenne",
       slug: 'siwa-oasis-secrete',
       excerpt: "Berbère, isolée, préservée, Siwa est probablement la destination la moins connue d'Égypte. Et de loin la plus envoûtante.",
@@ -286,6 +310,7 @@ async function seedPosts(authorId, catIds) {
   ]
 
   for (const p of posts) {
+    const mainImage = p.image ? await uploadImage(p.image, p.title) : undefined
     await upsert({
       _id: p._id,
       _type: 'post',
@@ -297,6 +322,7 @@ async function seedPosts(authorId, catIds) {
       tags: p.tags,
       showLeadMagnet: p.showLeadMagnet,
       body: p.body,
+      ...(mainImage ? { mainImage } : {}),
       author: { _type: 'reference', _ref: authorId },
       categories: [{ _type: 'reference', _key: key('cat'), _ref: p.catId }],
       ctaInArticle: {
@@ -316,6 +342,7 @@ async function seedExperiences() {
   const experiences = [
     {
       _id: 'seed-exp-casbah',
+      image: 'photos/thebaide/rooftop-femme-the.jpg',
       title: "CASBAH — Louxor j'adore",
       slug: 'casbah-louxor-jadore',
       tagline: "Immersion totale à Louxor : La Thébaïde, Karnak au crépuscule, montgolfière au lever du soleil sur la Vallée des Rois.",
@@ -345,6 +372,7 @@ async function seedExperiences() {
     },
     {
       _id: 'seed-exp-yalla',
+      image: 'photos/dahabiya/salon-coucher.jpg',
       title: "YALLA — Le voyage de Pharaon",
       slug: 'yalla-voyage-de-pharaon',
       tagline: "Le grand voyage : 2 nuits à La Thébaïde, puis 4 nuits à bord d'une dahabiya de Louxor à Assouan. Abou Simbel, montgolfière, guide dédié.",
@@ -374,6 +402,7 @@ async function seedExperiences() {
     },
     {
       _id: 'seed-exp-pacha',
+      image: 'photos/dahabiya/exterieur-coucher.jpg',
       title: "PACHA — Nil part ailleurs",
       slug: 'pacha-nil-part-ailleurs',
       tagline: "La croisière dahabiya intégrale, d'Assouan à Louxor. Temples au fil de l'eau, couchers de soleil sur le fleuve.",
@@ -401,6 +430,7 @@ async function seedExperiences() {
     },
     {
       _id: 'seed-exp-safara',
+      image: 'photos/dahabiya/table-nil.jpg',
       title: "SAFARA — La mini-croisière",
       slug: 'safara-mini-croisiere',
       tagline: "3 nuits à bord d'une dahabiya entre Assouan et Louxor. L'entrée en matière idéale pour ceux qui veulent goûter la croisière.",
@@ -427,6 +457,7 @@ async function seedExperiences() {
     },
     {
       _id: 'seed-exp-smala',
+      image: 'photos/voyageurs/groupe-pyramides.jpg',
       title: "SMALA — L'évasion privée",
       slug: 'smala-evasion-privee',
       tagline: "La dahabiya privatisée entièrement pour votre groupe, famille, amis, collègues. Programme 100% sur mesure.",
@@ -455,6 +486,7 @@ async function seedExperiences() {
     },
     {
       _id: 'seed-exp-habibi',
+      image: 'photos/signature/montgolfiere-voyageur.jpg',
       title: "HABIBI — Offre été",
       slug: 'habibi-offre-ete',
       tagline: "L'Égypte en été : lumière intense, sites moins fréquentés, tarifs doux. La basse saison comme avantage.",
@@ -484,12 +516,14 @@ async function seedExperiences() {
   ]
 
   for (const exp of experiences) {
+    const mainImage = exp.image ? await uploadImage(exp.image, exp.title) : undefined
     await upsert({
       _id: exp._id,
       _type: 'experience',
       title: exp.title,
       slug: { _type: 'slug', current: exp.slug },
       type: 'sejour-signature',
+      ...(mainImage ? { mainImage } : {}),
       tagline: exp.tagline,
       duration: exp.duration,
       order: exp.order,
@@ -511,6 +545,7 @@ async function seedDahabiya() {
   const formules = [
     {
       _id: 'seed-exp-dahabiya-escapade',
+      image: 'photos/dahabiya/dahabiya-voiles-nil.jpg',
       title: 'Croisière Escapade',
       slug: 'croisiere-dahabiya-escapade',
       tagline: 'Louxor → Assouan en 4 nuits. La découverte idéale du Nil en dahabiya, petit groupe intimiste.',
@@ -530,6 +565,7 @@ async function seedDahabiya() {
     },
     {
       _id: 'seed-exp-dahabiya-immersion',
+      image: 'photos/dahabiya/pont-jacuzzi-nil.jpg',
       title: 'Croisière Immersion',
       slug: 'croisiere-dahabiya-immersion',
       tagline: 'La formule complète : 7 nuits de Louxor à Assouan, 8 escales sélectionnées, excursions et guide francophone inclus.',
@@ -565,6 +601,7 @@ async function seedDahabiya() {
     },
     {
       _id: 'seed-exp-dahabiya-grand-voyage',
+      image: 'photos/dahabiya/salon-large.jpg',
       title: 'Grand Voyage en Dahabiya',
       slug: 'croisiere-dahabiya-grand-voyage',
       tagline: 'Privatisation complète de la dahabiya pour 12 nuits. Itinéraire sur mesure, flexibilité totale, guide dédié.',
@@ -585,12 +622,14 @@ async function seedDahabiya() {
   ]
 
   for (const exp of formules) {
+    const mainImage = exp.image ? await uploadImage(exp.image, exp.title) : undefined
     await upsert({
       _id: exp._id,
       _type: 'experience',
       title: exp.title,
       slug: { _type: 'slug', current: exp.slug },
       type: 'dahabiya',
+      ...(mainImage ? { mainImage } : {}),
       tagline: exp.tagline,
       duration: exp.duration,
       order: exp.order,
@@ -613,6 +652,7 @@ async function seedPrivileges() {
   const programmes = [
     {
       _id: 'seed-exp-oasis-flow',
+      image: 'photos/privileges/siwa-lac-turquoise.jpg',
       title: 'OASIS FLOW SIWA — Yoga, oasis & sérénité',
       slug: 'oasis-flow-siwa',
       tagline: "Yoga du matin sur les dunes, baignades dans les sources naturelles, dîners sous les étoiles. Siwa, l'oasis au bout du monde.",
@@ -642,6 +682,7 @@ async function seedPrivileges() {
     },
     {
       _id: 'seed-exp-croque-vogue',
+      image: 'photos/privileges/carnet-aquarelle.jpg',
       title: 'CROQUE & VOGUE — Aquarelle & croisière sur le Nil',
       slug: 'croque-et-vogue',
       tagline: "Croisière en dahabiya entre Assouan et Louxor, pinceau en main. Ateliers aquarelle quotidiens sur les plus beaux sites d'Égypte.",
@@ -670,6 +711,7 @@ async function seedPrivileges() {
     },
     {
       _id: 'seed-exp-deesse-nil',
+      image: 'photos/voyageurs/trio-femmes-nil.jpg',
       title: 'DÉESSE DU NIL — Voyage 100 % féminin',
       slug: 'deesse-du-nil',
       tagline: 'Un voyage entre femmes accompagné par Sophie. Louxor, temples, bien-être. Se ressourcer en sororité dans les sites les plus sacrés.',
@@ -699,12 +741,14 @@ async function seedPrivileges() {
   ]
 
   for (const prog of programmes) {
+    const mainImage = prog.image ? await uploadImage(prog.image, prog.title) : undefined
     await upsert({
       _id: prog._id,
       _type: 'experience',
       title: prog.title,
       slug: { _type: 'slug', current: prog.slug },
       type: 'sejour-privilege',
+      ...(mainImage ? { mainImage } : {}),
       tagline: prog.tagline,
       duration: prog.duration,
       order: prog.order,

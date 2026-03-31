@@ -218,7 +218,7 @@ export default async function SignaturePage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-28 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
           style={{ minHeight: '70vh' }}
         >
           <nav
@@ -267,7 +267,7 @@ export default async function SignaturePage() {
       </section>
 
       {/* ─── Concept ───────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
@@ -359,7 +359,7 @@ export default async function SignaturePage() {
       </section>
 
       {/* ─── Les séjours ───────────────────────────────────── */}
-      <section id="sejours" className="py-20 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="sejours-heading">
+      <section id="sejours" className="py-12 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="sejours-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <p className="eyebrow mb-4">Nos programmes</p>
@@ -576,7 +576,7 @@ export default async function SignaturePage() {
       </section>
 
       {/* ─── FAQ ───────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="faq-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="faq-heading">
         <div className="max-w-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4">Questions fréquentes</p>
@@ -618,7 +618,7 @@ export default async function SignaturePage() {
       </section>
 
       {/* ─── CTA Final ──────────────────────────────────────── */}
-      <section className="py-20 md:py-28 text-center" style={{ background: '#0F3D38' }}>
+      <section className="py-12 md:py-28 text-center" style={{ background: '#0F3D38' }}>
         <div className="max-w-xl mx-auto px-6">
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Votre séjour vous attend</p>
           <h2

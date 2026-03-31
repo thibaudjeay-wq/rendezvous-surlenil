@@ -88,7 +88,7 @@ export default function AboutSophie() {
 
             {/* Encadré stats */}
             <div
-              className="absolute -bottom-4 -left-4 md:-left-8 p-5 shadow-lg"
+              className="absolute -bottom-4 left-2 md:-left-8 p-5 shadow-lg"
               style={{
                 background: '#FAF7F2',
                 border: '1px solid #E8D5B7',

@@ -75,7 +75,7 @@ export default function SejoursPage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-28 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
           style={{ minHeight: '72vh' }}
         >
           <nav
@@ -157,7 +157,7 @@ export default function SejoursPage() {
 
       {/* ─── Grille des expériences ─────────────────────────── */}
       <section
-        className="py-20 md:py-28"
+        className="py-12 md:py-28"
         style={{ background: '#FDF8F0' }}
         aria-labelledby="sejours-heading"
       >
@@ -293,7 +293,7 @@ export default function SejoursPage() {
       </section>
 
       {/* ─── Comment ça marche ──────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <p className="eyebrow mb-4">Notre approche</p>

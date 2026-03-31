@@ -195,7 +195,7 @@ export default async function CroisiereDahabiyaPage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-20 md:pb-28 max-w-[1200px] mx-auto"
+          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
           style={{ minHeight: '85vh' }}
         >
           {/* Breadcrumb */}
@@ -234,7 +234,7 @@ export default async function CroisiereDahabiyaPage() {
       </section>
 
       {/* ─── Intro : Qu'est-ce qu'une dahabiya ───────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }}>
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
@@ -325,9 +325,9 @@ export default async function CroisiereDahabiyaPage() {
       </section>
 
       {/* ─── Formules ─────────────────────────────────────── */}
-      <section id="formules" className="py-20 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="formules-heading">
+      <section id="formules" className="py-12 md:py-28" style={{ background: '#FDF8F0' }} aria-labelledby="formules-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <p className="eyebrow mb-4">Tarifs & Formules</p>
             <h2
               id="formules-heading"
@@ -411,9 +411,9 @@ export default async function CroisiereDahabiyaPage() {
       </section>
 
       {/* ─── Itinéraire ───────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="itinerary-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="itinerary-heading">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <p className="eyebrow mb-4">L&apos;itinéraire</p>
             <h2
               id="itinerary-heading"
@@ -509,9 +509,9 @@ export default async function CroisiereDahabiyaPage() {
       </section>
 
       {/* ─── FAQ ──────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="faq-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="faq-heading">
         <div className="max-w-2xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <p className="eyebrow mb-4">Questions fréquentes</p>
             <h2
               id="faq-heading"
@@ -557,9 +557,9 @@ export default async function CroisiereDahabiyaPage() {
       </section>
 
       {/* ─── Témoignages croisière ───────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="temoignages-croisiere-heading">
+      <section className="py-12 md:py-28" style={{ background: '#FAF7F2' }} aria-labelledby="temoignages-croisiere-heading">
         <div className="max-w-[1100px] mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <p className="eyebrow mb-4">Ce qu&apos;ils en disent</p>
             <h2
               id="temoignages-croisiere-heading"
@@ -620,7 +620,7 @@ export default async function CroisiereDahabiyaPage() {
 
       {/* ─── CTA Final ────────────────────────────────────── */}
       <section
-        className="py-20 md:py-28 text-center relative overflow-hidden"
+        className="py-12 md:py-28 text-center relative overflow-hidden"
         style={{ background: '#0F3D38' }}
       >
         <div className="max-w-xl mx-auto px-6 relative z-10">
