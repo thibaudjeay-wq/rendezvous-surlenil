@@ -55,7 +55,7 @@ export default function Hero() {
       >
         <div className="max-w-2xl">
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6">
+          <div className="hidden sm:flex items-center gap-3 mb-6">
             <div className="animate-hero-line" style={{ width: '32px', height: '1px', background: '#C4902A' }} />
             <span className="eyebrow animate-hero-eyebrow" style={{ color: '#CE8D5C' }}>
               Voyages premium en Égypte
