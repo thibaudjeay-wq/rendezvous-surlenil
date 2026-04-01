@@ -57,7 +57,7 @@ export default function Header() {
               alt=""
               width={40}
               height={40}
-              style={{ width: '44px', height: '44px', flexShrink: 0 }}
+              style={{ width: '56px', height: '56px', flexShrink: 0 }}
             />
             <div className="flex flex-col leading-none">
               <span
