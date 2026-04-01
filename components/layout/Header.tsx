@@ -61,12 +61,13 @@ export default function Header() {
             />
             <div className="flex flex-col leading-none">
               <span
-                className="font-display text-xl tracking-tight"
+                className="font-display text-2xl tracking-tight"
                 style={{
                   fontFamily: 'Cormorant Garamond, Georgia, serif',
                   color: scrolled || mobileOpen ? '#0F3D38' : 'white',
-                  fontWeight: 400,
+                  fontWeight: 500,
                   letterSpacing: '-0.01em',
+                  textShadow: scrolled || mobileOpen ? 'none' : '0 1px 6px rgba(0,0,0,0.35)',
                 }}
               >
                 Rendez-vous sur le Nil

@@ -46,6 +46,11 @@ export default function Hero() {
           />
         </div>
         <div className="img-overlay-hero" />
+        {/* Dégradé top pour lisibilité du header */}
+        <div
+          className="absolute inset-x-0 top-0 z-10 pointer-events-none"
+          style={{ height: '140px', background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%)' }}
+        />
       </div>
 
       {/* Contenu hero */}
@@ -57,7 +62,7 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="hidden md:flex items-center gap-3 mb-6">
             <div className="animate-hero-line" style={{ width: '32px', height: '1px', background: '#C4902A' }} />
-            <span className="eyebrow animate-hero-eyebrow" style={{ color: 'rgba(250,247,242,0.75)' }}>
+            <span className="eyebrow animate-hero-eyebrow" style={{ color: '#CE8D5C' }}>
               Voyages premium en Égypte
             </span>
           </div>
@@ -87,14 +92,6 @@ export default function Hero() {
             Sophie connaît l&apos;Égypte de l&apos;intérieur depuis plus de dix ans. Nasser y est né.
             Ensemble, ils ont construit quelque chose que les tour-opérateurs ne peuvent pas vendre :
             une relation de confiance avec un pays qui leur appartient un peu.
-          </p>
-
-          {/* Ancre réalité */}
-          <p
-            className="mb-8 text-sm font-medium animate-hero-anchor"
-            style={{ color: 'rgba(250,247,242,0.65)', letterSpacing: '0.03em' }}
-          >
-            Spécialiste de l&apos;Égypte. Chaque voyage pensé sur mesure.
           </p>
 
           {/* CTAs */}
