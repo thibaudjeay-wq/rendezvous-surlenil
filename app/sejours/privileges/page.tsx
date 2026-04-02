@@ -83,6 +83,8 @@ const programmes = [
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour OASIS FLOW SIWA (8-15 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
     urgency: 'Départ : 8 novembre 2026',
+    formUrl: 'https://forms.gle/kNxhNwNTeLr87ht76',
+    pdfUrl: null as string | null,
   },
   {
     code: 'CROQUE & VOGUE',
@@ -108,6 +110,8 @@ const programmes = [
       'Bonjour Sophie, je suis intéressé(e) par le séjour CROQUE & VOGUE (15-26 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
     urgency: 'Départ : 15 novembre 2026',
     featured: true,
+    formUrl: null as string | null,
+    pdfUrl: null as string | null,
   },
   {
     code: 'DÉESSE DU NIL',
@@ -131,6 +135,8 @@ const programmes = [
     ctaMessage:
       'Bonjour Sophie, je suis intéressée par le séjour DÉESSE DU NIL (27 janvier–3 février 2027). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
     urgency: 'Départ : 27 janvier 2027',
+    formUrl: null as string | null,
+    pdfUrl: null as string | null,
   },
 ]
 
@@ -434,14 +440,40 @@ export default async function PrivilegesPage() {
                         </li>
                       ))}
                     </ul>
-                    <p className="text-xs mb-8 flex items-center gap-1.5" style={{ color: '#8A9BAB' }}>
+                    <p className="text-xs mb-6 flex items-center gap-1.5" style={{ color: '#8A9BAB' }}>
                       <Users size={11} aria-hidden="true" />
                       Intervenants : {p.intervenants}
                     </p>
-                    <a href={getWhatsAppUrl(p.ctaMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                      {WHATSAPP_ICON}
-                      Réserver ma place, {p.urgency}
-                    </a>
+                    <div className="flex flex-col gap-3">
+                      {p.formUrl && (
+                        <a
+                          href={p.formUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary inline-flex items-center justify-center gap-2"
+                        >
+                          Réserver ma place →
+                        </a>
+                      )}
+                      {p.pdfUrl && (
+                        <a
+                          href={p.pdfUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-secondary inline-flex items-center justify-center gap-2"
+                          style={{ color: '#0F3D38', borderColor: '#C4902A' }}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                          Télécharger le programme (PDF)
+                        </a>
+                      )}
+                      {!p.formUrl && (
+                        <a href={getWhatsAppUrl(p.ctaMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-primary inline-flex items-center gap-2">
+                          {WHATSAPP_ICON}
+                          Réserver ma place →
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
