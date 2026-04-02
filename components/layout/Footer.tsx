@@ -153,7 +153,7 @@ export default function Footer() {
 
         {/* Contact rapide */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-          <div className="flex flex-wrap gap-6 text-sm" style={{ color: '#5C6E7E' }}>
+          <div className="flex flex-wrap gap-6 text-sm" style={{ color: '#C5D5DF' }}>
             <a href={`mailto:${CONTACT_EMAIL}`} className="footer-contact-link flex items-center gap-2">
               <span>✉</span> {CONTACT_EMAIL}
             </a>
@@ -180,7 +180,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-xs" style={{ color: '#5C6E7E' }}>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-xs" style={{ color: '#A8BBCA' }}>
           <p>© {year} {SITE_NAME}, Tous droits réservés</p>
           <div className="flex gap-6">
             <Link href="/mentions-legales" className="footer-link">
@@ -204,7 +204,7 @@ export default function Footer() {
           transition: border-color 0.2s, color 0.2s;
         }
         .footer-social-btn:hover { border-color: #C4902A; color: #C4902A; }
-        .footer-contact-link { color: #5C6E7E; transition: color 0.2s; }
+        .footer-contact-link { color: #C5D5DF; transition: color 0.2s; }
         .footer-contact-link:hover { color: #FAF7F2; }
         .footer-guide-link {
           color: #C4902A; border-bottom: 1px solid #C4902A;
