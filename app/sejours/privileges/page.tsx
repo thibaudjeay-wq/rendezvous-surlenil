@@ -91,8 +91,8 @@ const programmes = [
     duration: '12 jours / 11 nuits',
     theme: 'Aquarelle & dessin',
     spots: 'Places limitées',
-    image: '/photos/privileges/carnet-aquarelle.jpg',
-    imageAlt: 'Dahabiya sur le Nil entre Assouan et Louxor',
+    image: '/photos/privileges/croque-vogue-dessin.jpg',
+    imageAlt: 'Aquarelle en plein air sur le Nil, séjour Croque & Vogue',
     description:
       "Une croisière en dahabiya entre Assouan et Louxor, pinceau en main. Isabelle Corcket et Robbie vous initient à l'aquarelle en plein air sur les plus beaux sites d'Égypte. Aucune expérience artistique requise.",
     highlights: [
