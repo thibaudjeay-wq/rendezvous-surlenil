@@ -65,29 +65,21 @@ const jsonLd = {
 
 const formules = [
   {
-    name: 'Safara',
+    name: 'Évasion',
     duration: '3 nuits / 4 jours',
     price: 'À partir de 2 400 €',
     priceSuffix: 'pour 2 personnes',
     highlights: ['Assouan → Louxor', 'Mini-croisière intimiste', 'Escales sélectionnées', 'Repas à bord inclus'],
-    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Safara (3 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Évasion (3 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
   },
   {
-    name: 'Pacha',
+    name: 'Immersion',
     duration: '4 ou 5 nuits',
     price: 'À partir de 3 200 €',
     priceSuffix: 'pour 2 personnes',
     highlights: ['Louxor → Assouan', 'Escales incontournables', 'Guide francophone dédié', 'La formule la plus recommandée'],
     featured: true,
-    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Pacha (4 ou 5 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
-  },
-  {
-    name: 'Pacha Aller-Retour',
-    duration: '7 nuits / 8 jours',
-    price: 'À partir de 5 600 €',
-    priceSuffix: 'pour 2 personnes',
-    highlights: ['Louxor → Assouan → Louxor', 'Itinéraire complet', 'Temps pour tout voir', 'Guide francophone dédié'],
-    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Pacha aller-retour (7 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Immersion (4 ou 5 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
   },
   {
     name: 'Smala',
