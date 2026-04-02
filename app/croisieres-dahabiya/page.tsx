@@ -65,29 +65,37 @@ const jsonLd = {
 
 const formules = [
   {
-    name: 'Escapade',
-    duration: '4 nuits / 5 jours',
+    name: 'Safara',
+    duration: '3 nuits / 4 jours',
     price: 'À partir de 2 400 €',
     priceSuffix: 'pour 2 personnes',
-    highlights: ['Louxor → Assouan', 'Petit groupe intimiste', '4 escales majeures', 'Repas à bord inclus'],
-    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la formule Escapade (4 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
+    highlights: ['Assouan → Louxor', 'Mini-croisière intimiste', 'Escales sélectionnées', 'Repas à bord inclus'],
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Safara (3 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
   },
   {
-    name: 'Immersion',
-    duration: '7 nuits / 8 jours',
-    price: 'À partir de 3 800 €',
+    name: 'Pacha',
+    duration: '4 ou 5 nuits',
+    price: 'À partir de 3 200 €',
     priceSuffix: 'pour 2 personnes',
-    highlights: ['Louxor → Assouan', 'Petit groupe intimiste', '8 escales sélectionnées', 'Excursions incluses', 'Guide local francophone'],
+    highlights: ['Louxor → Assouan', 'Escales incontournables', 'Guide francophone dédié', 'La formule la plus recommandée'],
     featured: true,
-    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la formule Immersion (7 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Pacha (4 ou 5 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
   },
   {
-    name: 'Grand Voyage',
-    duration: '12 nuits / 13 jours',
+    name: 'Pacha Aller-Retour',
+    duration: '7 nuits / 8 jours',
+    price: 'À partir de 5 600 €',
+    priceSuffix: 'pour 2 personnes',
+    highlights: ['Louxor → Assouan → Louxor', 'Itinéraire complet', 'Temps pour tout voir', 'Guide francophone dédié'],
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Pacha aller-retour (7 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
+  },
+  {
+    name: 'Smala',
+    duration: 'Sur mesure',
     price: 'Sur devis',
     priceSuffix: 'privatisation complète',
-    highlights: ['Itinéraire sur mesure', 'Bateau privatisé', 'Louxor ↔ Assouan', 'Guide dédié', 'Extensions possibles', 'Flexibilité totale'],
-    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par une croisière longue durée. J\'aimerais en discuter avec vous 🛶'),
+    highlights: ['Bateau entièrement privatisé', 'Itinéraire 100% sur mesure', 'Pour votre groupe uniquement', 'Flexibilité totale'],
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la privatisation d\'une dahabiya (Smala). J\'aimerais en discuter avec vous 🛶'),
   },
 ]
 
@@ -109,11 +117,12 @@ const notIncluded = [
 ]
 
 const itinerary = [
-  { day: 'Jour 1', title: 'Louxor, L\'arrivée', description: 'Accueil à l\'aéroport ou à votre hôtel, transfert organisé. Installation à bord de la dahabiya au lever du soleil. Première navigation douce sur le Nil. Karnak en fin de journée.' },
+  { day: 'Jour 1', title: 'Louxor, L\'arrivée', description: 'Accueil à l\'aéroport ou à votre hôtel, transfert organisé. Installation à bord de la dahabiya. Karnak et le temple d\'Amon en fin de journée.' },
   { day: 'Jour 2', title: 'La rive ouest, Vallée des Rois', description: 'Réveil face au lever du soleil sur la rive ouest. Visite de la Vallée des Rois et du temple de Deir el-Bahari. Retour à bord pour un déjeuner en navigant.' },
-  { day: 'Jour 3', title: 'Esna, Le temple caché', description: 'Navigation matinale. Visite du temple d\'Esna, souvent ignoré des circuits classiques, et l\'un des plus beaux. Baignade possible, pique-nique sur la berge.' },
-  { day: 'Jour 4', title: 'Edfou, Le temple d\'Horus', description: 'Escale à Edfou pour le temple d\'Horus, le mieux conservé d\'Égypte. Traversée en caleche. Soirée sur le pont face au coucher de soleil sur les champs de canne à sucre.' },
-  { day: 'Jour 5', title: 'Kom Ombo & Assouan', description: 'Temple de Kom Ombo au lever du soleil, magie absolue. Arrivée à Assouan en fin d\'après-midi. Visite du marché aux épices. Dîner de fête à bord pour la dernière nuit.' },
+  { day: 'Jour 3', title: 'Edfou, Le temple d\'Horus', description: 'Navigation matinale. Escale à Edfou pour le temple d\'Horus, le mieux conservé d\'Égypte. Nuit à bord, amarrés le long d\'une île.' },
+  { day: 'Jour 4', title: 'Île de Bassaw & Kom Ombo', description: 'Escale sur l\'île de Bassaw. Temple de Kom Ombo au coucher du soleil, magie absolue. Baignade possible. Dîner de fête à bord.' },
+  { day: 'Jour 5', title: 'Assouan & Philae', description: 'Arrivée à Assouan. Visite du temple d\'Isis à Philae. Excursion dans les cataractes du Nil et village nubien.' },
+  { day: 'Jour 6', title: 'Abou Simbel, La grande finale', description: 'Excursion matinale avec chauffeur privé pour les temples d\'Abou Simbel. Fin de la croisière.' },
 ]
 
 const faq = [
@@ -123,7 +132,11 @@ const faq = [
   },
   {
     q: 'Combien de personnes à bord ?',
-    a: 'La dahabiya accueille en général 8 à 12 voyageurs selon les bateaux, un format bien plus intime qu\'un grand paquebot de croisière. Certaines formules permettent la privatisation complète pour votre groupe. Sophie vous précise les options selon vos dates et votre projet.',
+    a: 'Les dahabiyas accueillent en général 10 à 20 voyageurs selon les bateaux. Contrairement aux grands paquebots, vous réservez une cabine — pas le bateau entier. Sophie réserve votre cabine et fournit un guide francophone dédié uniquement à ses clients, même si d\'autres voyageurs sont à bord. Pour un groupe, la privatisation complète est possible (formule Smala).',
+  },
+  {
+    q: 'Où s\'amarrent les dahabiyas ?',
+    a: 'Il n\'y a pas de port sur ce tronçon du Nil. Les dahabiyas s\'amarrent le long des champs entre Louxor et Esna — c\'est l\'un des charmes de cette navigation, loin des quais touristiques bondés.',
   },
   {
     q: 'Peut-on personnaliser l\'itinéraire ?',
@@ -420,7 +433,7 @@ export default async function CroisiereDahabiyaPage() {
               className="text-display-lg title-underline title-underline-center"
               style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
             >
-              Programme type, 5 jours
+              Programme type, 6 jours / 5 nuits
             </h2>
           </div>
 
@@ -457,9 +470,12 @@ export default async function CroisiereDahabiyaPage() {
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 max-w-xl mx-auto">
+            <p className="text-sm italic mb-2" style={{ color: '#8A9BAB' }}>
+              Cet itinéraire est une base — les horaires ne sont pas contractuels car on dépend du temps de navigation et du vent. Tous les temples mentionnés sont visités, mais on ne sait jamais exactement vers quelle heure.
+            </p>
             <p className="text-sm italic" style={{ color: '#8A9BAB' }}>
-              Cet itinéraire est une base, Sophie l&apos;adapte à votre rythme et vos envies.
+              Sophie l&apos;adapte à votre rythme et vos envies. Les visites facultatives (Abou Simbel, cataractes, village nubien) sont modulables selon les jours.
             </p>
           </div>
         </div>
