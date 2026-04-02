@@ -73,10 +73,12 @@ export default function Hero() {
               lineHeight: 1.08,
             }}
           >
-            L&apos;Égypte comme vous
+            L&apos;Égypte comme
             <br />
             <em style={{ fontStyle: 'italic', fontWeight: 400 }}>
-              ne l&apos;avez jamais imaginée.
+              vous ne l&apos;avez
+              <br />
+              jamais imaginée.
             </em>
           </h1>
 
