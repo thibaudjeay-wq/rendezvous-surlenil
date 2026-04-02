@@ -73,10 +73,10 @@ export default function Hero() {
               lineHeight: 1.08,
             }}
           >
-            L&apos;Égypte que vous
+            L&apos;Égypte comme vous
             <br />
             <em style={{ fontStyle: 'italic', fontWeight: 400 }}>
-              n&apos;avez pas encore vue.
+              ne l&apos;avez jamais imaginée.
             </em>
           </h1>
 
@@ -85,9 +85,9 @@ export default function Hero() {
             className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 animate-hero-sub"
             style={{ color: 'rgba(250, 247, 242, 0.85)', maxWidth: '520px', fontWeight: 300 }}
           >
-            Sophie connaît l&apos;Égypte de l&apos;intérieur depuis plus de dix ans. Nasser y est né.
+            Sophie connaît l&apos;Égypte de l&apos;intérieur depuis plus de quatre ans. Nasser y est né.
             Ensemble, ils ont construit quelque chose que les tour-opérateurs ne peuvent pas vendre :
-            une relation de confiance avec un pays qui leur appartient un peu.
+            une relation de confiance profonde avec le pays, nourrie par le temps, les liens et le vécu.
           </p>
 
           {/* CTAs */}
