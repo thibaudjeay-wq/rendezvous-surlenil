@@ -155,7 +155,7 @@ export default function SophiePage() {
               Sophie Godineau
               <br />
               <em style={{ fontStyle: 'italic', fontWeight: 400, color: '#CE8D5C' }}>
-                dix ans au cœur
+                quatre ans au cœur
               </em>
               <br />
               <span style={{ fontWeight: 300 }}>de l&apos;Égypte vraie</span>
@@ -171,7 +171,7 @@ export default function SophiePage() {
 
             <div className="flex flex-wrap gap-10">
               {[
-                { value: '+10 ans', label: 'en Égypte' },
+                { value: '+4 ans', label: 'en Égypte' },
                 { value: '100%', label: 'sur mesure' },
                 { value: 'FR · AR', label: 'bilingue' },
               ].map(({ value, label }) => (

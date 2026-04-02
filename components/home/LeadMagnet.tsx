@@ -73,13 +73,13 @@ export default function LeadMagnet() {
                 lineHeight: 1.2,
               }}
             >
-              L&apos;Égypte par Sophie
+              L&apos;art de voyager en Égypte
               <br />
-              <em style={{ color: '#CE8D5C', fontWeight: 300, fontStyle: 'italic' }}>le guide gratuit</em>
+              <em style={{ color: '#CE8D5C', fontWeight: 300, fontStyle: 'italic' }}>le guide gratuit de Sophie</em>
             </h2>
             <p className="text-sm mb-6 leading-relaxed" style={{ color: '#8A9BAB', maxWidth: '480px' }}>
-              Ce qu&apos;elle dirait à une amie, honnêtement. Des années de vie à Louxor
-              condensées dans un guide de voyage sans langue de bois.
+              Ses coups de cœur, les erreurs à éviter, des suggestions d&apos;itinéraires
+              et ses conseils d&apos;experte. Ce qu&apos;elle dirait à une amie, honnêtement.
             </p>
 
             <ul className="flex flex-col gap-2 mb-8 items-center md:items-start">

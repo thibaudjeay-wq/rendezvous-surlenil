@@ -22,17 +22,19 @@ export default function AboutSophie() {
             >
               Sophie & Nasser
               <br />
-              <em style={{ fontStyle: 'italic', fontWeight: 300 }}>ce que les agences ne peuvent pas vendre</em>
+              <em style={{ fontStyle: 'italic', fontWeight: 300 }}>ce que les agences ne peuvent pas proposer</em>
             </h2>
 
             <p className="leading-relaxed mb-5" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
               Sophie connaît l&apos;Égypte de l&apos;intérieur, elle y revient sans cesse depuis des années,
               et c&apos;est là que tout a commencé. Nasser, son partenaire égyptien, est né sur la rive ouest
-              de Louxor. Il connaît chaque guide, chaque propriétaire de riad, chaque gardien de temple
-              qui mérite qu&apos;on lui serre la main.
+              Est de Louxor. Il connaît chaque guide, chaque propriétaire de riad (il n&apos;y a pas de riad
+              en Égypte) chaque gardien de temple qui mérite qu&apos;on lui serre la main, chaque dahabiya,
+              chaque chauffeur dont le sourire dans le rétroviseur dit, sans un mot, que vous êtes entre
+              de bonnes mains.
             </p>
             <p className="leading-relaxed mb-8" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
-              Ce que vous achetez, ce n&apos;est pas un itinéraire. C&apos;est leur carnet d&apos;adresses,
+              Ce que vous choisissez, ce n&apos;est pas un itinéraire. C&apos;est leur carnet d&apos;adresses,
               et un réseau de confiance construit sur le long terme. Des voyageurs là où les circuits
               classiques ne vont jamais. Pas parce que c&apos;est difficile d&apos;accès. Parce que
               ça ne s&apos;improvise pas sans confiance.
@@ -47,12 +49,11 @@ export default function AboutSophie() {
                 className="text-lg italic leading-relaxed"
                 style={{ fontFamily: 'Cormorant Garamond', color: '#1E6860', fontWeight: 400 }}
               >
-                &ldquo;Ce que vous achetez, ce n&apos;est pas un produit. C&apos;est une relation de confiance
-                avec quelqu&apos;un qui connaît l&apos;Égypte de l&apos;intérieur, et qui sera là
-                si quelque chose change.&rdquo;
+                &ldquo;Ce que vous choisissez, ce n&apos;est pas un produit. C&apos;est l&apos;expérience
+                de deux personnes qui ont l&apos;Égypte dans les mains.&rdquo;
               </p>
               <footer className="mt-3 text-xs font-medium tracking-wide" style={{ color: '#8A9BAB' }}>
-               , Sophie Godineau
+               — Sophie
               </footer>
             </blockquote>
 
@@ -102,7 +103,7 @@ export default function AboutSophie() {
                     className="text-2xl font-light"
                     style={{ fontFamily: 'Cormorant Garamond', color: '#C4902A' }}
                   >
-                    +10 ans
+                    +4 ans
                   </p>
                   <p className="text-xs" style={{ color: '#8A9BAB' }}>en Égypte</p>
                 </div>

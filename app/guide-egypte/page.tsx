@@ -10,12 +10,11 @@ export const metadata: Metadata = {
 }
 
 const benefits = [
-  "Les sites que Sophie fait visiter, et ceux qu'elle évite",
-  "Quelle saison choisir selon ce que vous cherchez vraiment",
-  "Dahabiya, séjour ou sur mesure : comment choisir sans se tromper",
-  "Ce que les agences classiques ne vous diront jamais",
-  "Les adresses de confiance de la rive ouest à Siwa",
-  "Comment préparer votre voyage sans stress, de A à Z",
+  "Mes coups de cœur : les sites qui valent vraiment le détour",
+  "Les erreurs à éviter que personne ne vous dit avant de partir",
+  "Des suggestions d'itinéraires selon vos envies et votre rythme",
+  "Dahabiya ou circuit classique : comment choisir sans se tromper",
+  "Mes conseils d'experte sur les saisons, les adresses, les guides",
 ]
 
 export default function GuidePage() {
@@ -43,12 +42,12 @@ export default function GuidePage() {
                 className="text-display-xl mb-6"
                 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 300 }}
               >
-                Le Guide Égypte
+                L&apos;art de voyager
                 <br />
-                <em style={{ fontStyle: 'italic', fontWeight: 400, color: '#CE8D5C' }}>de Sophie</em>
+                <em style={{ fontStyle: 'italic', fontWeight: 400, color: '#CE8D5C' }}>en Égypte</em>
               </h1>
               <p className="text-lg mb-8" style={{ color: 'rgba(250,247,242,0.75)', fontWeight: 300 }}>
-                Tout ce qu&apos;il faut savoir avant de partir en Égypte, par quelqu&apos;un qui y vit depuis plus de dix ans.
+                Tout ce qu&apos;il faut savoir avant de partir en Égypte, par quelqu&apos;un qui y vit depuis plus de quatre ans.
               </p>
 
               <ul className="flex flex-col gap-3 mb-10">
@@ -73,8 +72,8 @@ export default function GuidePage() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-medium" style={{ color: '#FAF7F2' }}>Sophie Godineau</p>
-                  <p className="text-xs" style={{ color: '#8A9BAB' }}>Co-fondatrice, guide francophone en Égypte</p>
+                  <p className="text-sm font-medium" style={{ color: '#FAF7F2' }}>Sophie</p>
+                  <p className="text-xs" style={{ color: '#8A9BAB' }}>Co-fondatrice, organisatrice francophone</p>
                 </div>
               </div>
             </div>
