@@ -82,6 +82,14 @@ const formules = [
     cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Immersion (4 ou 5 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
   },
   {
+    name: 'Carte Blanche',
+    duration: '7 nuits / 8 jours',
+    price: 'À partir de 5 600 €',
+    priceSuffix: 'pour 2 personnes',
+    highlights: ['Louxor → Assouan → Louxor', 'Itinéraire complet', 'Temps pour tout voir', 'Guide francophone dédié'],
+    cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Carte Blanche (7 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
+  },
+  {
     name: 'Smala',
     duration: 'Sur mesure',
     price: 'Sur devis',
