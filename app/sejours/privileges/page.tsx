@@ -70,11 +70,11 @@ const programmes = [
     image: '/photos/privileges/siwa-lac-turquoise.jpg',
     imageAlt: "Oasis de Siwa au coucher du soleil, Égypte",
     description:
-      "L'oasis au bout du monde. Yoga du matin sur les dunes, baignades dans les sources naturelles, randonnées à dos de dromadaire, dîners sous les étoiles. Louise vous accompagne pour les séances de yoga.",
+      "L'oasis au bout du monde. Yoga du matin sur les dunes, baignades dans les lacs salés, randonnées à dos de dromadaire, dîners sous les étoiles. Louise vous accompagne pour les séances de yoga.",
     highlights: [
-      'Siwa, oasis isolée à 500 km du Caire',
+      'Siwa, oasis isolée à 750 km du Caire',
       'Séances de yoga quotidiennes avec Louise',
-      'Sources naturelles, baignades, dunes',
+      'Baignades dans les lacs salés, dunes',
       'Nuits en lodge traditionnel',
       'Sophie présente sur toute la durée',
       'Transferts et repas inclus',
@@ -99,7 +99,7 @@ const programmes = [
       'Croisière en dahabiya',
       'Ateliers aquarelle quotidiens avec Isabelle Corcket & Robbie',
       'Temples peints depuis le bateau ou sur site',
-      'Assouan, Kom Ombo, Edfou, Louxor',
+      'Assouan, Kom Ombo, Esna, Louxor',
       'Sophie présente sur toute la durée',
       'Repas à bord, hébergement en cabine privée',
     ],
@@ -119,16 +119,15 @@ const programmes = [
     image: '/photos/voyageurs/trio-femmes-nil.jpg',
     imageAlt: 'Temple de Louxor au lever du soleil',
     description:
-      "Un voyage entre femmes, accompagné par Sophie. Louxor, temples, rencontres, bien-être. Un séjour pensé pour se ressourcer en sororité, dans la puissance des sites les plus sacrés d'Égypte.",
+      "Un voyage entre femmes, convivial et en toute sécurité. Louxor, temples, rencontres. Un séjour pensé pour se reconnecter à soi-même, dans la puissance des sites les plus sacrés d'Égypte.",
     highlights: [
       'Louxor & temples, sites féminins sacrés',
-      'Sophie Godineau accompagnatrice',
-      'Logement à La Thébaïde',
       'Temps libres, échanges, bien-être',
+      'Moments pour se reconnecter à soi-même',
       'Montgolfière au lever du soleil',
       'Séjour exclusivement féminin',
     ],
-    intervenants: 'Sophie Godineau',
+    intervenants: 'Sophie',
     ctaMessage:
       'Bonjour Sophie, je suis intéressée par le séjour DÉESSE DU NIL (27 janvier–3 février 2027). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
     urgency: 'Départ : 27 janvier 2027',
@@ -142,7 +141,7 @@ const faq = [
   },
   {
     q: 'Comment réserver ma place ?',
-    a: 'Écrivez à Sophie par WhatsApp ou email avec le nom du programme. Elle vous envoie le programme détaillé, le tarif et les modalités de réservation. Les places étant limitées, le dépôt d\'acompte confirme votre inscription.',
+    a: 'Remplissez le formulaire de réservation (lien ci-dessous) ou écrivez à Sophie directement. Elle vous envoie le programme détaillé, le tarif et les modalités sous 24h. Les places étant limitées, le dépôt d\'acompte confirme votre inscription.',
   },
   {
     q: 'Faut-il être expérimenté(e) en yoga ou en aquarelle ?',
@@ -203,7 +202,7 @@ export default async function PrivilegesPage() {
             <div className="flex items-center gap-3 mb-5">
               <div style={{ width: '24px', height: '1px', background: '#C4902A' }} />
               <Users size={14} style={{ color: '#C4902A' }} aria-hidden="true" />
-              <p className="eyebrow" style={{ color: '#CE8D5C' }}>Séjours en petit groupe · Places limitées</p>
+              <p className="eyebrow" style={{ color: 'rgba(250,247,242,0.9)' }}>Séjours en petit groupe · Places limitées</p>
             </div>
             <h1
               className="text-display-xl mb-6"
@@ -497,17 +496,21 @@ export default async function PrivilegesPage() {
             <em style={{ fontStyle: 'italic', color: '#CE8D5C' }}>avant qu&apos;elle parte</em>
           </h2>
           <p className="mb-10 text-sm leading-relaxed" style={{ color: '#8A9BAB' }}>
-            Écrivez à Sophie, elle vous envoie le programme détaillé, le tarif et les modalités
-            de réservation sous 24h.
+            Écrivez à Sophie — elle vous envoie le programme détaillé, le tarif et les modalités de réservation sous 24h.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            <a
+              href="https://forms.gle/kNxhNwNTeLr87ht76"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Formulaire de réservation →
+            </a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
               {WHATSAPP_ICON}
               Écrire à Sophie
             </a>
-            <Link href="/sejours" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
-              Voir tous nos séjours
-            </Link>
           </div>
         </div>
       </section>

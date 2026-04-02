@@ -43,6 +43,7 @@ const sejours = [
       'Immersion totale à Louxor. La Thébaïde comme point de chute, Karnak au crépuscule, montgolfière au lever du soleil sur la Vallée des Rois. Une excursion à Dendérah ou Esna vient compléter ce tour de force archéologique.',
     highlights: [
       '7 nuits à La Thébaïde (duplex de Sophie & Nasser)',
+      'Visites : sites essentiels de la rive est et de la rive ouest',
       'Guide francophone dédié sur tous les sites',
       'Montgolfière au lever du soleil',
       'Excursion Dendérah ou Esna',
@@ -53,19 +54,22 @@ const sejours = [
   },
   {
     code: 'YALLA',
-    title: 'Le voyage de Pharaon',
+    title: 'La Haute-Égypte dans toute sa splendeur.',
     duration: '7 jours / 6 nuits',
     badge: 'Le plus complet',
     image: '/photos/dahabiya/salon-coucher.jpg',
     imageAlt: 'Dahabiya sur le Nil au coucher du soleil',
     description:
-      "Le grand voyage. 2 nuits à La Thébaïde pour ancrer l'expérience à Louxor, puis 4 nuits à bord d'une dahabiya de Louxor à Assouan. Abou Simbel, montgolfière, guide dédié, l'Égypte dans toute sa splendeur.",
+      "2 nuits à La Thébaïde pour ancrer l'expérience à Louxor, puis 4 nuits à bord d'une dahabiya de Louxor à Assouan. Abou Simbel, montgolfière, guide dédié. Les entrées des sites sont incluses les jours de croisière. Les déjeuners et dîners les jours à La Thébaïde ne sont pas inclus.",
     highlights: [
       '2 nuits à La Thébaïde',
-      '4 nuits en dahabiya (Louxor–Assouan)',
+      '4 nuits en dahabiya (Louxor → Assouan)',
+      'Visite de tous les sites majeurs de la vallée du Nil',
+      'Escales : temples de Haute-Égypte',
       'Excursion Abou Simbel incluse',
       'Montgolfière au lever du soleil',
       'Guide francophone dédié',
+      'Entrées des sites incluses les jours de croisière',
     ],
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour YALLA, Le voyage de Pharaon (7j/6n). Pouvez-vous m\'en dire plus ? 🌿',
@@ -79,13 +83,14 @@ const sejours = [
     image: '/photos/dahabiya/exterieur-coucher.jpg',
     imageAlt: 'Vue sur le Nil depuis une dahabiya',
     description:
-      "La croisière dahabiya intégrale, d'Assouan à Louxor. Temples au fil de l'eau, couchers de soleil sur le fleuve, Abou Simbel en option. Deux durées possibles selon votre rythme.",
+      "La croisière dahabiya intégrale, de Louxor à Assouan. Temples au fil de l'eau, couchers de soleil sur le fleuve, Abou Simbel inclus. Tous les repas se prennent à bord, inclus. Deux durées possibles selon votre rythme.",
     highlights: [
       'Dahabiya sur le Nil (5 ou 7 nuits)',
       'Guide francophone à bord',
-      'Abou Simbel en option',
-      'Dîners à bord, petit-déjeuner inclus',
-      'Escales aux temples de Haute-Égypte',
+      'Excursion Abou Simbel incluse',
+      'Tous les repas à bord inclus',
+      'Escales : temples de Haute-Égypte',
+      'Entrées des sites incluses',
     ],
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour PACHA, Nil part ailleurs. Pouvez-vous m\'en dire plus ? 🌿',
@@ -98,11 +103,13 @@ const sejours = [
     image: '/photos/dahabiya/table-nil.jpg',
     imageAlt: 'Felouque sur le Nil à Assouan',
     description:
-      "3 nuits à bord d'une dahabiya entre Assouan et Louxor, 4 sessions avec guide francophone, excursion Abou Simbel. L'entrée en matière idéale pour ceux qui veulent goûter la croisière.",
+      "L'essentiel du Nil, concentré en trois nuits d'exception. 3 nuits à bord d'une dahabiya entre Assouan et Louxor, guide francophone dédié, excursion Abou Simbel incluse.",
     highlights: [
       '3 nuits en dahabiya Assouan–Louxor',
-      '4 sessions avec guide francophone',
+      'Guide francophone dédié',
       'Excursion Abou Simbel incluse',
+      'Escales : temples de Haute-Égypte',
+      'Entrées des sites incluses',
       'Transferts inclus',
     ],
     ctaMessage:
@@ -113,8 +120,8 @@ const sejours = [
     title: "L'évasion privée",
     duration: 'À partir de 5 jours / 4 nuits',
     badge: 'Pour groupes & familles',
-    image: '/photos/voyageurs/groupe-pyramides.jpg',
-    imageAlt: 'Groupe en bateau sur le Nil, Égypte',
+    image: '/photos/voyageurs/duo-arche-coucher.jpg',
+    imageAlt: 'Croisière privée sur le Nil au coucher du soleil',
     description:
       "La dahabiya privatisée entièrement pour votre groupe, famille, amis, collègues. Sophie organise chaque détail sur mesure : votre programme, votre rythme, vos envies. Rien n'est imposé.",
     highlights: [
@@ -122,6 +129,7 @@ const sejours = [
       'Guide francophone dédié',
       'Programme 100 % sur mesure',
       'Durée et itinéraire flexibles',
+      'Entrées des sites incluses',
       'Organisation complète par Sophie',
     ],
     ctaMessage:
@@ -149,12 +157,12 @@ const sejours = [
 ]
 
 const included = [
-  'Hébergement sélectionné par Sophie (La Thébaïde ou dahabiya)',
   'Guide francophone dédié sur chaque séjour',
   'Transferts aéroport et inter-sites',
   'Accompagnement WhatsApp de Sophie avant et pendant',
-  'Petit-déjeuner chaque matin',
-  'Adaptation à vos envies et votre rythme',
+  'Petit-déjeuner inclus pour les séjours à La Thébaïde',
+  'Tous les repas inclus les jours de croisière en dahabiya',
+  'Entrées des sites incluses les jours de croisière',
 ]
 
 const faq = [
@@ -168,11 +176,11 @@ const faq = [
   },
   {
     q: 'Ces séjours conviennent-ils aux familles avec enfants ?',
-    a: 'Absolument. CASBAH, HABIBI et SMALA sont particulièrement adaptés. Sophie ajuste le rythme et propose des activités pensées pour les enfants.',
+    a: 'Absolument. CASBAH, PACHA et SMALA sont particulièrement adaptés. Les enfants ne s\'ennuient jamais — curieux de nature, ils se prennent pour Indiana Jones dès le premier temple.',
   },
   {
     q: 'Quelle est la meilleure période ?',
-    a: "D'octobre à avril pour des températures idéales (20–28°C). Novembre à février est la haute saison, réservez tôt. HABIBI est spécifiquement conçu pour profiter des avantages de l'été (juin–août).",
+    a: "D'octobre à avril pour les meilleures conditions. En octobre, comptez environ 35°C, la chaleur s'adoucit progressivement. Janvier-février sont les mois les plus doux (25°C environ). HABIBI est spécifiquement conçu pour profiter des avantages de l'été (juin–août).",
   },
   {
     q: "Les vols sont-ils inclus ?",
@@ -218,11 +226,11 @@ export default async function SignaturePage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
-          style={{ minHeight: '70vh' }}
+          className="relative z-10 flex flex-col justify-between px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
+          style={{ minHeight: '70vh', paddingTop: 'clamp(88px, 12vw, 120px)' }}
         >
           <nav
-            className="absolute top-28 left-6 md:left-16 flex items-center gap-2 text-xs"
+            className="flex items-center gap-2 text-xs mb-auto"
             style={{ color: 'rgba(255,255,255,0.6)' }}
             aria-label="Fil d'Ariane"
           >
