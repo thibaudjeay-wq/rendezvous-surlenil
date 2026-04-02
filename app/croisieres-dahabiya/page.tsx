@@ -132,19 +132,15 @@ const faq = [
   },
   {
     q: 'Combien de personnes à bord ?',
-    a: 'Les dahabiyas accueillent en général 10 à 20 voyageurs selon les bateaux. Contrairement aux grands paquebots, vous réservez une cabine — pas le bateau entier. Sophie réserve votre cabine et fournit un guide francophone dédié uniquement à ses clients, même si d\'autres voyageurs sont à bord. Pour un groupe, la privatisation complète est possible (formule Smala).',
+    a: 'Les dahabiyas accueillent en général 8 à 12 cabines, soit jusqu\'à 24 voyageurs. Contrairement aux grands paquebots, vous réservez une cabine — pas le bateau entier. Sophie réserve votre cabine et fournit un guide francophone dédié uniquement à ses clients, même si d\'autres voyageurs sont à bord. Pour un groupe, la privatisation complète est possible (formule Smala).',
   },
   {
     q: 'Où s\'amarrent les dahabiyas ?',
     a: 'Il n\'y a pas de port sur ce tronçon du Nil. Les dahabiyas s\'amarrent le long des champs entre Louxor et Esna — c\'est l\'un des charmes de cette navigation, loin des quais touristiques bondés.',
   },
   {
-    q: 'Peut-on personnaliser l\'itinéraire ?',
-    a: 'Absolument. Les formules présentées sont des bases. Sophie peut adapter les escales, le rythme, les activités et les demi-journées libres selon vos envies. C\'est le propre du voyage sur mesure.',
-  },
-  {
     q: 'La croisière est-elle adaptée aux familles avec enfants ?',
-    a: 'Oui, à partir de 6-7 ans environ. La dahabiya est un cadre sécurisé et vivant, qui émerveille les enfants autant que les adultes. Sophie conseille des formules courtes (4 nuits) pour les plus jeunes.',
+    a: 'À partir de n\'importe quel âge. C\'est justement idéal avec des enfants : pas de route à faire, cadre sécurisant, les enfants peuvent se reposer pendant les temps de navigation, et on ne change pas d\'hébergement tous les soirs.',
   },
   {
     q: 'Quelle est la meilleure période pour naviguer ?',
