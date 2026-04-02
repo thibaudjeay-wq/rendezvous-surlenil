@@ -103,9 +103,9 @@ export default function AboutSophie() {
                     className="text-2xl font-light"
                     style={{ fontFamily: 'Cormorant Garamond', color: '#C4902A' }}
                   >
-                    +4 ans
+                    Terrain
                   </p>
-                  <p className="text-xs" style={{ color: '#8A9BAB' }}>en Égypte</p>
+                  <p className="text-xs" style={{ color: '#8A9BAB' }}>connaissance intime</p>
                 </div>
                 <div style={{ width: '30px', height: '1px', background: '#E8D5B7' }} />
                 <div>

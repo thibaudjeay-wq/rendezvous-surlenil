@@ -47,7 +47,7 @@ export default function GuidePage() {
                 <em style={{ fontStyle: 'italic', fontWeight: 400, color: '#CE8D5C' }}>en Égypte</em>
               </h1>
               <p className="text-lg mb-8" style={{ color: 'rgba(250,247,242,0.75)', fontWeight: 300 }}>
-                Tout ce qu&apos;il faut savoir avant de partir en Égypte, par quelqu&apos;un qui y vit depuis plus de quatre ans.
+                Tout ce qu&apos;il faut savoir avant de partir en Égypte, par quelqu&apos;un qui en a une connaissance intime du terrain.
               </p>
 
               <ul className="flex flex-col gap-3 mb-10">
@@ -72,7 +72,7 @@ export default function GuidePage() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-medium" style={{ color: '#FAF7F2' }}>Sophie</p>
+                  <p className="text-sm font-medium" style={{ color: '#FAF7F2' }}>Sophie Godineau</p>
                   <p className="text-xs" style={{ color: '#8A9BAB' }}>Co-fondatrice, organisatrice francophone</p>
                 </div>
               </div>

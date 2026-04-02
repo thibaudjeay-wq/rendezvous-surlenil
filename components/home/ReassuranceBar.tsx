@@ -1,7 +1,7 @@
 import { MapPin, Heart, Star, Clock, Users } from 'lucide-react'
 
 const items = [
-  { icon: MapPin,  text: 'Résidente à Louxor depuis +4 ans' },
+  { icon: MapPin,  text: 'Résidente à Louxor, connaissance intime du terrain' },
   { icon: Heart,   text: 'Aucun groupe imposé' },
   { icon: Star,    text: 'Dahabiya — à la cabine ou privatisée' },
   { icon: Clock,   text: 'Réponse sous 24h' },

@@ -87,7 +87,7 @@ export default function Hero() {
             className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 animate-hero-sub"
             style={{ color: 'rgba(250, 247, 242, 0.85)', maxWidth: '520px', fontWeight: 300 }}
           >
-            Sophie connaît l&apos;Égypte de l&apos;intérieur depuis plus de quatre ans. Nasser y est né.
+            Sophie Godineau a une connaissance intime du terrain égyptien. Nasser y est né.
             Ensemble, ils ont construit quelque chose que les tour-opérateurs ne peuvent pas vendre :
             une relation de confiance profonde avec le pays, nourrie par le temps, les liens et le vécu.
           </p>

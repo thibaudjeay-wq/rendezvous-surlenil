@@ -60,7 +60,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm leading-relaxed mb-6" style={{ color: '#8A9BAB' }}>
-              Des expériences authentiques et haut de gamme en Égypte, imaginées et accompagnées par Sophie depuis Louxor.
+              Des expériences authentiques et haut de gamme en Égypte, imaginées et accompagnées par Sophie Godineau depuis Louxor.
             </p>
             {/* Réseaux */}
             <div className="flex gap-3">
