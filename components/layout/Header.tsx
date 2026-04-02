@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import { NAV_LINKS, EXPERIENCES_SUBMENU, WHATSAPP_URL } from '@/lib/constants'
+import { NAV_LINKS, EXPERIENCES_SUBMENU } from '@/lib/constants'
+import ContactButton from '@/components/ui/ContactButton'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -149,15 +150,11 @@ export default function Header() {
 
           {/* CTA desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <ContactButton
+              label="Parlons de votre voyage →"
               className="btn btn-primary text-xs"
               style={{ paddingTop: '10px', paddingBottom: '10px' }}
-            >
-              Parlons de votre voyage →
-            </a>
+            />
           </div>
 
           {/* Hamburger mobile */}
@@ -247,22 +244,10 @@ export default function Header() {
 
           {/* CTAs mobiles */}
           <div className="p-6 flex flex-col gap-3 border-t border-[#E8D5B7]">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <ContactButton
+              label="Parlons de votre voyage →"
               className="btn btn-primary text-center justify-center w-full"
-            >
-              Parlons de votre voyage →
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary text-center justify-center w-full"
-            >
-              Écrire sur WhatsApp
-            </a>
+            />
           </div>
         </div>
       </div>

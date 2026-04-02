@@ -3,11 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getWhatsAppUrl } from '@/lib/constants'
-
-const HERO_WHATSAPP = getWhatsAppUrl(
-  "Bonjour Sophie, j'ai découvert Rendez-vous sur le Nil et je souhaite échanger avec vous sur un projet de voyage en Égypte. Pouvez-vous me dire quand vous êtes disponible pour un appel ?"
-)
+import ContactButton from '@/components/ui/ContactButton'
 
 export default function Hero() {
   const parallaxRef = useRef<HTMLDivElement>(null)
@@ -96,15 +92,11 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-4 animate-hero-ctas">
-            <a
-              href={HERO_WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
+            <ContactButton
+              label="Écrire à Sophie →"
+              whatsappMessage="Bonjour Sophie, j'ai découvert Rendez-vous sur le Nil et je souhaite échanger avec vous sur un projet de voyage en Égypte. Pouvez-vous me dire quand vous êtes disponible pour un appel ?"
               className="btn btn-primary"
-              title="Écrire à Sophie Godineau, travel planner Égypte francophone"
-            >
-              Écrire à Sophie →
-            </a>
+            />
             <Link
               href="/croisieres-dahabiya"
               className="btn btn-secondary"
