@@ -155,7 +155,7 @@ export default function LaThebaidePage() {
 
         {/* Breadcrumb */}
         <nav
-          className="absolute top-28 left-6 md:left-16 flex items-center gap-2 text-xs z-10"
+          className="absolute top-40 left-6 md:left-16 flex items-center gap-2 text-xs z-10"
           style={{ color: 'rgba(255,255,255,0.55)' }}
           aria-label="Fil d'Ariane"
         >

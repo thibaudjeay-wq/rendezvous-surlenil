@@ -204,11 +204,11 @@ export default async function CroisiereDahabiyaPage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
-          style={{ minHeight: '85vh' }}
+          className="relative z-10 flex flex-col justify-between px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
+          style={{ minHeight: '85vh', paddingTop: 'clamp(130px, 14vw, 160px)' }}
         >
           {/* Breadcrumb */}
-          <nav className="absolute top-28 left-6 md:left-16 flex items-center gap-2 text-xs" style={{ color: 'rgba(255,255,255,0.6)' }} aria-label="Fil d'Ariane">
+          <nav className="flex items-center gap-2 text-xs mb-auto" style={{ color: 'rgba(255,255,255,0.6)' }} aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
             <span>/</span>
             <span style={{ color: 'rgba(255,255,255,0.9)' }}>Croisières Dahabiya</span>

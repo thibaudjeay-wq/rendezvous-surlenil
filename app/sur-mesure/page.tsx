@@ -90,11 +90,11 @@ export default function SurMesurePage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
-          style={{ minHeight: '80vh' }}
+          className="relative z-10 flex flex-col justify-between px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
+          style={{ minHeight: '80vh', paddingTop: 'clamp(130px, 14vw, 160px)' }}
         >
           <nav
-            className="absolute top-28 left-6 md:left-16 flex items-center gap-2 text-xs z-10"
+            className="flex items-center gap-2 text-xs mb-auto"
             style={{ color: 'rgba(255,255,255,0.55)' }}
             aria-label="Fil d'Ariane"
           >

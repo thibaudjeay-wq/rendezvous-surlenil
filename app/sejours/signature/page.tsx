@@ -227,7 +227,7 @@ export default async function SignaturePage() {
 
         <div
           className="relative z-10 flex flex-col justify-between px-6 md:px-16 pb-10 md:pb-28 max-w-[1200px] mx-auto"
-          style={{ minHeight: '70vh', paddingTop: 'clamp(88px, 12vw, 120px)' }}
+          style={{ minHeight: '70vh', paddingTop: 'clamp(130px, 14vw, 160px)' }}
         >
           <nav
             className="flex items-center gap-2 text-xs mb-auto"
