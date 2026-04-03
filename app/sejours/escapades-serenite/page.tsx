@@ -77,8 +77,10 @@ const destinations = [
     pricingOptions: [
       { label: '2 jours', price: '190 €' },
       { label: '3 jours', price: '290 €' },
+      { label: '3 jours + oasis de Bahariya', price: '290 €' },
+      { label: '3 jours + Djara Cave', price: '330 €' },
     ],
-    pricingNote: 'Combinaisons, nous consulter',
+    pricingNote: 'Repas en sus',
     image: '/photos/escapades/cuisine-feu-desert-blanc.jpg',
     imageAlt: 'Cuisine au feu dans le désert blanc, Égypte, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité dans le désert occidental. Pouvez-vous me donner plus d\'informations ? 🌿',
