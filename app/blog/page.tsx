@@ -99,7 +99,7 @@ const staticPosts: SanityPost[] = [
 // Palette d'images par index
 const fallbackImages = [
   '/photos/blog/felucques-assouan.png',
-  '/photos/escapades/cuisine-feu-desert-blanc.jpg',
+  '/photos/blog/desert-blanc-formations.jpg',
   '/photos/privileges/siwa-lac-turquoise.jpg',
   '/photos/dahabiya/salon-coucher.jpg',
   '/photos/sophie/sophie-nasser-duo.jpg',
