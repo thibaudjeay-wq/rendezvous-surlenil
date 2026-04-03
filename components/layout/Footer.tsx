@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { FOOTER_LINKS, WHATSAPP_URL, CONTACT_EMAIL, SITE_NAME } from '@/lib/constants'
+import NewsletterInline from '@/components/ui/NewsletterInline'
 
 function InstagramIcon() {
   return (
@@ -62,6 +63,17 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-6" style={{ color: '#8A9BAB' }}>
               Des expériences authentiques et haut de gamme en Égypte, imaginées et accompagnées par Sophie Godineau depuis Louxor.
             </p>
+            {/* Newsletter */}
+            <div className="mb-6">
+              <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-3" style={{ color: '#CE8D5C' }}>
+                Carnets & inspirations
+              </p>
+              <p className="text-xs mb-3" style={{ color: '#8A9BAB' }}>
+                Les articles de Sophie, en avant-première.
+              </p>
+              <NewsletterInline variant="dark" />
+            </div>
+
             {/* Réseaux */}
             <div className="flex gap-3">
               <a

@@ -8,6 +8,7 @@ import { sanityClient } from '@/lib/sanity/client'
 import { postBySlugQuery, postsQuery } from '@/lib/sanity/queries'
 import { urlFor } from '@/lib/sanity/image'
 import { getWhatsAppUrl } from '@/lib/constants'
+import NewsletterInline from '@/components/ui/NewsletterInline'
 
 export const revalidate = 3600
 
@@ -674,6 +675,20 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   </div>
                 </div>
               )}
+
+              {/* Newsletter */}
+              <div
+                className="mt-8 p-6 rounded-sm"
+                style={{ background: '#FDF8F0', border: '1px solid #E8D5B7' }}
+              >
+                <p className="text-xs font-semibold tracking-wider uppercase mb-1" style={{ color: '#C4902A' }}>
+                  Carnets & inspirations
+                </p>
+                <p className="text-sm mb-4" style={{ color: '#5C6E7E' }}>
+                  Recevoir les prochains articles de Sophie, en avant-première.
+                </p>
+                <NewsletterInline variant="light" />
+              </div>
 
               {/* Retour blog */}
               <div className="mt-10 pt-6" style={{ borderTop: '1px solid #E8D5B7' }}>
