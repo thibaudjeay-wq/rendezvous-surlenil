@@ -131,7 +131,7 @@ const faq = [
     a: 'La dahabiya est un voilier traditionnel égyptien à fond plat, utilisé depuis le XIXe siècle par les explorateurs et voyageurs fortunés. Aujourd\'hui entièrement rénové, il offre tout le confort d\'un boutique hotel flottant, cabines climatisées, repas gastronomiques, salon panoramique et pont terrasse.',
   },
   {
-    q: 'Combien de personnes à bord ?',
+    q: 'Partagez-vous le bateau avec d\'autres voyageurs ?',
     a: 'Les dahabiyas accueillent en général 8 à 12 cabines, soit jusqu\'à 24 voyageurs. Contrairement aux grands paquebots, vous réservez une cabine — pas le bateau entier. Sophie réserve votre cabine et fournit un guide francophone dédié uniquement à ses clients, même si d\'autres voyageurs sont à bord. Pour un groupe, la privatisation complète est possible (formule Smala).',
   },
   {
