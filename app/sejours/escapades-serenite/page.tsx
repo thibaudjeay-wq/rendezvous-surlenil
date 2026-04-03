@@ -92,8 +92,8 @@ const destinations = [
     accroche:
       'Nulle part ailleurs au monde on ne trouve une telle concentration de chefs-d\'œuvre antiques sur un si petit territoire. La Vallée des Rois et ses tombeaux aux couleurs intactes, les temples de Karnak et Louxor illuminés le soir, les colosses de Memnon qui veillent sur la plaine.',
     options: [
-      { label: 'Rive Est : temples de Karnak + temple de Louxor' },
-      { label: 'Rive Ouest : Vallée des Rois, colosses de Memnon, temple d\'Hatchepsout' },
+      { label: 'Rive Est : temples de Karnak, temple de Louxor, musée archéologique, musée de la momification' },
+      { label: 'Rive Ouest : Vallée des Rois, colosses de Memnon, temple d\'Hatchepsout, temple de Medinet Habu, vallée des artisans, vallée des nobles' },
       { label: 'Temple de Medinet Habu, vallée des artisans, vallée des nobles' },
       { label: 'Vol en montgolfière, 100 € par personne (option)' },
     ],
