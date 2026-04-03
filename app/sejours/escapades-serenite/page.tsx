@@ -62,7 +62,7 @@ const destinations = [
       { label: '4 jours', price: '400 €' },
       { label: '5 jours', price: '490 €' },
     ],
-    pricingNote: 'Combinaisons avec Bahariya ou grotte de Djara, nous consulter',
+    pricingNote: 'Tickets d\'entrée et repas en sus',
     image: '/photos/privileges/siwa-lac-turquoise.jpg',
     imageAlt: 'Lac turquoise de Siwa, Égypte, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Siwa. Pouvez-vous me donner plus d\'informations ? 🌿',
