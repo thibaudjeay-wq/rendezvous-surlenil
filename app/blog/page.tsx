@@ -99,7 +99,7 @@ const staticPosts: SanityPost[] = [
 // Palette d'images par index
 const fallbackImages = [
   '/photos/blog/felucques-assouan.png',
-  '/photos/signature/karnak-colonnes.jpg',
+  '/photos/escapades/cuisine-feu-desert-blanc.jpg',
   '/photos/privileges/siwa-lac-turquoise.jpg',
   '/photos/dahabiya/salon-coucher.jpg',
   '/photos/sophie/sophie-nasser-duo.jpg',
@@ -161,7 +161,7 @@ export default async function BlogPage() {
           </h1>
           <p className="max-w-xl mx-auto text-lg" style={{ color: 'rgba(250,247,242,0.72)', fontWeight: 300, lineHeight: 1.7 }}>
             Récits de voyage, portraits de lieux, conseils pratiques, les carnets d&apos;une Française
-            qui connaît l&apos;Égypte de l&apos;intérieur.
+            qui connaît l&apos;Égypte de l&apos;intérieur. Depuis 2021.
           </p>
 
           {/* Catégories dans le hero si Sanity connecté */}
