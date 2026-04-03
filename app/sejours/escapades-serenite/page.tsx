@@ -22,14 +22,14 @@ const destinations = [
     name: 'Le Caire',
     tagline: 'Pyramides, sphinx et trésors millénaires.',
     accroche:
-      'Le Caire est une ville qui déborde, de bruit, de vie, d\'histoire. Avec le bon guide à vos côtés, elle devient fascinante plutôt qu\'intimidante. Pyramides de Gizeh et Sphinx au lever du soleil, Grand Egyptian Museum et ses trésors de Toutânkhamon, vieux Caire copte, bazars de Khan el-Khalili, Saqqarah et ses pyramides à degrés.',
+      'Le Caire est une ville qui déborde, de bruit, de vie, d\'histoire. Avec le bon guide à vos côtés, elle devient fascinante plutôt qu\'intimidante. Pyramides de Gizeh et Sphinx au lever du soleil, le Grand Egyptian Museum (GEM) et ses trésors de Toutânkhamon, vieux Caire copte, bazars de Khan el-Khalili, Saqqarah et sa pyramide à degrés.',
     options: [
-      { label: 'Pyramides, Sphinx & Grand Egyptian Museum' },
+      { label: 'Pyramides, Sphinx & le Grand Egyptian Museum (GEM)' },
       { label: 'Le vieux Caire & bazar Khan el-Khalili' },
-      { label: 'Saqqarah & Dahshur' },
+      { label: 'Saqqarah (pyramide à degrés) & Dahshur' },
     ],
     pricing: 'À partir de 60 € par personne / jour',
-    pricingNote: 'Tickets d\'entrée en sus',
+    pricingNote: 'Tickets d\'entrée et repas en sus',
     image: '/photos/signature/marche-lanternes.jpg',
     imageAlt: 'Boutique de lanternes dorées au Caire, Khan el-Khalili, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité au Caire. Pouvez-vous me donner plus d\'informations ? 🌿',
@@ -166,11 +166,11 @@ export default function EscapadesPage() {
         </div>
 
         <div
-          className="relative z-10 flex flex-col justify-end px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
-          style={{ minHeight: '80vh' }}
+          className="relative z-10 flex flex-col justify-between px-6 md:px-16 pb-10 md:pb-32 max-w-[1200px] mx-auto"
+          style={{ minHeight: '80vh', paddingTop: 'clamp(88px, 12vw, 120px)' }}
         >
           <nav
-            className="absolute top-28 left-6 md:left-16 flex items-center gap-2 text-xs z-10"
+            className="flex items-center gap-2 text-xs mb-auto"
             style={{ color: 'rgba(255,255,255,0.55)' }}
             aria-label="Fil d'Ariane"
           >
@@ -346,7 +346,7 @@ export default function EscapadesPage() {
                   {d.options && d.options.length > 0 && (
                     <div className="mb-7">
                       <p className="text-xs font-semibold tracking-wider uppercase mb-3" style={{ color: '#C4902A' }}>
-                        Ce que vous pouvez visiter
+                        Ce que vous pouvez visiter (entre autres)
                       </p>
                       <ul className="flex flex-col gap-2">
                         {d.options.map((opt) => (
