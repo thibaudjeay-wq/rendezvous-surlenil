@@ -137,15 +137,6 @@ export default function SurMesurePage() {
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Parlons de votre voyage →
               </a>
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdWC-Hwa4RAIw9POJGSBe2YnpIRmKPjrCbU9GXvwtnpjZ9-Jw/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-                style={{ color: 'white', borderColor: 'rgba(255,255,255,0.45)' }}
-              >
-                Questionnaire de découverte →
-              </a>
             </div>
           </div>
         </div>
