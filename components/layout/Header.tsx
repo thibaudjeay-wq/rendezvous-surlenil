@@ -54,10 +54,10 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group" aria-label="Rendez-vous sur le Nil, Accueil">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.png"
+              src="/logo-small.png"
               alt=""
-              width={40}
-              height={40}
+              width={56}
+              height={56}
               style={{ width: '56px', height: '56px', flexShrink: 0 }}
             />
             <div className="flex flex-col leading-none">

@@ -144,6 +144,8 @@ export default function Footer() {
               <img
                 src="/partners/chapka.webp"
                 alt="Chapka Assurances"
+                width={29}
+                height={28}
                 style={{ height: '28px', width: 'auto' }}
               />
             </div>
