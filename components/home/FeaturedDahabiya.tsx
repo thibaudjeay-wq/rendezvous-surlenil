@@ -58,7 +58,7 @@ export default function FeaturedDahabiya() {
               <p className="text-[10px] tracking-[0.14em] uppercase mb-1" style={{ color: '#C4902A' }}>
                 Sur le Nil
               </p>
-              <p className="text-sm font-medium" style={{ color: 'white', fontFamily: 'Cormorant Garamond' }}>
+              <p className="text-sm font-medium" style={{ color: 'white', fontFamily: 'var(--font-cormorant)' }}>
                 La Dahabiya
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function FeaturedDahabiya() {
             <h2
               id="dahabiya-heading"
               className="text-display-lg title-underline mb-8"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Naviguer sur le Nil
               <br />

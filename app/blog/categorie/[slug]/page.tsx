@@ -110,7 +110,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Catégorie</p>
             <h1
               className="text-display-xl mb-4"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 300 }}
             >
               {category.title}
             </h1>
@@ -132,7 +132,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
           {posts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-lg mb-2" style={{ color: '#0F3D38', fontFamily: 'Cormorant Garamond', fontSize: '1.5rem' }}>
+              <p className="text-lg mb-2" style={{ color: '#0F3D38', fontFamily: 'var(--font-cormorant)', fontSize: '1.5rem' }}>
                 Aucun article pour le moment
               </p>
               <p className="text-sm mb-8" style={{ color: '#8A9BAB' }}>
@@ -169,7 +169,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                   <div className="p-5">
                     <h3
                       className="mb-2 leading-snug transition-colors duration-200 group-hover:text-[#C4902A]"
-                      style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#0F3D38', fontWeight: 500 }}
+                      style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#0F3D38', fontWeight: 500 }}
                     >
                       {article.title}
                     </h3>
@@ -218,7 +218,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <div className="max-w-lg mx-auto px-6">
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Ces articles vous inspirent ?
             <br />

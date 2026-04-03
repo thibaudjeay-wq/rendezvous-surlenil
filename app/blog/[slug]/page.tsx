@@ -316,7 +316,7 @@ const ptComponents: PortableTextComponents = {
     h2: ({ children }) => (
       <h2
         className="mt-12 mb-5"
-        style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: '#0F3D38', fontWeight: 400, lineHeight: 1.25 }}
+        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: '#0F3D38', fontWeight: 400, lineHeight: 1.25 }}
       >
         {children}
       </h2>
@@ -324,7 +324,7 @@ const ptComponents: PortableTextComponents = {
     h3: ({ children }) => (
       <h3
         className="mt-8 mb-4"
-        style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 500 }}
+        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 500 }}
       >
         {children}
       </h3>
@@ -336,7 +336,7 @@ const ptComponents: PortableTextComponents = {
       >
         <p
           className="italic leading-relaxed"
-          style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.25rem', color: '#1E6860', margin: 0 }}
+          style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.25rem', color: '#1E6860', margin: 0 }}
         >
           {children}
         </p>
@@ -517,7 +517,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             <h1
               className="mb-6"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.875rem, 4vw, 3rem)',
                 color: 'white',
                 fontWeight: 400,
@@ -571,7 +571,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                 <p
                   className="mb-8 pb-8 text-lg leading-relaxed italic"
                   style={{
-                    fontFamily: 'Cormorant Garamond, Georgia, serif',
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
                     color: '#1E6860',
                     borderBottom: '1px solid #E8D5B7',
                     fontSize: '1.1875rem',
@@ -661,7 +661,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                       <p className="eyebrow mb-2" style={{ color: '#C4902A' }}>Guide gratuit</p>
                       <h3
                         className="mb-2"
-                        style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#FAF7F2', fontWeight: 400 }}
+                        style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#FAF7F2', fontWeight: 400 }}
                       >
                         Téléchargez notre guide Égypte
                       </h3>
@@ -806,7 +806,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
               <p className="eyebrow mb-3">Pour aller plus loin</p>
               <h2
                 id="related-heading"
-                style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.75rem', color: '#0F3D38', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.75rem', color: '#0F3D38', fontWeight: 400 }}
               >
                 Les expériences liées à cet article
               </h2>
@@ -834,7 +834,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   <div className="p-5">
                     <h3
                       className="mb-1 transition-colors group-hover:text-[#C4902A]"
-                      style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#0F3D38', fontWeight: 500 }}
+                      style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#0F3D38', fontWeight: 500 }}
                     >
                       {exp.title}
                     </h3>
@@ -842,7 +842,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                       <p className="text-xs leading-relaxed" style={{ color: '#8A9BAB' }}>{exp.tagline}</p>
                     )}
                     {exp.priceAmount && (
-                      <p className="mt-2 text-sm font-medium" style={{ color: '#C4902A', fontFamily: 'Cormorant Garamond' }}>
+                      <p className="mt-2 text-sm font-medium" style={{ color: '#C4902A', fontFamily: 'var(--font-cormorant)' }}>
                         À partir de {exp.priceAmount.toLocaleString('fr-FR')} € <span className="text-xs font-normal" style={{ color: '#8A9BAB' }}>{exp.priceSuffix}</span>
                       </p>
                     )}
@@ -860,7 +860,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Prêt(e) à voyager ?</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Votre Égypte commence
             <br />

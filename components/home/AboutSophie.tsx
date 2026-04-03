@@ -18,7 +18,7 @@ export default function AboutSophie() {
             <h2
               id="about-sophie-heading"
               className="text-display-lg title-underline mb-8"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Sophie & Nasser
               <br />
@@ -46,7 +46,7 @@ export default function AboutSophie() {
             >
               <p
                 className="text-lg italic leading-relaxed"
-                style={{ fontFamily: 'Cormorant Garamond', color: '#1E6860', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-cormorant)', color: '#1E6860', fontWeight: 400 }}
               >
                 &ldquo;Ce que vous choisissez, ce n&apos;est pas un produit. C&apos;est l&apos;expérience
                 de deux personnes qui ont l&apos;Égypte dans les mains.&rdquo;
@@ -100,7 +100,7 @@ export default function AboutSophie() {
                 <div>
                   <p
                     className="text-2xl font-light"
-                    style={{ fontFamily: 'Cormorant Garamond', color: '#C4902A' }}
+                    style={{ fontFamily: 'var(--font-cormorant)', color: '#C4902A' }}
                   >
                     Terrain
                   </p>
@@ -110,7 +110,7 @@ export default function AboutSophie() {
                 <div>
                   <p
                     className="text-2xl font-light"
-                    style={{ fontFamily: 'Cormorant Garamond', color: '#C4902A' }}
+                    style={{ fontFamily: 'var(--font-cormorant)', color: '#C4902A' }}
                   >
                     +100
                   </p>

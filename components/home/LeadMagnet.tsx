@@ -66,7 +66,7 @@ export default function LeadMagnet() {
               id="lead-magnet-heading"
               className="mb-4"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
                 color: '#FAF7F2',
                 fontWeight: 400,

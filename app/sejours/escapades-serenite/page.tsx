@@ -204,7 +204,7 @@ export default function EscapadesPage() {
             <h1
               className="mb-6"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
                 color: 'white',
                 fontWeight: 300,
@@ -292,7 +292,7 @@ export default function EscapadesPage() {
               <h2
                 className="title-underline mb-8"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                   color: '#0F3D38',
                   fontWeight: 400,
@@ -347,7 +347,7 @@ export default function EscapadesPage() {
                   <h3
                     className="title-underline mb-5"
                     style={{
-                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
                       color: '#0F3D38',
                       fontWeight: 400,
@@ -392,7 +392,7 @@ export default function EscapadesPage() {
                             <span className="text-sm" style={{ color: '#5C6E7E' }}>{opt.label}</span>
                             <span
                               style={{
-                                fontFamily: 'Cormorant Garamond',
+                                fontFamily: 'var(--font-cormorant)',
                                 fontSize: '1.25rem',
                                 color: '#C4902A',
                                 fontWeight: 400,
@@ -407,7 +407,7 @@ export default function EscapadesPage() {
                     ) : (
                       <p
                         style={{
-                          fontFamily: 'Cormorant Garamond',
+                          fontFamily: 'var(--font-cormorant)',
                           fontSize: '1.375rem',
                           color: '#C4902A',
                           fontWeight: 400,
@@ -445,7 +445,7 @@ export default function EscapadesPage() {
               <h2
                 className="mb-6"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                   color: '#FAF7F2',
                   fontWeight: 400,
@@ -507,7 +507,7 @@ export default function EscapadesPage() {
             <h2
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                 color: '#0F3D38',
                 fontWeight: 400,
@@ -564,7 +564,7 @@ export default function EscapadesPage() {
           <h2
             className="mb-6"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               fontSize: 'clamp(2rem, 4vw, 3.25rem)',
               color: 'white',
               fontWeight: 300,

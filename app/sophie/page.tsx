@@ -146,7 +146,7 @@ export default function SophiePage() {
             <h1
               className="text-display-xl mb-7"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 color: 'white',
                 fontWeight: 300,
                 lineHeight: 1.08,
@@ -178,7 +178,7 @@ export default function SophiePage() {
                 <div key={label}>
                   <p
                     style={{
-                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontSize: '2rem',
                       fontWeight: 300,
                       color: '#C4902A',
@@ -222,7 +222,7 @@ export default function SophiePage() {
             >
               <p
                 className="italic leading-snug"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'white', fontSize: '0.9375rem' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontSize: '0.9375rem' }}
               >
                 &ldquo;L&apos;Égypte ne se visite pas. Elle se vit.&rdquo;
               </p>
@@ -287,7 +287,7 @@ export default function SophiePage() {
               <h2
                 id="histoire-heading"
                 className="text-display-lg title-underline mb-12"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
               >
                 Comment l&apos;Égypte
                 <br />
@@ -304,7 +304,7 @@ export default function SophiePage() {
               <p
                 className="my-10 leading-relaxed"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
                   fontStyle: 'italic',
                   color: '#1E6860',
@@ -321,7 +321,7 @@ export default function SophiePage() {
               <h3
                 className="mb-4 mt-10"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: '1.1875rem',
                   fontWeight: 500,
                   color: '#0F3D38',
@@ -348,7 +348,7 @@ export default function SophiePage() {
               <h3
                 className="mb-4"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: '1.1875rem',
                   fontWeight: 500,
                   color: '#0F3D38',
@@ -367,7 +367,7 @@ export default function SophiePage() {
               {/* Phrase finale */}
               <p
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: '1.1875rem',
                   fontStyle: 'italic',
                   color: '#C4902A',
@@ -396,7 +396,7 @@ export default function SophiePage() {
               <h2
                 id="role-heading"
                 className="text-display-lg title-underline mb-8"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
               >
                 Ce que je fais
                 <br />
@@ -426,7 +426,7 @@ export default function SophiePage() {
                   <span
                     className="role-num flex-shrink-0 transition-colors duration-300"
                     style={{
-                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontSize: '3rem',
                       fontWeight: 300,
                       color: '#E8D5B7',
@@ -442,7 +442,7 @@ export default function SophiePage() {
                     <h3
                       className="mb-3"
                       style={{
-                        fontFamily: 'Cormorant Garamond, Georgia, serif',
+                        fontFamily: 'var(--font-cormorant), Georgia, serif',
                         fontSize: '1.25rem',
                         fontWeight: 500,
                         color: '#0F3D38',
@@ -484,7 +484,7 @@ export default function SophiePage() {
               id="nasser-heading"
               className="text-display-lg mb-10"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 color: '#FAF7F2',
                 fontWeight: 300,
                 lineHeight: 1.15,
@@ -504,7 +504,7 @@ export default function SophiePage() {
             >
               <p
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: '1.3125rem',
                   fontStyle: 'italic',
                   color: '#CE8D5C',
@@ -551,7 +551,7 @@ export default function SophiePage() {
                     borderRight: i === 0 ? '1px solid rgba(201,169,110,0.2)' : undefined,
                   }}
                 >
-                  <p style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.125rem', color: '#CE8D5C', fontWeight: 400, marginBottom: '0.25rem' }}>
+                  <p style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.125rem', color: '#CE8D5C', fontWeight: 400, marginBottom: '0.25rem' }}>
                     {person.name}
                   </p>
                   <p style={{ fontSize: '0.6875rem', color: 'rgba(250,247,242,0.5)', lineHeight: 1.6, letterSpacing: '0.04em' }}>
@@ -576,7 +576,7 @@ export default function SophiePage() {
             <h2
               id="difference-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Ce que nous ne faisons pas
               <br />
@@ -639,7 +639,7 @@ export default function SophiePage() {
             id="cta-sophie-heading"
             className="text-display-lg mb-8"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               color: '#FAF7F2',
               fontWeight: 300,
               lineHeight: 1.2,
@@ -663,7 +663,7 @@ export default function SophiePage() {
           <p
             className="italic mb-12 mx-auto"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               color: '#C4902A',
               maxWidth: '400px',
               fontSize: '1.125rem',

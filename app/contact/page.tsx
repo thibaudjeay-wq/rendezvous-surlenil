@@ -67,7 +67,7 @@ export default function ContactPage() {
           <h1
             className="text-display-xl mb-6"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               color: 'white',
               fontWeight: 300,
               lineHeight: 1.1,
@@ -119,7 +119,7 @@ export default function ContactPage() {
 
               <p
                 className="text-2xl font-light mb-2"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
               >
                 Écrivez à Sophie
               </p>
@@ -163,7 +163,7 @@ export default function ContactPage() {
               <h2
                 id="whatsapp-heading"
                 className="text-display-lg title-underline mb-8"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
               >
                 Simple, direct
                 <br />
@@ -192,7 +192,7 @@ export default function ContactPage() {
                     <div className="flex-shrink-0 pt-1">
                       <span
                         className="text-3xl font-light"
-                        style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#E8D5B7' }}
+                        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#E8D5B7' }}
                         aria-hidden="true"
                       >
                         {step}
@@ -201,7 +201,7 @@ export default function ContactPage() {
                     <div>
                       <h3
                         className="font-medium mb-1"
-                        style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.1rem', color: '#0F3D38' }}
+                        style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.1rem', color: '#0F3D38' }}
                       >
                         {title}
                       </h3>
@@ -227,7 +227,7 @@ export default function ContactPage() {
           <h2
             id="faq-contact-heading"
             className="text-display-lg title-underline title-underline-center text-center mb-12"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
           >
             Questions fréquentes
           </h2>
@@ -250,7 +250,7 @@ export default function ContactPage() {
                 >
                   <span
                     className="font-medium text-base"
-                    style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.0625rem' }}
+                    style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.0625rem' }}
                   >
                     {q}
                   </span>

@@ -53,7 +53,7 @@ export default function BlogPreview() {
             <h2
               id="blog-heading"
               className="text-display-lg title-underline"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Se préparer, s&apos;inspirer
               <br />
@@ -102,7 +102,7 @@ export default function BlogPreview() {
                   <h3
                     className="font-medium leading-snug mb-3 transition-colors group-hover/title:text-[#C4902A]"
                     style={{
-                      fontFamily: 'Cormorant Garamond',
+                      fontFamily: 'var(--font-cormorant)',
                       fontSize: '1.1875rem',
                       color: '#0F3D38',
                     }}

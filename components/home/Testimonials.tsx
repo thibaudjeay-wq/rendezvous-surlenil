@@ -41,7 +41,7 @@ export default function Testimonials({ items }: { items?: SanityTestimonial[] })
         <h2
           id="testimonials-heading"
           style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontFamily: 'var(--font-cormorant), Georgia, serif',
             fontSize: 'clamp(1.625rem, 3vw, 2.375rem)',
             color: '#0F3D38',
             fontWeight: 300,
@@ -90,7 +90,7 @@ export default function Testimonials({ items }: { items?: SanityTestimonial[] })
               >
                 <p
                   style={{
-                    fontFamily: 'Cormorant Garamond, Georgia, serif',
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
                     fontSize: '1.0625rem',
                     fontStyle: 'italic',
                     color: '#0F3D38',

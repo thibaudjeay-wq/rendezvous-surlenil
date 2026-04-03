@@ -67,7 +67,7 @@ export default function Hero() {
           <h1
             className="text-display-2xl mb-6 animate-hero-title"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               color: 'white',
               fontWeight: 300,
               lineHeight: 1.08,
@@ -115,7 +115,7 @@ export default function Hero() {
             </p>
             <p
               className="text-sm italic"
-              style={{ color: 'rgba(226,201,154,0.85)', fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1rem' }}
+              style={{ color: 'rgba(226,201,154,0.85)', fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1rem' }}
             >
               &ldquo;Le voyage de ma vie. Je n&apos;aurais pas su organiser ça seul.&rdquo;
               <span className="not-italic ml-2" style={{ color: 'rgba(250,247,242,0.5)', fontSize: '0.8125rem', fontFamily: 'inherit' }}>

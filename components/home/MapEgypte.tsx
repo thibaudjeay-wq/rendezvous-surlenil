@@ -14,7 +14,7 @@ export default function MapEgypte() {
             id="carte-heading"
             className="title-underline title-underline-center"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
               color: '#0F3D38',
               fontWeight: 400,

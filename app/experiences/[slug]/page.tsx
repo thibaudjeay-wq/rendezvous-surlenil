@@ -105,18 +105,18 @@ const ptComponents: PortableTextComponents = {
       </p>
     ),
     h2: ({ children }) => (
-      <h2 className="mt-10 mb-4" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.75rem', color: '#0F3D38', fontWeight: 400 }}>
+      <h2 className="mt-10 mb-4" style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.75rem', color: '#0F3D38', fontWeight: 400 }}>
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="mt-8 mb-3" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}>
+      <h3 className="mt-8 mb-3" style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}>
         {children}
       </h3>
     ),
     blockquote: ({ children }) => (
       <blockquote className="pl-5 my-8" style={{ borderLeft: '2px solid #C4902A' }}>
-        <p className="italic leading-relaxed" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#1E6860' }}>
+        <p className="italic leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#1E6860' }}>
           {children}
         </p>
       </blockquote>
@@ -242,7 +242,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
             <p className="eyebrow mb-4" style={{ color: '#CE8D5C' }}>{typeLabel}</p>
             <h1
               className="text-display-xl mb-4"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'white', fontWeight: 300, lineHeight: 1.15 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300, lineHeight: 1.15 }}
             >
               {exp.title}
             </h1>
@@ -337,7 +337,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
               <p className="eyebrow mb-4">Votre voyage, jour par jour</p>
               <h2
                 id="prog-heading"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: 'clamp(1.625rem, 3vw, 2.375rem)', color: '#0F3D38', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(1.625rem, 3vw, 2.375rem)', color: '#0F3D38', fontWeight: 300 }}
               >
                 Le programme
               </h2>
@@ -386,7 +386,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
               <p className="eyebrow mb-4">Partez à une date précise</p>
               <h2
                 id="dates-heading"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.125rem)', color: '#0F3D38', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.125rem)', color: '#0F3D38', fontWeight: 300 }}
               >
                 Dates disponibles
               </h2>
@@ -506,7 +506,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
               <p className="eyebrow mb-4">Questions fréquentes</p>
               <h2
                 id="faq-exp-heading"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.125rem)', color: '#0F3D38', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.125rem)', color: '#0F3D38', fontWeight: 300 }}
               >
                 Tout ce que vous voulez savoir
               </h2>
@@ -547,7 +547,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>{priceLabel}</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Prêt(e) pour{' '}
             <em style={{ fontStyle: 'italic', color: '#CE8D5C' }}>{exp.title}</em>&nbsp;?

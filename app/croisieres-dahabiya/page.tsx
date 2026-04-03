@@ -218,7 +218,7 @@ export default async function CroisiereDahabiyaPage() {
             <p className="eyebrow mb-4" style={{ color: '#CE8D5C' }}>Le Nil à votre rythme</p>
             <h1
               className="text-display-xl mb-6"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'white', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300 }}
             >
               Naviguer sur le Nil
               <br />
@@ -250,7 +250,7 @@ export default async function CroisiereDahabiyaPage() {
               <p className="eyebrow mb-4">L&apos;expérience</p>
               <h2
                 className="text-display-lg title-underline mb-8"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
               >
                 Qu&apos;est-ce qu&apos;une
                 <br />
@@ -341,7 +341,7 @@ export default async function CroisiereDahabiyaPage() {
             <h2
               id="formules-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Choisissez votre croisière
             </h2>
@@ -376,7 +376,7 @@ export default async function CroisiereDahabiyaPage() {
                 <h3
                   className="mb-1"
                   style={{
-                    fontFamily: 'Cormorant Garamond',
+                    fontFamily: 'var(--font-cormorant)',
                     fontSize: '1.5rem',
                     color: f.featured ? '#FAF7F2' : '#0F3D38',
                     fontWeight: 400,
@@ -386,7 +386,7 @@ export default async function CroisiereDahabiyaPage() {
                 </h3>
                 <p
                   className="text-xl font-light mb-1"
-                  style={{ fontFamily: 'Cormorant Garamond', color: f.featured ? '#CE8D5C' : '#C4902A' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', color: f.featured ? '#CE8D5C' : '#C4902A' }}
                 >
                   {f.price}
                 </p>
@@ -427,7 +427,7 @@ export default async function CroisiereDahabiyaPage() {
             <h2
               id="itinerary-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Programme type, 6 jours / 5 nuits
             </h2>
@@ -454,7 +454,7 @@ export default async function CroisiereDahabiyaPage() {
                   <p className="eyebrow mb-1" style={{ color: '#C4902A' }}>{item.day}</p>
                   <h3
                     className="font-medium mb-2"
-                    style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#0F3D38' }}
+                    style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#0F3D38' }}
                   >
                     {item.title}
                   </h3>
@@ -485,7 +485,7 @@ export default async function CroisiereDahabiyaPage() {
             <div className="p-8 rounded-sm" style={{ background: 'white', border: '1px solid #E8D5B7' }}>
               <h3
                 className="mb-6"
-                style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.375rem', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.375rem', color: '#0F3D38' }}
               >
                 ✅ Ce qui est inclus
               </h3>
@@ -503,7 +503,7 @@ export default async function CroisiereDahabiyaPage() {
             <div className="p-8 rounded-sm" style={{ background: 'white', border: '1px solid #E8D5B7' }}>
               <h3
                 className="mb-6"
-                style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.375rem', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.375rem', color: '#0F3D38' }}
               >
                 ❌ Non inclus
               </h3>
@@ -528,7 +528,7 @@ export default async function CroisiereDahabiyaPage() {
             <h2
               id="faq-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Tout ce que vous
               <em style={{ fontStyle: 'italic', fontWeight: 300 }}> voulez savoir</em>
@@ -576,7 +576,7 @@ export default async function CroisiereDahabiyaPage() {
             <h2
               id="temoignages-croisiere-heading"
               className="title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: 'clamp(1.625rem, 3vw, 2.375rem)', color: '#0F3D38', fontWeight: 300, lineHeight: 1.2 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(1.625rem, 3vw, 2.375rem)', color: '#0F3D38', fontWeight: 300, lineHeight: 1.2 }}
             >
               Ils ont navigué.
               <br />
@@ -610,12 +610,12 @@ export default async function CroisiereDahabiyaPage() {
               <figure key={t.name} className="flex flex-col">
                 <p
                   aria-hidden="true"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '3.25rem', lineHeight: 1, color: '#E8D5B7', fontWeight: 300, marginBottom: '-0.125rem' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '3.25rem', lineHeight: 1, color: '#E8D5B7', fontWeight: 300, marginBottom: '-0.125rem' }}
                 >
                   &ldquo;
                 </p>
                 <blockquote
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', fontStyle: 'italic', color: '#0F3D38', lineHeight: 1.7, fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', fontStyle: 'italic', color: '#0F3D38', lineHeight: 1.7, fontWeight: 400 }}
                 >
                   {t.quote}
                 </blockquote>
@@ -639,7 +639,7 @@ export default async function CroisiereDahabiyaPage() {
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Prêt(e) à embarquer ?</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Votre croisière commence
             <br />

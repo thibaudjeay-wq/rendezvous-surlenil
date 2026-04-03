@@ -63,7 +63,7 @@ export default function GuideForm() {
         </div>
         <h3
           className="mb-2"
-          style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}
+          style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}
         >
           Merci {firstName}&nbsp;!
         </h3>

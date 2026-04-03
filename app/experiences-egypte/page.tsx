@@ -140,7 +140,7 @@ export default function ExperiencesEgyptePage() {
             </div>
             <h1
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(2.5rem, 6vw, 4.75rem)',
                 color: 'white',
                 fontWeight: 300,
@@ -173,7 +173,7 @@ export default function ExperiencesEgyptePage() {
           <p className="eyebrow mb-6" style={{ color: '#C4902A' }}>Pourquoi ces expériences</p>
           <h2
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
               color: '#FAF7F2',
               fontWeight: 400,
@@ -232,7 +232,7 @@ export default function ExperiencesEgyptePage() {
                     style={{ background: '#0F3D38', border: '2px solid #C4902A' }}
                     aria-hidden="true"
                   >
-                    <span style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#C4902A', fontWeight: 300 }}>
+                    <span style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#C4902A', fontWeight: 300 }}>
                       0{i + 1}
                     </span>
                   </div>
@@ -243,7 +243,7 @@ export default function ExperiencesEgyptePage() {
                   <p className="eyebrow mb-3">{exp.eyebrow}</p>
                   <h2
                     style={{
-                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
                       color: '#0F3D38',
                       fontWeight: 400,
@@ -255,7 +255,7 @@ export default function ExperiencesEgyptePage() {
                   </h2>
                   <p
                     className="mb-8 italic"
-                    style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#C4902A', fontWeight: 300 }}
+                    style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#C4902A', fontWeight: 300 }}
                   >
                     {exp.subtitle}
                   </p>
@@ -311,7 +311,7 @@ export default function ExperiencesEgyptePage() {
             <h2
               id="diff-heading"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                 color: '#FAF7F2',
                 fontWeight: 400,
@@ -362,10 +362,10 @@ export default function ExperiencesEgyptePage() {
                 className="p-6 rounded-sm"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(201,169,110,0.15)' }}
               >
-                <p style={{ fontFamily: 'Cormorant Garamond', fontSize: '2rem', color: 'rgba(201,169,110,0.3)', fontWeight: 300, lineHeight: 1, marginBottom: '1rem' }}>
+                <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2rem', color: 'rgba(201,169,110,0.3)', fontWeight: 300, lineHeight: 1, marginBottom: '1rem' }}>
                   {num}
                 </p>
-                <h3 className="mb-2 font-medium" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#FAF7F2' }}>
+                <h3 className="mb-2 font-medium" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#FAF7F2' }}>
                   {title}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: '#8A9BAB', lineHeight: 1.8 }}>{body}</p>
@@ -385,7 +385,7 @@ export default function ExperiencesEgyptePage() {
                 id="combo-heading"
                 className="title-underline mb-8"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
                   color: '#0F3D38',
                   fontWeight: 400,
@@ -471,7 +471,7 @@ export default function ExperiencesEgyptePage() {
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Vous sentez l&apos;appel ?</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             On parle de ce que vous
             <br />

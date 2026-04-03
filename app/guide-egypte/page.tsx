@@ -40,7 +40,7 @@ export default function GuidePage() {
               <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Offert par Sophie</p>
               <h1
                 className="text-display-xl mb-6"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 300 }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 300 }}
               >
                 L&apos;art de voyager
                 <br />
@@ -103,7 +103,7 @@ export default function GuidePage() {
 
               <h2
                 className="text-center mb-2"
-                style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400 }}
               >
                 Recevez votre guide gratuit
               </h2>

@@ -64,7 +64,7 @@ export default function Header() {
               <span
                 className="font-display text-2xl tracking-tight"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   color: scrolled || mobileOpen ? '#0F3D38' : 'white',
                   fontWeight: 500,
                   letterSpacing: '-0.01em',
@@ -189,7 +189,7 @@ export default function Header() {
         >
           {/* Header panel */}
           <div className="flex items-center justify-between px-6 h-20 border-b border-[#E8D5B7]">
-            <span className="font-display text-lg" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}>
+            <span className="font-display text-lg" style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}>
               Menu
             </span>
             <button onClick={() => setMobileOpen(false)} className="p-2 -mr-2" aria-label="Fermer">

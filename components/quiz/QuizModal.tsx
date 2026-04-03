@@ -325,7 +325,7 @@ export default function QuizModal() {
                 <div>
                   <h2
                     className="mb-4"
-                    style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.75rem', color: '#0F3D38', fontWeight: 400, lineHeight: 1.2 }}
+                    style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.75rem', color: '#0F3D38', fontWeight: 400, lineHeight: 1.2 }}
                   >
                     Quel voyage vous ressemble ?
                   </h2>
@@ -350,7 +350,7 @@ export default function QuizModal() {
                 <div>
                   <h3
                     className="mb-6"
-                    style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400, lineHeight: 1.25 }}
+                    style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.375rem', color: '#0F3D38', fontWeight: 400, lineHeight: 1.25 }}
                   >
                     {currentQuestion.text}
                   </h3>
@@ -385,7 +385,7 @@ export default function QuizModal() {
                       Notre suggestion
                     </p>
                     <h3
-                      style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.375rem', color: '#FAF7F2', fontWeight: 400, lineHeight: 1.2 }}
+                      style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.375rem', color: '#FAF7F2', fontWeight: 400, lineHeight: 1.2 }}
                     >
                       {results[result].title}
                     </h3>

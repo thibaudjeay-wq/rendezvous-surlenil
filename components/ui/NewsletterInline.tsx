@@ -43,7 +43,7 @@ export default function NewsletterInline({ variant = 'dark' }: Props) {
       <p
         className="text-sm italic"
         style={{
-          fontFamily: 'Cormorant Garamond, Georgia, serif',
+          fontFamily: 'var(--font-cormorant), Georgia, serif',
           color: isDark ? '#CE8D5C' : '#1E6860',
           fontSize: '1rem',
         }}

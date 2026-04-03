@@ -228,7 +228,7 @@ export default async function PrivilegesPage() {
             </div>
             <h1
               className="text-display-xl mb-6"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'white', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300 }}
             >
               Séjours Privilèges
               <br />
@@ -257,7 +257,7 @@ export default async function PrivilegesPage() {
             <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Ce qui définit les Privilèges</p>
             <h2
               className="text-display-lg"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2' }}
             >
               Voyager ensemble
               <br />
@@ -289,7 +289,7 @@ export default async function PrivilegesPage() {
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(201,169,110,0.2)' }}
               >
                 <div className="mb-4">{icon}</div>
-                <h3 className="mb-3 font-medium" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#FAF7F2' }}>
+                <h3 className="mb-3 font-medium" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#FAF7F2' }}>
                   {title}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: '#8A9BAB' }}>{desc}</p>
@@ -307,7 +307,7 @@ export default async function PrivilegesPage() {
             <h2
               id="programmes-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Trois séjours, trois univers
             </h2>
@@ -345,7 +345,7 @@ export default async function PrivilegesPage() {
 
                   {/* Texte */}
                   <div>
-                    <h3 className="mb-2" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>
+                    <h3 className="mb-2" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>
                       {p.title}
                     </h3>
                     {p.tagline && <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.tagline}</p>}
@@ -444,7 +444,7 @@ export default async function PrivilegesPage() {
                       <span className="text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-sm" style={{ background: '#0F3D38', color: '#C4902A' }}>{p.code}</span>
                       <span className="text-xs" style={{ color: '#C4902A' }}>{p.spots}</span>
                     </div>
-                    <h3 className="mb-1" style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>{p.title}</h3>
+                    <h3 className="mb-1" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>{p.title}</h3>
                     <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.dates}</p>
                     <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration} · {p.theme}</p>
                     <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>{p.description}</p>
@@ -481,7 +481,7 @@ export default async function PrivilegesPage() {
             <p className="eyebrow mb-4">Questions fréquentes</p>
             <h2
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Tout ce que vous <em style={{ fontStyle: 'italic', fontWeight: 300 }}>voulez savoir</em>
             </h2>
@@ -513,7 +513,7 @@ export default async function PrivilegesPage() {
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Places limitées</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Votre place vous attend
             <br />

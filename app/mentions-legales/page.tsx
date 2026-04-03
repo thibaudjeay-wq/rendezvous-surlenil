@@ -24,7 +24,7 @@ export default function MentionsLegalesPage() {
         <h1
           className="mb-14"
           style={{
-            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontFamily: 'var(--font-cormorant), Georgia, serif',
             fontSize: 'clamp(2rem, 4vw, 2.75rem)',
             color: '#0F3D38',
             fontWeight: 300,
@@ -141,7 +141,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       <h2
         className="mb-5"
         style={{
-          fontFamily: 'Cormorant Garamond, Georgia, serif',
+          fontFamily: 'var(--font-cormorant), Georgia, serif',
           fontSize: '1.375rem',
           color: '#0F3D38',
           fontWeight: 500,

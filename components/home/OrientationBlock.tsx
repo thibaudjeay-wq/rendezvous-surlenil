@@ -46,7 +46,7 @@ export default function OrientationBlock() {
           <h2
             id="orientation-heading"
             className="text-display-lg title-underline title-underline-center"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
           >
             Quel voyage vous ressemble ?
           </h2>

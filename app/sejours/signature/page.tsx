@@ -270,7 +270,7 @@ export default async function SignaturePage() {
             <p className="eyebrow mb-4" style={{ color: '#CE8D5C' }}>6 séjours clés en main</p>
             <h1
               className="text-display-xl mb-6"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'white', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300 }}
             >
               Séjours Signature
               <br />
@@ -307,7 +307,7 @@ export default async function SignaturePage() {
               <p className="eyebrow mb-4">Ce qui nous distingue</p>
               <h2
                 className="text-display-lg title-underline mb-8"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+                style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
               >
                 Sophie a testé chaque programme.
                 <br />
@@ -326,7 +326,7 @@ export default async function SignaturePage() {
               <blockquote className="pl-5" style={{ borderLeft: '2px solid #C4902A' }}>
                 <p
                   className="italic leading-relaxed"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#1E6860' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#1E6860' }}
                 >
                   &ldquo;Un séjour Signature, c&apos;est ma façon de vous offrir le meilleur de ce que je connais de l&apos;Égypte.&rdquo;
                 </p>
@@ -345,7 +345,7 @@ export default async function SignaturePage() {
                 <div className="w-8 h-px" style={{ background: '#C4902A' }} />
                 <h3
                   className="font-medium"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#FAF7F2' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#FAF7F2' }}
                 >
                   La Thébaïde
                 </h3>
@@ -364,7 +364,7 @@ export default async function SignaturePage() {
                 <Anchor size={18} style={{ color: '#C4902A' }} aria-hidden="true" />
                 <h3
                   className="font-medium"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#FAF7F2' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#FAF7F2' }}
                 >
                   La Dahabiya
                 </h3>
@@ -399,7 +399,7 @@ export default async function SignaturePage() {
             <h2
               id="sejours-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Six façons de vivre l&apos;Égypte
             </h2>
@@ -469,7 +469,7 @@ export default async function SignaturePage() {
                         )}
                         <h3
                           className="mb-1"
-                          style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
+                          style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
                         >
                           {exp.title}
                         </h3>
@@ -544,7 +544,7 @@ export default async function SignaturePage() {
                     <p className="eyebrow mb-1" style={{ color: '#C4902A' }}>{s.code}</p>
                     <h3
                       className="mb-1"
-                      style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
+                      style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
                     >
                       {s.title}
                     </h3>
@@ -585,7 +585,7 @@ export default async function SignaturePage() {
             <p className="eyebrow mb-3">Dans chaque séjour Signature</p>
             <h2
               className="text-display-lg"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Ce qui est toujours inclus
             </h2>
@@ -616,7 +616,7 @@ export default async function SignaturePage() {
             <h2
               id="faq-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Tout ce que vous <em style={{ fontStyle: 'italic', fontWeight: 300 }}>voulez savoir</em>
             </h2>
@@ -656,7 +656,7 @@ export default async function SignaturePage() {
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>Votre séjour vous attend</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Prêt(e) à vivre l&apos;Égypte
             <br />

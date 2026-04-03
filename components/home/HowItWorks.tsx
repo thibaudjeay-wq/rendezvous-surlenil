@@ -40,7 +40,7 @@ export default function HowItWorks() {
           <h2
             id="how-heading"
             className="text-display-lg title-underline title-underline-center"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
           >
             Comment ça se passe
             <br />
@@ -67,7 +67,7 @@ export default function HowItWorks() {
                 <p
                   className="mb-4"
                   style={{
-                    fontFamily: 'Cormorant Garamond',
+                    fontFamily: 'var(--font-cormorant)',
                     fontSize: '3rem',
                     color: '#F0E6D3',
                     lineHeight: 1,
@@ -79,7 +79,7 @@ export default function HowItWorks() {
                 </p>
                 <h3
                   className="mb-3 font-medium"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.1875rem', color: '#0F3D38' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.1875rem', color: '#0F3D38' }}
                 >
                   {title}
                 </h3>
@@ -95,7 +95,7 @@ export default function HowItWorks() {
         <div className="mt-10 text-center">
           <p
             className="text-sm italic mb-8"
-            style={{ color: '#8A9BAB', fontFamily: 'Cormorant Garamond', fontSize: '1.0625rem' }}
+            style={{ color: '#8A9BAB', fontFamily: 'var(--font-cormorant)', fontSize: '1.0625rem' }}
           >
             Aucun acompte demandé avant que le voyage vous convienne.
           </p>

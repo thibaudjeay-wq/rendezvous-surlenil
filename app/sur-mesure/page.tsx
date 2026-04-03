@@ -134,7 +134,7 @@ export default function SurMesurePage() {
             <h1
               className="mb-6"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
                 color: 'white',
                 fontWeight: 300,
@@ -171,7 +171,7 @@ export default function SurMesurePage() {
               <h2
                 className="title-underline mb-8"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                   color: '#0F3D38',
                   fontWeight: 400,
@@ -197,7 +197,7 @@ export default function SurMesurePage() {
               <blockquote className="pl-5" style={{ borderLeft: '2px solid #C4902A' }}>
                 <p
                   className="italic leading-relaxed"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', color: '#1E6860' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#1E6860' }}
                 >
                   &ldquo;Ce que vous achetez, ce n&apos;est pas un produit. C&apos;est une relation de confiance
                   avec quelqu&apos;un qui connaît l&apos;Égypte de l&apos;intérieur.&rdquo;
@@ -230,7 +230,7 @@ export default function SurMesurePage() {
               id="formules-heading"
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                 color: '#0F3D38',
                 fontWeight: 400,
@@ -270,7 +270,7 @@ export default function SurMesurePage() {
                 </div>
                 <h3
                   className="mb-2"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.5rem', color: '#FAF7F2', fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.5rem', color: '#FAF7F2', fontWeight: 400 }}
                 >
                   Carnet de voyage personnalisé
                 </h3>
@@ -282,7 +282,7 @@ export default function SurMesurePage() {
                   <div className="flex items-baseline gap-2">
                     <span
                       style={{
-                        fontFamily: 'Cormorant Garamond',
+                        fontFamily: 'var(--font-cormorant)',
                         fontSize: '3rem',
                         color: '#C4902A',
                         fontWeight: 300,
@@ -356,7 +356,7 @@ export default function SurMesurePage() {
                 </div>
                 <h3
                   className="mb-2"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.5rem', color: '#FAF7F2', fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.5rem', color: '#FAF7F2', fontWeight: 400 }}
                 >
                   Conciergerie d&apos;expériences
                 </h3>
@@ -368,7 +368,7 @@ export default function SurMesurePage() {
                   <div className="flex items-baseline gap-2">
                     <span
                       style={{
-                        fontFamily: 'Cormorant Garamond',
+                        fontFamily: 'var(--font-cormorant)',
                         fontSize: '1.75rem',
                         color: '#C4902A',
                         fontWeight: 300,
@@ -455,7 +455,7 @@ export default function SurMesurePage() {
               id="process-heading"
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                 color: '#FAF7F2',
                 fontWeight: 400,
@@ -486,7 +486,7 @@ export default function SurMesurePage() {
                   <p className="eyebrow mb-1.5" style={{ color: '#C4902A' }}>Étape {number}</p>
                   <h3
                     className="mb-3"
-                    style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.375rem', color: '#FAF7F2', fontWeight: 400 }}
+                    style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.375rem', color: '#FAF7F2', fontWeight: 400 }}
                   >
                     {title}
                   </h3>
@@ -508,7 +508,7 @@ export default function SurMesurePage() {
             <h2
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                 color: '#0F3D38',
                 fontWeight: 400,
@@ -555,7 +555,7 @@ export default function SurMesurePage() {
               id="temoignages-mesure-heading"
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.625rem, 3vw, 2.375rem)',
                 color: '#0F3D38',
                 fontWeight: 300,
@@ -589,12 +589,12 @@ export default function SurMesurePage() {
               <figure key={t.name} className="flex flex-col">
                 <p
                   aria-hidden="true"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '3.25rem', lineHeight: 1, color: '#E8D5B7', fontWeight: 300, marginBottom: '-0.125rem' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '3.25rem', lineHeight: 1, color: '#E8D5B7', fontWeight: 300, marginBottom: '-0.125rem' }}
                 >
                   &ldquo;
                 </p>
                 <blockquote
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', fontStyle: 'italic', color: '#0F3D38', lineHeight: 1.7, fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', fontStyle: 'italic', color: '#0F3D38', lineHeight: 1.7, fontWeight: 400 }}
                 >
                   {t.quote}
                 </blockquote>
@@ -616,7 +616,7 @@ export default function SurMesurePage() {
           <h2
             className="mb-6"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               fontSize: 'clamp(2rem, 4vw, 3.25rem)',
               color: '#FAF7F2',
               fontWeight: 400,

@@ -183,7 +183,7 @@ export default function LaThebaidePage() {
             <h1
               className="mb-6"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                 color: 'white',
                 fontWeight: 300,
@@ -197,7 +197,7 @@ export default function LaThebaidePage() {
             <p
               className="text-xl md:text-2xl mb-5"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 color: '#CE8D5C',
                 fontWeight: 300,
                 fontStyle: 'italic',
@@ -261,7 +261,7 @@ export default function LaThebaidePage() {
               <h2
                 className="title-underline mb-10"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
                   color: '#0F3D38',
                   fontWeight: 400,
@@ -354,7 +354,7 @@ export default function LaThebaidePage() {
               id="espaces-heading"
               className="title-underline"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                 color: '#0F3D38',
                 fontWeight: 400,
@@ -382,7 +382,7 @@ export default function LaThebaidePage() {
                 </div>
                 <h3
                   className="mb-3"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#0F3D38', fontWeight: 500 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#0F3D38', fontWeight: 500 }}
                 >
                   {label}
                 </h3>
@@ -429,7 +429,7 @@ export default function LaThebaidePage() {
                 id="journee-heading"
                 className="mb-12"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                   color: '#FAF7F2',
                   fontWeight: 400,
@@ -461,7 +461,7 @@ export default function LaThebaidePage() {
                     <div className="pb-8">
                       <p
                         className="font-medium mb-1.5"
-                        style={{ fontFamily: 'Cormorant Garamond', fontSize: '1rem', color: '#C4902A', letterSpacing: '0.05em' }}
+                        style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1rem', color: '#C4902A', letterSpacing: '0.05em' }}
                       >
                         {time}
                       </p>
@@ -486,7 +486,7 @@ export default function LaThebaidePage() {
               id="louxor-heading"
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                 color: '#0F3D38',
                 fontWeight: 400,
@@ -551,7 +551,7 @@ export default function LaThebaidePage() {
                 <div className="flex items-baseline gap-1 mb-1">
                   <span
                     style={{
-                      fontFamily: 'Cormorant Garamond',
+                      fontFamily: 'var(--font-cormorant)',
                       fontSize: '2.5rem',
                       color: '#C4902A',
                       fontWeight: 300,
@@ -562,7 +562,7 @@ export default function LaThebaidePage() {
                   </span>
                   {unit && (
                     <span
-                      style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#E8D5B7', fontWeight: 300 }}
+                      style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#E8D5B7', fontWeight: 300 }}
                     >
                       {unit}
                     </span>
@@ -588,7 +588,7 @@ export default function LaThebaidePage() {
                 id="univers-heading"
                 className="title-underline mb-8"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                   color: '#0F3D38',
                   fontWeight: 400,
@@ -671,7 +671,7 @@ export default function LaThebaidePage() {
                 id="tarifs-heading"
                 className="mb-6"
                 style={{
-                  fontFamily: 'Cormorant Garamond, Georgia, serif',
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
                   fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                   color: '#FAF7F2',
                   fontWeight: 400,
@@ -715,7 +715,7 @@ export default function LaThebaidePage() {
               </div>
               <h3
                 className="mb-3"
-                style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.5rem', color: '#FAF7F2', fontWeight: 400 }}
+                style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.5rem', color: '#FAF7F2', fontWeight: 400 }}
               >
                 Réserver La Thébaïde
               </h3>
@@ -750,7 +750,7 @@ export default function LaThebaidePage() {
             <h2
               className="title-underline title-underline-center"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontSize: 'clamp(1.625rem, 3vw, 2.5rem)',
                 color: '#0F3D38',
                 fontWeight: 400,
@@ -796,7 +796,7 @@ export default function LaThebaidePage() {
             <h2
               id="temoignages-thebaide-heading"
               className="title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: 'clamp(1.625rem, 3vw, 2.375rem)', color: '#0F3D38', fontWeight: 300, lineHeight: 1.2 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: 'clamp(1.625rem, 3vw, 2.375rem)', color: '#0F3D38', fontWeight: 300, lineHeight: 1.2 }}
             >
               Chez eux, pas dans un hôtel.
               <br />
@@ -825,12 +825,12 @@ export default function LaThebaidePage() {
               <figure key={t.name} className="flex flex-col">
                 <p
                   aria-hidden="true"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '3.25rem', lineHeight: 1, color: '#E8D5B7', fontWeight: 300, marginBottom: '-0.125rem' }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '3.25rem', lineHeight: 1, color: '#E8D5B7', fontWeight: 300, marginBottom: '-0.125rem' }}
                 >
                   &ldquo;
                 </p>
                 <blockquote
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.125rem', fontStyle: 'italic', color: '#0F3D38', lineHeight: 1.7, fontWeight: 400 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', fontStyle: 'italic', color: '#0F3D38', lineHeight: 1.7, fontWeight: 400 }}
                 >
                   {t.quote}
                 </blockquote>
@@ -867,7 +867,7 @@ export default function LaThebaidePage() {
           <h2
             className="mb-6"
             style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
+              fontFamily: 'var(--font-cormorant), Georgia, serif',
               fontSize: 'clamp(2rem, 4vw, 3.25rem)',
               color: 'white',
               fontWeight: 300,

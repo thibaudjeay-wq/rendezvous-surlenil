@@ -92,7 +92,7 @@ export default function SejoursPage() {
             <p className="eyebrow mb-4" style={{ color: '#CE8D5C' }}>Nos expériences</p>
             <h1
               className="text-display-xl mb-6"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'white', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300 }}
             >
               Quel voyage
               <br />
@@ -167,7 +167,7 @@ export default function SejoursPage() {
             <h2
               id="sejours-heading"
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Trois gammes de voyages
             </h2>
@@ -219,7 +219,7 @@ export default function SejoursPage() {
                   <h3
                     className="font-medium mb-3 transition-colors duration-200 group-hover:text-[#C4902A]"
                     style={{
-                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontSize: '1.375rem',
                       color: '#0F3D38',
                     }}
@@ -271,7 +271,7 @@ export default function SejoursPage() {
                 <BookOpen size={18} style={{ color: '#0F3D38' }} aria-hidden="true" />
               </div>
               <div>
-                <p className="font-medium mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontSize: '1.25rem', color: '#0F3D38' }}>
+                <p className="font-medium mb-1" style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '1.25rem', color: '#0F3D38' }}>
                   Vous préférez partir de zéro ?
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: '#5C6E7E', maxWidth: '520px' }}>
@@ -299,7 +299,7 @@ export default function SejoursPage() {
             <p className="eyebrow mb-4">Notre approche</p>
             <h2
               className="text-display-lg title-underline title-underline-center"
-              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
             >
               Pas un catalogue. <em style={{ fontStyle: 'italic', fontWeight: 300 }}>Une conversation.</em>
             </h2>
@@ -327,7 +327,7 @@ export default function SejoursPage() {
                 <p
                   className="mb-5"
                   style={{
-                    fontFamily: 'Cormorant Garamond',
+                    fontFamily: 'var(--font-cormorant)',
                     fontSize: '3.5rem',
                     color: '#E8D5B7',
                     lineHeight: 1,
@@ -338,7 +338,7 @@ export default function SejoursPage() {
                 </p>
                 <h3
                   className="mb-3"
-                  style={{ fontFamily: 'Cormorant Garamond', fontSize: '1.25rem', color: '#0F3D38', fontWeight: 500 }}
+                  style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.25rem', color: '#0F3D38', fontWeight: 500 }}
                 >
                   {title}
                 </h3>
@@ -357,7 +357,7 @@ export default function SejoursPage() {
           <p className="eyebrow mb-4" style={{ color: '#C4902A' }}>On commence ?</p>
           <h2
             className="text-display-lg mb-6"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#FAF7F2', fontWeight: 400 }}
           >
             Votre voyage commence
             <br />

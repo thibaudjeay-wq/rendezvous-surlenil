@@ -67,7 +67,7 @@ export default function OurUniverse() {
           <h2
             id="universe-heading"
             className="text-display-lg title-underline title-underline-center"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0F3D38' }}
+            style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: '#0F3D38' }}
           >
             Choisissez votre façon de vivre l&apos;Égypte
           </h2>
@@ -117,7 +117,7 @@ export default function OurUniverse() {
                 <h3
                   className="font-medium mb-1.5 transition-colors duration-200 group-hover:text-[#C4902A]"
                   style={{
-                    fontFamily: 'Cormorant Garamond, Georgia, serif',
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
                     fontSize: '1.125rem',
                     color: '#0F3D38',
                   }}
