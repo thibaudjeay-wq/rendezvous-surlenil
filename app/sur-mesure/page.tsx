@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MessageCircle, Map, CalendarCheck, Plane, BookOpen, Compass, ChevronDown } from 'lucide-react'
+import { MessageCircle, Map, CalendarCheck, Plane, BookOpen, Compass, ChevronDown, FileText } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -24,20 +24,26 @@ const steps = [
     body: 'Un échange WhatsApp ou un appel de 20 minutes, gratuit et sans engagement. Vos envies, vos dates, ce qui vous fait vibrer. Sophie écoute, vraiment. Un échange de 20 minutes suffit souvent à dessiner les grandes lignes de quelque chose de beau.',
   },
   {
-    icon: Map,
+    icon: FileText,
     number: '02',
+    title: 'Devis personnalisé',
+    body: 'Sophie vous adresse un devis détaillé adapté à votre projet. Une fois accepté, le paiement de la prestation lance officiellement la construction de votre voyage.',
+  },
+  {
+    icon: Map,
+    number: '03',
     title: 'Itinéraire sur mesure créé pour vous',
     body: 'Sophie vous soumet une proposition complète : itinéraire détaillé, hébergements sélectionnés, programme jour par jour. Vous ajustez, elle affine. Rien n\'est gravé dans le marbre.',
   },
   {
     icon: CalendarCheck,
-    number: '03',
+    number: '04',
     title: 'Validation et ajustements selon vos envies',
     body: 'Chaque détail est affiné ensemble, les hébergements, le rythme, les activités, les moments libres. Le voyage devient réellement le vôtre avant même que vous partiez.',
   },
   {
     icon: Plane,
-    number: '04',
+    number: '05',
     title: 'Vous partez, Sophie vous accompagne',
     body: 'Pendant tout votre séjour, Sophie est disponible sur WhatsApp de 10h à 19h. Nasser coordonne sur le terrain. Chaque imprévu est géré avant même que vous le ressentiez.',
   },
@@ -126,16 +132,21 @@ export default function SurMesurePage() {
               className="text-base md:text-lg mb-12 max-w-xl"
               style={{ color: 'rgba(250,247,242,0.82)', fontWeight: 300, lineHeight: 1.75 }}
             >
-              Pas de formulaire à remplir. Pas de catalogue à parcourir.
               Un échange avec Sophie pour construire ensemble le voyage en Égypte qui vous ressemble,
-              de l&apos;itinéraire sur mesure jusqu&apos;à l&apos;accompagnement sur place.
+              de l&apos;itinéraire jusqu&apos;à l&apos;accompagnement sur place.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Parlons de votre voyage →
               </a>
-              <a href="#formules" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.45)' }}>
-                Voir les formules
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdWC-Hwa4RAIw9POJGSBe2YnpIRmKPjrCbU9GXvwtnpjZ9-Jw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{ color: 'white', borderColor: 'rgba(255,255,255,0.45)' }}
+              >
+                Questionnaire de découverte →
               </a>
             </div>
           </div>
@@ -218,12 +229,10 @@ export default function SurMesurePage() {
               }}
             >
               Des voyages construits pour vous
-              <br />
-              <em style={{ fontWeight: 300, fontStyle: 'italic' }}>tarifés pour vous.</em>
             </h2>
             <p className="mt-8 text-base leading-relaxed mx-auto max-w-xl" style={{ color: '#5C6E7E' }}>
-              Nous ne pratiquons pas les prix affichés pour les séjours sur mesure, parce qu&apos;un voyage sur mesure
-              mérite une proposition sur mesure. Mais pour vous aider à démarrer, voici nos deux formules Travel Planner.
+              Nous ne pratiquons pas les prix affichés, parce qu&apos;un voyage unique mérite une proposition adaptée.
+              Voici nos deux formules Travel Planner.
             </p>
           </div>
 
@@ -444,7 +453,7 @@ export default function SurMesurePage() {
                 lineHeight: 1.2,
               }}
             >
-              Quatre étapes.
+              Cinq étapes.
               <br />
               <em style={{ fontStyle: 'italic', fontWeight: 300, color: '#CE8D5C' }}>Un voyage qui vous ressemble.</em>
             </h2>
@@ -553,7 +562,7 @@ export default function SurMesurePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
             {[
               {
-                name: 'Patricia & Anne-Marie',
+                name: 'Patrick et Anne-Marie',
                 quote: "Nous avons fait appel à Sophie et Nasser pour la deuxième fois. Organisation parfaite, guide francophone, visites sur mesure. Merci d'avoir répondu à toutes nos demandes.",
                 detail: '2e voyage sur mesure',
               },
