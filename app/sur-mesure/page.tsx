@@ -16,6 +16,22 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Travel Planning Égypte sur mesure',
+  provider: {
+    '@type': 'Person',
+    name: 'Sophie Godineau',
+    jobTitle: 'Travel Planner',
+    worksFor: { '@type': 'TouristAgency', name: 'Rendez-vous sur le Nil', url: 'https://rendezvous-surlenil.com' },
+  },
+  description: 'Service de travel planning personnalisé en Égypte : création d\'itinéraire sur mesure, sélection d\'hébergements, guides francophones privés, accompagnement WhatsApp.',
+  areaServed: 'Egypt',
+  serviceType: 'Travel Planning',
+  url: 'https://rendezvous-surlenil.com/sur-mesure',
+}
+
 const steps = [
   {
     icon: MessageCircle,
@@ -75,6 +91,10 @@ export default function SurMesurePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ─── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '80vh' }}>
         <div className="absolute inset-0">

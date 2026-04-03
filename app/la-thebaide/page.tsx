@@ -5,13 +5,13 @@ import { Home, Sun, Coffee, Moon, Stars, Ship, ChevronDown } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'La Thébaïde, Maison d\'hôtes à Louxor, rive est',
+  title: 'La Thébaïde, Maison d\'hôtes à Louxor rive est, Vue panoramique Nil | Rendez-vous sur le Nil',
   description:
-    'La Thébaïde est le duplex de Sophie & Nasser à Louxor, rive est. 4 chambres climatisées, rooftop panoramique sur le Nil. Le point d\'ancrage de tous vos séjours en Égypte.',
+    'La Thébaïde est la maison d\'hôtes de Sophie & Nasser à Louxor, rive est. 4 chambres climatisées, rooftop panoramique sur le Nil depuis le 9e étage. Le point d\'ancrage de tous vos séjours en Égypte.',
   alternates: { canonical: 'https://rendezvous-surlenil.com/la-thebaide' },
   openGraph: {
     title: 'La Thébaïde, Maison d\'hôtes à Louxor | Rendez-vous sur le Nil',
-    description: 'Un duplex soigneusement décoré sur la rive est de Louxor, ouvert toute l\'année. 4 chambres climatisées, rooftop panoramique sur le Nil. La maison de Sophie & Nasser.',
+    description: 'Une maison d\'hôtes soigneusement décorée sur la rive est de Louxor, ouverte toute l\'année. 4 chambres climatisées, vue panoramique sur le Nil depuis le 9e étage. La maison de Sophie & Nasser.',
     images: [{ url: 'https://images.unsplash.com/photo-1609188076864-c35269136dc4?w=1200&q=85', width: 1200, height: 630, alt: 'La Thébaïde, maison d\'hôtes à Louxor, rive est' }],
   },
 }
@@ -21,7 +21,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
   name: 'La Thébaïde',
-  description: 'Duplex soigneusement décoré sur la rive est de Louxor, tenu par Sophie Godineau et Nasser. 4 chambres climatisées, rooftop panoramique sur le Nil. Ouvert toute l\'année.',
+  description: 'Maison d\'hôtes soigneusement décorée sur la rive est de Louxor, tenue par Sophie Godineau et Nasser. 4 chambres climatisées, vue panoramique sur le Nil depuis le 9e étage. Ouvert toute l\'année.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Louxor',

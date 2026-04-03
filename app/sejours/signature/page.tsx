@@ -25,10 +25,31 @@ type SanitySignatureExp = {
 }
 
 export const metadata: Metadata = {
-  title: 'Séjours Signature, CASBAH, YALLA, PACHA, SAFARA, SMALA, HABIBI',
+  title: 'Séjours Signature en Égypte, Dahabiya, Louxor & Assouan | Rendez-vous sur le Nil',
   description:
-    'Six séjours signature en Égypte par Sophie & Nasser : La Thébaïde, croisière en dahabiya, guide francophone, montgolfière. Louxor, Assouan, Abou Simbel.',
+    'Six séjours clés en main en Égypte par Sophie Godineau : croisière en dahabiya sur le Nil, nuits à La Thébaïde, guide francophone privé, montgolfière. De 3 à 12 nuits, Louxor, Assouan, Abou Simbel.',
   alternates: { canonical: 'https://rendezvous-surlenil.com/sejours/signature' },
+  openGraph: {
+    title: 'Séjours Signature en Égypte | Rendez-vous sur le Nil',
+    description: 'Six séjours clés en main pour découvrir l\'Égypte authentique : dahabiya sur le Nil, temples de la Haute-Égypte, guide francophone dédié.',
+    images: [{ url: 'https://images.unsplash.com/photo-1539768942893-daf853948e5e?w=1200&q=85', width: 1200, height: 630, alt: 'Séjours Signature en Égypte, dahabiya sur le Nil' }],
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Séjours Signature, Rendez-vous sur le Nil',
+  description: 'Six séjours clés en main en Égypte : croisière dahabiya, séjours à Louxor, guide francophone privé.',
+  url: 'https://rendezvous-surlenil.com/sejours/signature',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'CASBAH — Louxor j\'adore, 8 jours / 7 nuits' },
+    { '@type': 'ListItem', position: 2, name: 'YALLA — La Haute-Égypte dans toute sa splendeur, 7 jours / 6 nuits' },
+    { '@type': 'ListItem', position: 3, name: 'PACHA — Nil part ailleurs, croisière dahabiya 5 ou 7 nuits' },
+    { '@type': 'ListItem', position: 4, name: 'SAFARA — La mini-croisière, 4 jours / 3 nuits' },
+    { '@type': 'ListItem', position: 5, name: 'SMALA — L\'évasion privée, dahabiya privatisée' },
+    { '@type': 'ListItem', position: 6, name: 'HABIBI — Offre été, 4 jours / 3 nuits, basse saison' },
+  ],
 }
 
 const sejours = [
@@ -210,6 +231,10 @@ export default async function SignaturePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ─── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '70vh' }}>
         <div className="absolute inset-0">

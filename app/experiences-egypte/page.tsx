@@ -31,7 +31,7 @@ const experiences = [
     body: [
       'À six heures de route du Caire, le paysage bascule. La terre devient poudre, puis craie, puis sculpture. Des formations calcaires taillées par des millénaires de vent surgissent du sol comme des champignons géants, comme des vagues figées, comme des présences.',
       'Le désert blanc de Farafra est classé au patrimoine naturel égyptien, et c\'est encore l\'un des secrets les mieux gardés du pays. Peu de voyageurs s\'y aventurent. La logistique rebute. Les agences classiques n\'y proposent rien.',
-      'Avec Nasser, qui connaît ce terrain depuis son enfance, vous y allez autrement.',
+      'La logistique décourage. Les agences classiques n\'y vont pas.',
     ],
     details: [
       'Départ en 4x4 depuis l\'oasis de Bahariya',
@@ -55,9 +55,9 @@ const experiences = [
       'Vous vous endormez sous le ciel. Vous vous réveillez au silence. Il n\'y a rien de plus simple. Et rien de plus impossible à reproduire en rentrant.',
     ],
     details: [
-      'Matelas, couvertures et tentes si besoin',
+      'Matelas, couvertures et tentes fournis',
       'Dîner préparé au feu sur place',
-      'Guide local passionné d\'astronomie, présent sur place',
+      'Votre guide local, présent sur place',
       'Température idéale : octobre à mars',
       'Option : réveil à l\'aube pour le lever de soleil',
     ],
@@ -158,7 +158,7 @@ export default function ExperiencesEgyptePage() {
               style={{ color: 'rgba(250,247,242,0.78)', maxWidth: '520px', fontWeight: 300, lineHeight: 1.75 }}
             >
               Ni pyramides bondées ni bateaux à 400 passagers. Le désert blanc, les nuits sous les étoiles du Sahara,
-              les oasis berbères à la frontière libyenne, l&apos;Égypte lente, rare, qui laisse des traces.
+              l&apos;oasis berbère de Siwa, l&apos;Égypte lente, rare, qui laisse des traces.
             </p>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               Parlons de votre voyage →
@@ -181,19 +181,19 @@ export default function ExperiencesEgyptePage() {
               marginBottom: '2.5rem',
             }}
           >
-            L&apos;Égypte n&apos;est pas seulement
+            L&apos;Égypte ne se résume pas
             <br />
-            <em style={{ fontStyle: 'italic', color: '#CE8D5C', fontWeight: 300 }}>ses temples et son Nil.</em>
+            <em style={{ fontStyle: 'italic', color: '#CE8D5C', fontWeight: 300 }}>à ses temples et à son Nil.</em>
           </h2>
           <div className="space-y-5 text-left max-w-xl mx-auto">
             <p className="leading-relaxed" style={{ color: 'rgba(250,247,242,0.72)', fontSize: '1.0625rem', lineHeight: 1.85 }}>
-              La plupart des voyageurs qui viennent en Égypte suivent le même itinéraire, Le Caire, les Pyramides, une croisière en grand bateau, Assouan. C&apos;est beau. Mais c&apos;est l&apos;Égypte des foules.
+              La plupart des voyageurs qui viennent en Égypte suivent le même itinéraire : Le Caire, les pyramides, une croisière sur le Nil à bord de grands bateaux, Assouan. C&apos;est beau. Mais c&apos;est l&apos;Égypte des foules.
             </p>
             <p className="leading-relaxed" style={{ color: 'rgba(250,247,242,0.72)', fontSize: '1.0625rem', lineHeight: 1.85 }}>
-              Il y a une autre Égypte. Celle du désert occidental, des oasis oubliées, des nuits sans bruit ni lumière. Une Égypte qui demande du temps, de la curiosité, et quelqu&apos;un pour l&apos;ouvrir.
+              Il existe une autre Égypte. Celle du désert occidental, des oasis oubliées, des nuits sans bruit ni lumière. Une Égypte qui demande du temps, de la curiosité, et quelqu&apos;un pour l&apos;ouvrir.
             </p>
             <p className="leading-relaxed" style={{ color: 'rgba(250,247,242,0.72)', fontSize: '1.0625rem', lineHeight: 1.85 }}>
-              C&apos;est ce que Sophie et Nasser construisent, tisser ces deux Égyptes ensemble, pour des voyageurs qui veulent vraiment voir.
+              C&apos;est cette Égypte que Sophie et Nasser font découvrir, en tissant des expériences entre ces deux mondes, pour des voyageurs qui veulent vraiment voir.
             </p>
           </div>
         </div>
@@ -328,8 +328,8 @@ export default function ExperiencesEgyptePage() {
             {[
               {
                 num: '01',
-                title: 'Nasser connaît le terrain',
-                body: 'Il a grandi en Égypte, à Louxor. Il connaît les guides de désert de Siwa depuis 20 ans, les propriétaires d\'écolodges à Dakhla, les pistes non cartographiées. Ce réseau ne s\'achète pas.',
+                title: 'Sophie connaît les bons guides',
+                body: 'Elle sélectionne les guides et hébergements dans le désert et les oasis depuis des années. Ce réseau de confiance, construit sur le terrain, ne s\'achète pas.',
               },
               {
                 num: '02',
@@ -349,7 +349,7 @@ export default function ExperiencesEgyptePage() {
               {
                 num: '05',
                 title: 'Sécurisé sans être aseptisé',
-                body: 'Nasser assure la logistique sur le terrain. Vous dormez dans le désert en toute sécurité, pas dans un camp touristique avec 50 autres personnes.',
+                body: 'Votre guide assure la logistique sur le terrain. Vous dormez dans le désert en toute sécurité, pas dans un camp touristique avec 50 autres personnes.',
               },
               {
                 num: '06',
@@ -397,16 +397,16 @@ export default function ExperiencesEgyptePage() {
                 <em style={{ fontStyle: 'italic', fontWeight: 300 }}>Deux Égyptes, un voyage.</em>
               </h2>
               <p className="leading-relaxed mb-5" style={{ color: '#5C6E7E', fontSize: '1.0625rem', lineHeight: 1.85 }}>
-                Les voyageurs qui reviennent en Égypte disent tous la même chose : la première fois, ils ont fait les pyramides et le Nil. La deuxième fois, ils ont voulu autre chose.
+                Les voyageurs qui reviennent en Égypte disent souvent la même chose : la première fois, ils ont vu les pyramides et le Nil. La seconde, ils ont cherché autre chose.
               </p>
               <p className="leading-relaxed mb-8" style={{ color: '#5C6E7E', fontSize: '1.0625rem', lineHeight: 1.85 }}>
-                Avec Sophie, pas besoin d&apos;attendre la deuxième fois. Elle construit des voyages qui combinent une croisière dahabiya sur le Nil, quelques nuits à La Thébaïde à Louxor, et une extension désert à Siwa ou dans le désert blanc. Deux Égyptes dans le même voyage, l&apos;eau et le sable.
+                Avec Sophie, il n&apos;est pas nécessaire d&apos;attendre. Elle conçoit des voyages qui associent une croisière en dahabiya sur le Nil, quelques nuits en Thébaïde à Louxor, et une extension dans le désert — à Siwa ou dans le désert blanc. Deux Égyptes dans un même voyage. L&apos;eau et le sable.
               </p>
 
               <div className="flex flex-col gap-3 mb-8">
                 {[
-                  { label: 'Dahabiya → Louxor → Désert blanc', duration: '14 nuits' },
-                  { label: 'Le Caire → Siwa → Louxor → Assouan', duration: '12 nuits' },
+                  { label: 'Le Caire → Désert blanc → Louxor → Assouan', duration: '12 nuits' },
+                  { label: 'Le Caire → Siwa → Louxor → croisière → Assouan', duration: '14 nuits' },
                   { label: 'Circuit des oasis + croisière courte', duration: '10 nuits' },
                 ].map(({ label, duration }) => (
                   <div

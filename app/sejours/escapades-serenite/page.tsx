@@ -16,6 +16,21 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Escapades Sérénité, Guide privé francophone en Égypte',
+  provider: {
+    '@type': 'TouristAgency',
+    name: 'Rendez-vous sur le Nil',
+    url: 'https://rendezvous-surlenil.com',
+  },
+  description: 'Explorez l\'Égypte avec un guide francophone privé et un chauffeur dédié : Le Caire, pyramides de Gizeh, oasis de Siwa, désert blanc, Louxor, Assouan. À la journée ou sur plusieurs jours.',
+  areaServed: 'Egypt',
+  serviceType: 'Guided Tour',
+  url: 'https://rendezvous-surlenil.com/sejours/escapades-serenite',
+}
+
 const destinations = [
   {
     id: 'caire',
@@ -92,9 +107,8 @@ const destinations = [
     accroche:
       'Nulle part ailleurs au monde on ne trouve une telle concentration de chefs-d\'œuvre antiques sur un si petit territoire. La Vallée des Rois et ses tombeaux aux couleurs intactes, les temples de Karnak et Louxor illuminés le soir, les colosses de Memnon qui veillent sur la plaine.',
     options: [
-      { label: 'Rive Est : temples de Karnak, temple de Louxor, musée archéologique, musée de la momification' },
-      { label: 'Rive Ouest : Vallée des Rois, colosses de Memnon, temple d\'Hatchepsout, temple de Medinet Habu, vallée des artisans, vallée des nobles' },
-      { label: 'Temple de Medinet Habu, vallée des artisans, vallée des nobles' },
+      { label: 'Rive Est : temples de Karnak, temple de Louxor, musée archéologique, musée de la momification (entre autres)' },
+      { label: 'Rive Ouest : Vallée des Rois, colosses de Memnon, temple d\'Hatchepsout, temple de Medinet Habu, vallée des artisans, vallée des nobles (entre autres)' },
       { label: 'Vol en montgolfière, 100 € par personne (option)' },
     ],
     pricing: 'À partir de 60 € par personne / jour',
@@ -147,6 +161,10 @@ export default function EscapadesPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ─── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '80vh' }}>
         <div className="absolute inset-0">

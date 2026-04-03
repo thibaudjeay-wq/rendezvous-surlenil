@@ -17,7 +17,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Sophie Godineau',
   jobTitle: 'Travel Planner Égypte',
-  description: 'Travel planner spécialisée en Égypte. Dix ans de voyages, de rencontres et de terrain pour construire une Égypte sur mesure, authentique et hors des sentiers touristiques.',
+  description: 'Travel planner spécialisée en Égypte depuis 2021. Avec Nasser, son partenaire égyptien né sur la rive est de Louxor, ils construisent une Égypte authentique, hors des sentiers touristiques.',
   worksFor: {
     '@type': 'TouristAgency',
     name: 'Rendez-vous sur le Nil',
@@ -28,7 +28,7 @@ const jsonLd = {
     addressLocality: 'Louxor',
     addressCountry: 'EG',
   },
-  knowsLanguage: ['fr', 'en', 'ar'],
+  knowsLanguage: ['fr', 'en'],
 }
 
 const WHATSAPP_SOPHIE = getWhatsAppUrl(

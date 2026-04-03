@@ -47,10 +47,28 @@ const STATUS_LABELS: Record<string, { label: string; color: string; bg: string }
 }
 
 export const metadata: Metadata = {
-  title: 'Séjours Privilèges, OASIS FLOW SIWA, CROQUE & VOGUE, DÉESSE DU NIL',
+  title: 'Séjours Privilèges, Yoga à Siwa & Aquarelle sur le Nil | Rendez-vous sur le Nil',
   description:
-    'Trois séjours thématiques en petit groupe avec Sophie : yoga à Siwa (nov. 2026), aquarelle sur le Nil (nov. 2026), voyage féminin (jan. 2027). Places limitées.',
+    'Séjours thématiques en petit groupe avec Sophie Godineau : yoga & bien-être à Siwa, aquarelle en croisière dahabiya, voyage féminin à Louxor. Places limitées, saison 2026-2027.',
   alternates: { canonical: 'https://rendezvous-surlenil.com/sejours/privileges' },
+  openGraph: {
+    title: 'Séjours Privilèges en Égypte | Rendez-vous sur le Nil',
+    description: 'Yoga à Siwa, aquarelle en dahabiya, voyage féminin à Louxor. Trois séjours thématiques en petit groupe avec Sophie. Places limitées.',
+    images: [{ url: 'https://images.unsplash.com/photo-1539768942893-daf853948e5e?w=1200&q=85', width: 1200, height: 630, alt: 'Séjours Privilèges en Égypte, Rendez-vous sur le Nil' }],
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Séjours Privilèges, Rendez-vous sur le Nil',
+  description: 'Séjours thématiques en petit groupe avec Sophie Godineau : yoga, aquarelle, voyage féminin.',
+  url: 'https://rendezvous-surlenil.com/sejours/privileges',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'OASIS FLOW SIWA — Yoga, oasis & sérénité, 8 jours / 7 nuits, novembre 2026' },
+    { '@type': 'ListItem', position: 2, name: 'CROQUE & VOGUE — Aquarelle & croisière sur le Nil, 12 jours / 11 nuits, novembre 2026' },
+    { '@type': 'ListItem', position: 3, name: 'DÉESSE DU NIL — Voyage 100% féminin, 8 jours / 7 nuits, janvier 2027' },
+  ],
 }
 
 const WHATSAPP_ICON = (
@@ -141,7 +159,7 @@ const faq = [
   },
   {
     q: 'Comment réserver ma place ?',
-    a: 'Remplissez le formulaire de réservation (lien ci-dessous) ou écrivez à Sophie directement. Elle vous envoie le programme détaillé, le tarif et les modalités sous 24h. Les places étant limitées, le dépôt d\'acompte confirme votre inscription.',
+    a: 'Écrivez à Sophie directement. Elle vous envoie le programme détaillé, le tarif et les modalités de réservation sous 24h. Les places étant limitées, le dépôt d\'acompte confirme votre inscription.',
   },
   {
     q: 'Faut-il être expérimenté(e) en yoga ou en aquarelle ?',
@@ -167,6 +185,10 @@ export default async function PrivilegesPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ─── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
         <div className="absolute inset-0">
