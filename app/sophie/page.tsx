@@ -516,14 +516,14 @@ export default function SophiePage() {
               </p>
               <footer className="mt-3">
                 <p className="text-xs tracking-widest uppercase" style={{ color: 'rgba(250,247,242,0.4)' }}>
-                  Nasser, rive ouest de Louxor
+                  Nasser, rive est de Louxor
                 </p>
               </footer>
             </blockquote>
 
             <div className="space-y-4 mb-12" style={{ color: 'rgba(250,247,242,0.7)', fontSize: '1rem' }}>
               <p className="leading-relaxed">
-                Nasser est né sur la rive ouest de Louxor. Fils d&apos;une famille de guides, il a grandi entre
+                Nasser est né sur la rive est de Louxor. Fils d&apos;une famille de guides, il a grandi entre
                 les temples de Karnak et les champs de canne à sucre du bord du Nil. Il connaît l&apos;Égypte
                 non pas comme un produit à vendre, mais comme le pays qui l&apos;a fabriqué.
               </p>

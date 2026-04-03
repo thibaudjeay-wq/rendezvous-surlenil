@@ -88,7 +88,7 @@ export default function Hero() {
             style={{ color: 'rgba(250, 247, 242, 0.85)', maxWidth: '520px', fontWeight: 300 }}
           >
             Sophie Godineau a une connaissance intime du terrain égyptien. Nasser y est né.
-            Ensemble, ils ont construit quelque chose que les tour-opérateurs ne peuvent pas vendre :
+            Ensemble, ils ont construit quelque chose que les tour-opérateurs ne peuvent pas proposer :
             une relation de confiance profonde avec le pays, nourrie par le temps, les liens et le vécu.
           </p>
 

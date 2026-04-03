@@ -27,11 +27,10 @@ export default function AboutSophie() {
 
             <p className="leading-relaxed mb-5" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
               Sophie connaît l&apos;Égypte de l&apos;intérieur, elle y revient sans cesse depuis des années,
-              et c&apos;est là que tout a commencé. Nasser, son partenaire égyptien, est né sur la rive ouest
-              Est de Louxor. Il connaît chaque guide, chaque propriétaire de riad (il n&apos;y a pas de riad
-              en Égypte) chaque gardien de temple qui mérite qu&apos;on lui serre la main, chaque dahabiya,
-              chaque chauffeur dont le sourire dans le rétroviseur dit, sans un mot, que vous êtes entre
-              de bonnes mains.
+              et c&apos;est là que tout a commencé. Nasser, son partenaire égyptien, est né sur la rive est
+              de Louxor. Il connaît chaque guide, chaque gardien de temple qui mérite qu&apos;on lui serre
+              la main, chaque dahabiya, chaque chauffeur dont le sourire dans le rétroviseur dit, sans un
+              mot, que vous êtes entre de bonnes mains.
             </p>
             <p className="leading-relaxed mb-8" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
               Ce que vous choisissez, ce n&apos;est pas un itinéraire. C&apos;est leur carnet d&apos;adresses,
