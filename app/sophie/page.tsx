@@ -52,7 +52,7 @@ const engagements = [
   },
   {
     num: '03',
-    title: "Des adresses que je n'aurais pas à tout le monde",
+    title: "Des adresses que je ne donnerais pas à tout le monde",
     description:
       "Les maisons d'hôtes que je recommande, je les ai visitées. Les guides que je missionne, je les connais depuis des années. Chaque prestataire est choisi à la main.",
   },
@@ -81,7 +81,7 @@ const differences = [
   },
   {
     them: 'Un correspondant local que vous ne connaissez pas',
-    us: 'Nasser, que nous vous présenterons avant le départ',
+    us: 'Nasser, qui accueille les voyageurs à La Thébaïde et coordonne tout sur le terrain',
   },
   {
     them: 'Une hotline impersonnelle en cas de problème',
@@ -173,7 +173,7 @@ export default function SophiePage() {
               {[
                 { value: 'Terrain', label: 'connaissance intime' },
                 { value: '100%', label: 'sur mesure' },
-                { value: 'FR · AR', label: 'bilingue' },
+                { value: 'FR', label: 'interlocutrice' },
               ].map(({ value, label }) => (
                 <div key={label}>
                   <p
@@ -295,7 +295,7 @@ export default function SophiePage() {
               </h2>
 
               <p className="leading-relaxed mb-6" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
-                La première fois que j&apos;ai mis les pieds à Louxor, c&apos;était pour quelques semaines.
+                La première fois que j&apos;ai mis les pieds à Louxor, c&apos;était pour quelques jours.
                 Je suis repartie, et je n&apos;ai cessé de revenir. Ce n&apos;est pas un hasard, c&apos;est une évidence
                 que je n&apos;aurais pas su m&apos;expliquer à l&apos;époque.
               </p>
@@ -523,9 +523,9 @@ export default function SophiePage() {
 
             <div className="space-y-4 mb-12" style={{ color: 'rgba(250,247,242,0.7)', fontSize: '1rem' }}>
               <p className="leading-relaxed">
-                Nasser est né sur la rive est de Louxor. Fils d&apos;une famille de guides, il a grandi entre
-                les temples de Karnak et les champs de canne à sucre du bord du Nil. Il connaît l&apos;Égypte
-                non pas comme un produit à vendre, mais comme le pays qui l&apos;a fabriqué.
+                Nasser est né sur la rive est de Louxor. Manager de dahabiya, il a grandi entre le temple
+                de Tod et les champs de canne à sucre bordant le Nil. Il connaît l&apos;Égypte non comme
+                une destination mise en scène, mais comme une terre vécue, intime, fondatrice.
               </p>
               <p className="leading-relaxed">
                 C&apos;est lui qui orchestre tout ce que vous ne voyez pas : les bateliers de confiance,
@@ -648,7 +648,7 @@ export default function SophiePage() {
             Racontez-moi votre projet.
             <br />
             <em style={{ fontStyle: 'italic', color: '#CE8D5C', fontWeight: 400 }}>
-              On verra ce qu&apos;on peut construire ensemble.
+              Construisons-le ensemble.
             </em>
           </h2>
 

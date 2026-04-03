@@ -46,7 +46,7 @@ export default function MentionsLegalesPage() {
               <li>Contact WhatsApp : <a href="https://wa.me/33601315023" target="_blank" rel="noopener noreferrer">+33 6 01 31 50 23</a></li>
             </ul>
             <p style={{ marginTop: '1rem', fontSize: '0.9375rem', color: '#8A9BAB' }}>
-              Numéro SIRET et immatriculation Atout France communiqués sur demande.
+              Numéro SIRET communiqué sur demande.
             </p>
           </Section>
 
