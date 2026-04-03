@@ -11,6 +11,7 @@ import OrientationBlock from '@/components/home/OrientationBlock'
 import HowItWorks from '@/components/home/HowItWorks'
 import WhyUs from '@/components/home/WhyUs'
 import Testimonials from '@/components/home/Testimonials'
+import MapEgypte from '@/components/home/MapEgypte'
 import QuizModal from '@/components/quiz/QuizModal'
 
 export const revalidate = 3600
@@ -92,16 +93,19 @@ export default async function HomePage() {
       {/* 6. Nos univers, les offres, maintenant qu'on a confiance */}
       <OurUniverse />
 
-      {/* 7. Dahabiya, l'expérience phare */}
+      {/* 7. Carte des destinations */}
+      <MapEgypte />
+
+      {/* 8. Dahabiya, l'expérience phare */}
       <FeaturedDahabiya />
 
-      {/* 8. Orientation, aide au choix de la bonne formule */}
+      {/* 9. Orientation, aide au choix de la bonne formule */}
       <OrientationBlock />
 
-      {/* 9. Comment ça se passe, processus rassurant */}
+      {/* 10. Comment ça se passe, processus rassurant */}
       <HowItWorks />
 
-      {/* 10. Preuves qualitatives */}
+      {/* 11. Preuves qualitatives */}
       <WhyUs />
 
       {/* Quiz flottant, accessible à tout moment */}
