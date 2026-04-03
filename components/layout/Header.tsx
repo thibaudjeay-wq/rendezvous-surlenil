@@ -107,12 +107,6 @@ export default function Header() {
                     {experiencesOpen && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-60 bg-[#FAF7F2] border border-[#E8D5B7] rounded-sm shadow-lg overflow-hidden">
                         <div className="py-1">
-                          <Link
-                            href="/experiences-egypte"
-                            className="block px-5 py-3 text-sm text-[#0F3D38] hover:bg-[#F5ECD7] border-b border-[#E8D5B7]"
-                          >
-                            <span className="font-medium">Toutes nos expériences</span>
-                          </Link>
                           {EXPERIENCES_SUBMENU.map((item) => (
                             <Link
                               key={item.href}
@@ -209,17 +203,14 @@ export default function Header() {
               if (link.href === '/experiences-egypte') {
                 return (
                   <div key={link.href}>
-                    <Link
-                      href="/experiences-egypte"
-                      className="block px-6 py-4 text-[#0F3D38] font-medium border-b border-[#E8D5B7]/50 text-[15px]"
-                    >
-                      Expériences
-                    </Link>
+                    <p className="px-6 py-3 text-[11px] font-semibold tracking-[0.12em] uppercase" style={{ color: '#C4902A' }}>
+                      Séjours
+                    </p>
                     {EXPERIENCES_SUBMENU.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block px-10 py-3 text-sm text-[#5C6E7E] hover:text-[#C4902A] border-b border-[#E8D5B7]/30"
+                        className="block px-6 py-3 text-sm text-[#5C6E7E] hover:text-[#C4902A] border-b border-[#E8D5B7]/30"
                       >
                         {item.label}
                       </Link>

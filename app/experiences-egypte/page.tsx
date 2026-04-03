@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Désert blanc, bivouac sous les étoiles, oasis de Siwa, l'Égypte profonde, loin des circuits de masse. Avec Sophie & Nasser.",
   alternates: { canonical: 'https://rendezvous-surlenil.com/experiences-egypte' },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "L'Égypte que peu de voyageurs voient, Rendez-vous sur le Nil",
     description: "Désert blanc, nuits étoilées, oasis berbères, l'Égypte profonde, loin des bus et des guides à fanion.",

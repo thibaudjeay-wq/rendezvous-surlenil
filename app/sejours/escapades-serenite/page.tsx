@@ -178,8 +178,6 @@ export default function EscapadesPage() {
           >
             <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
             <span>/</span>
-            <Link href="/experiences-egypte" className="hover:text-white transition-colors">Expériences</Link>
-            <span>/</span>
             <span style={{ color: 'rgba(255,255,255,0.9)' }}>Escapades Sérénité</span>
           </nav>
 
