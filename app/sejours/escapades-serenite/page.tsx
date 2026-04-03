@@ -115,8 +115,8 @@ const destinations = [
     ],
     pricing: 'À partir de 60 € par personne / jour',
     pricingNote: 'Tickets d\'entrée et repas en sus',
-    image: '/photos/dahabiya/exterieur-coucher.jpg',
-    imageAlt: 'Dahabiya et le Nil à Assouan au coucher de soleil, Escapades Sérénité',
+    image: '/photos/escapades/village-nubien.jpg',
+    imageAlt: 'Village nubien, Assouan, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Assouan. Pouvez-vous me donner plus d\'informations ? 🌿',
   },
 ]
