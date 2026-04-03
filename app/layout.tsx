@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     description: 'Voyages premium en Égypte, Croisières dahabiya & séjours sur mesure',
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: 'MHUoDAUFSSo7tHleYhxmbodwungdzkI_gYKrhhB2cCI',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
