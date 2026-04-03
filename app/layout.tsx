@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: 'Rendez-vous sur le Nil, Voyages premium en Égypte',
     description:
       'Croisières en dahabiya, séjours signature et voyages sur mesure en Égypte avec Sophie Godineau.',
-    images: [{ url: 'https://rendezvous-surlenil.com/logo.png', width: 2000, height: 2000, alt: 'Rendez-vous sur le Nil, Voyages premium en Égypte' }],
+    images: [{ url: 'https://rendezvous-surlenil.com/og-image.png', width: 1200, height: 630, alt: 'Rendez-vous sur le Nil, Voyages premium en Égypte' }],
   },
   twitter: {
     card: 'summary_large_image',
