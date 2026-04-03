@@ -33,28 +33,28 @@ const jsonLd = {
   amenityFeature: [
     { '@type': 'LocationFeatureSpecification', name: 'Vue panoramique sur le Nil et Louxor', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Terrasse', value: true },
-    { '@type': 'LocationFeatureSpecification', name: 'Jardin', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Vue panoramique depuis le 9e et 10e étage', value: true },
   ],
 }
 
 const espaces = [
   {
     icon: Sun,
-    label: 'Le jardin',
+    label: 'La vue',
     description:
-      'Un carré de verdure improbable entre les champs de canne à sucre et les murs ocre. Bougainvilliers, palmiers, un grenadier. Le matin, le café s\'y déguste sous les bougainvilliers. Le soir, les oiseaux.',
+      'Du 9e au 10e étage et jusqu\'au rooftop, La Thébaïde vous offre une perspective rare sur Louxor. Si vous vous levez tôt, vous verrez le ballet des montgolfières au-dessus de la rive est. Le soir, le coucher de soleil sur le Nil est magique.',
   },
   {
     icon: Home,
     label: 'Le salon',
     description:
-      'Poutres ancienne, mashrabiya, kilims berbères et jarres en terre cuite. Un espace où le temps ralentit, conçu pour lire, parler, ou simplement être là. Pas une réception d\'hôtel.',
+      'Kilims artisanaux d\'Assouan, vanneries, beaux livres sur l\'Égypte, photophores en albâtre. Un espace où le temps ralentit, conçu pour lire, parler, ou simplement être là. Pas une réception d\'hôtel.',
   },
   {
     icon: Coffee,
     label: 'Les chambres',
     description:
-      'Quatre chambres raffinées et climatisées, chacune avec salle de bain privée, hauts plafonds, linge de lit en coton égyptien, lumière maîtrisée. Chaque chambre a sa propre personnalité, choisie avec soin.',
+      'Quatre chambres raffinées et climatisées, chacune avec salle de bain privée, hauts plafonds, lumière maîtrisée. Chaque chambre a sa propre personnalité, choisie avec soin.',
   },
   {
     icon: Moon,
@@ -66,7 +66,7 @@ const espaces = [
     icon: Stars,
     label: 'La cuisine',
     description:
-      'Pas de restaurant. Pas de menu plastifié. La cuisine propose des plats égyptiens de saison, ful, koshary, grillades d\'agneau, desserts au miel, avec les produits du marché local.',
+      'Les voyageurs peuvent utiliser la cuisine pour cuisiner eux-mêmes. Une table d\'hôtes est proposée sur réservation préalable : plats égyptiens de saison avec les produits du marché local.',
   },
 ]
 
@@ -79,12 +79,12 @@ const moments = [
   {
     time: 'Le matin',
     description:
-      'Petit-déjeuner dans le jardin. Fromage blanc local, pain baladi tout chaud, miel de canne, jus de citron pressé. La maison vous invite à préparer votre journée à votre rythme.',
+      'Petit-déjeuner. Fromage blanc local, pain baladi tout chaud, miel de canne, jus de citron pressé. La maison vous invite à préparer votre journée à votre rythme.',
   },
   {
     time: 'L\'après-midi',
     description:
-      'C\'est le moment du calme. Les volets fermés, la peau encore chaude des temples du matin. Une sieste, un livre. Dehors, les fellahs continuent leur travail dans les champs.',
+      'C\'est le moment du calme. Les volets fermés, la peau encore chaude des temples du matin. Une sieste, un livre. Sur le Nil, les felouques glissent lentement.',
   },
   {
     time: 'Le soir',
@@ -100,7 +100,7 @@ const faq = [
   },
   {
     q: 'Combien de voyageurs peut accueillir La Thébaïde ?',
-    a: 'La Thébaïde est un duplex privé avec 4 chambres, chacune avec sa propre salle de bain. Elle est réservée exclusivement aux voyageurs de Rendez-vous sur le Nil. C\'est cette intimité qui en fait l\'essence : vous ne croisez jamais des inconnus.',
+    a: 'La Thébaïde fonctionne comme une maison d\'hôtes avec 4 chambres, chacune avec sa propre salle de bain privée et des espaces communs vastes. On peut la privatiser entièrement, ou réserver une chambre — d\'autres voyageurs peuvent être présents. Tout est climatisé.',
   },
   {
     q: 'Peut-on séjourner à La Thébaïde sans passer par un séjour organisé ?',
@@ -108,7 +108,7 @@ const faq = [
   },
   {
     q: 'Où se trouve exactement La Thébaïde ?',
-    a: 'Sur la rive est de Louxor, à 10 minutes de l\'aéroport et à quelques minutes à pied du temple de Karnak et du Nil. Un transfert est organisé à votre arrivée, pas besoin de chercher.',
+    a: 'Sur la rive est de Louxor, à 15 minutes de l\'aéroport et à 15 minutes du temple de Louxor. La corniche du Nil est accessible à pied. Un transfert est organisé à votre arrivée, pas besoin de chercher.',
   },
 ]
 
@@ -204,14 +204,14 @@ export default function LaThebaidePage() {
                 lineHeight: 1.35,
               }}
             >
-              Ici, vous êtes chez nous.
+              Ici, vous êtes nos hôtes.
             </p>
 
             <p
               className="text-base md:text-lg mb-12 max-w-xl"
               style={{ color: 'rgba(250,247,242,0.80)', fontWeight: 300, lineHeight: 1.75 }}
             >
-              Un duplex soigneusement décoré sur la rive est de Louxor, à deux pas du Nil et de Karnak.
+              Une maison d&apos;hôtes soigneusement décorée à Louxor, à quelques minutes du Nil et des temples.
               Le point d&apos;ancrage de l&apos;univers Rendez-vous sur le Nil, et l&apos;endroit où l&apos;Égypte commence à vous appartenir vraiment.
             </p>
 
@@ -278,7 +278,7 @@ export default function LaThebaidePage() {
                   La Thébaïde porte deux noms en un. Celui de la Thébaïde égyptienne, ce territoire antique autour de l&apos;ancienne Thèbes, la ville aux cent portes, aujourd&apos;hui Louxor. Et celui que les mystiques du désert donnaient à leurs refuges : un lieu retiré du monde, propice au silence et à la contemplation.
                 </p>
                 <p className="leading-relaxed" style={{ color: '#3D5166', fontSize: '1.0625rem' }}>
-                  C&apos;est la maison de Nasser. Ce n&apos;est pas une propriété gérée à distance. Quand vous y séjournez, vous êtes ses hôtes. La différence se ressent dès la première heure : il y a des livres sur les étagères, des photos de famille dans l&apos;entrée, un chat qui dort sur la terrasse.
+                  C&apos;est la maison de Sophie et Nasser. Ce n&apos;est pas une propriété gérée à distance. Quand vous y séjournez, vous êtes leurs hôtes. La différence se ressent dès la première heure : il y a des livres sur les étagères, de la jolie déco, une cuisine équipée.
                 </p>
                 <p className="leading-relaxed" style={{ color: '#3D5166', fontSize: '1.0625rem' }}>
                   La rive est de Louxor, c&apos;est le cœur de la cité des pharaons : Karnak, le temple de Louxor, le Nil à portée de main. Et depuis le rooftop de La Thébaïde, la vue s&apos;étend jusqu&apos;aux collines de la Vallée des Rois à l&apos;horizon.
@@ -289,7 +289,7 @@ export default function LaThebaidePage() {
               <div className="flex flex-wrap gap-3 mt-10">
                 {[
                   'Rive est de Louxor',
-                  'Duplex privé',
+                  'Maison d\'hôtes',
                   '4 chambres avec SDB privées',
                   'Ouverte toute l\'année',
                   'Accueil personnalisé',
@@ -509,8 +509,8 @@ export default function LaThebaidePage() {
               {
                 number: '15',
                 unit: 'min',
-                label: 'du temple de Karnak',
-                body: 'À pied depuis La Thébaïde. Le plus grand complexe religieux de l\'Antiquité, avant les foules.',
+                label: 'du temple de Louxor',
+                body: 'En quelques minutes depuis La Thébaïde. La corniche du Nil, elle, est accessible à pied.',
               },
               {
                 number: '3 500',
@@ -522,7 +522,7 @@ export default function LaThebaidePage() {
                 number: '5',
                 unit: 'min',
                 label: 'en felouque pour la rive ouest',
-                body: 'La Vallée des Rois, Deir el-Bahari, les Colosses, une traversée du Nil suffit. Un plaisir chaque fois.',
+                body: 'La Vallée des Rois, Deir el-Bahari, les Colosses de Memnon, une traversée du Nil suffit. Un plaisir chaque fois.',
               },
               {
                 number: '1',
@@ -531,7 +531,7 @@ export default function LaThebaidePage() {
                 body: 'Vue à 360° depuis la terrasse : le Nil, les minarets de Louxor, et au loin les collines de la Vallée des Rois.',
               },
               {
-                number: '10',
+                number: '15',
                 unit: 'min',
                 label: 'de l\'aéroport de Louxor',
                 body: 'Arrivée et départ sans stress. Un transfert est organisé depuis l\'aéroport, pas de logistique hasardeuse.',
@@ -601,7 +601,7 @@ export default function LaThebaidePage() {
               </h2>
               <p className="leading-relaxed mb-5" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
                 La Thébaïde n&apos;est pas qu&apos;un hébergement. C&apos;est le lieu depuis lequel tout rayonne.
-                Le matin vous partez explorer avec Sophie. Le soir vous rentrez à la maison. Entre les deux,
+                Le matin vous partez explorer avec Sophie, si elle est là. Le soir vous rentrez à la maison. Entre les deux,
                 Louxor vous appartient.
               </p>
               <p className="leading-relaxed mb-8" style={{ color: '#5C6E7E', fontSize: '1.0625rem' }}>
