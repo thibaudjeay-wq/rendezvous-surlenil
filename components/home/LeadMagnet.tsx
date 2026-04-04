@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { CheckCircle, BookOpen } from 'lucide-react'
 
 const benefits = [
-  'Les sites qui valent vraiment le détour, et ceux qu\'on peut éviter',
-  'Croisière dahabiya vs circuit classique : ce que personne ne vous dit',
-  'Les adresses locales de Sophie, celles qu\'elle donne à ses amis',
+  'Les erreurs fréquentes à éviter avant et pendant le voyage',
+  'Ce qu\'elle conseille vraiment, sans langue de bois',
+  'Ses conseils d\'experte pour bien choisir votre formule',
 ]
 
 export default function LeadMagnet() {

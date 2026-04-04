@@ -132,7 +132,7 @@ const faq = [
   },
   {
     q: 'Partagez-vous le bateau avec d\'autres voyageurs ?',
-    a: 'Les dahabiyas accueillent en général 8 à 12 cabines, soit jusqu\'à 24 voyageurs. Contrairement aux grands paquebots, vous réservez une cabine — pas le bateau entier. Sophie réserve votre cabine et fournit un guide francophone dédié uniquement à ses clients, même si d\'autres voyageurs sont à bord. Pour un groupe, la privatisation complète est possible (formule Smala).',
+    a: 'Les dahabiyas accueillent en général 8 à 12 cabines, soit jusqu\'à 24 voyageurs, contrairement aux grands paquebots. Vous réservez une cabine — pas le bateau entier. Sophie réserve votre cabine et fournit un guide francophone dédié uniquement à ses clients, même si d\'autres voyageurs sont à bord. Pour un groupe, la privatisation complète est possible (formule Smala).',
   },
   {
     q: 'Où s\'amarrent les dahabiyas ?',

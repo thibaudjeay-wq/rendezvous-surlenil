@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 }
 
 const benefits = [
-  "Mes coups de cœur : les sites qui valent vraiment le détour",
-  "Les erreurs à éviter que personne ne vous dit avant de partir",
+  "Les erreurs fréquentes à éviter avant et pendant le voyage",
   "Des suggestions d'itinéraires selon vos envies et votre rythme",
-  "Dahabiya ou circuit classique : comment choisir sans se tromper",
-  "Mes conseils d'experte sur les saisons, les adresses, les guides",
+  "Ce que Sophie conseille vraiment, sans langue de bois",
+  "Ses conseils d'experte pour bien préparer votre séjour",
+  "Un regard honnête sur l'Égypte qu'elle fait découvrir depuis 2021",
 ]
 
 export default function GuidePage() {

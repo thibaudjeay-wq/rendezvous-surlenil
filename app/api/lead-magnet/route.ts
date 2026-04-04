@@ -35,7 +35,7 @@ function buildGuideEmail(firstName: string, GUIDE_URL: string): string {
             </p>
             <p style="margin:0 0 20px;font-size:15px;color:#3D3D3D;line-height:1.7;">
               Merci de votre confiance. J'ai condensé dans ce guide tout ce que je dirai à une amie
-              avant qu'elle parte en Égypte — sans langue de bois, et avec les vraies adresses.
+              avant qu'elle parte en Égypte — les erreurs à ne pas commettre et des conseils d'experte.
             </p>
             <p style="margin:0 0 32px;font-size:15px;color:#3D3D3D;line-height:1.7;">
               Bonne lecture&nbsp;!
