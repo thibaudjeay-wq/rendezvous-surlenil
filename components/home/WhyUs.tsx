@@ -5,7 +5,7 @@ const args = [
     icon: MapPinned,
     title: 'Deux regards, une Égypte inédite',
     description:
-      'Sophie Godineau a une connaissance intime du terrain égyptien. Nasser y est né. Ensemble, ils vous ouvrent des portes inaccessibles aux circuits classiques : temples peu connus, bateliers de confiance, guides soigneusement sélectionnés.',
+      'Sophie Godineau a une connaissance intime du terrain égyptien. Nasser y est né. Ensemble, ils vous ouvrent des portes inaccessibles aux circuits classiques : temples peu connus, bateliers de confiance, guides soigneusement choisis.',
   },
   {
     icon: Languages,
