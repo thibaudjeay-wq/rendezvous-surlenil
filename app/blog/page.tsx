@@ -129,7 +129,11 @@ export default async function BlogPage() {
         sanityClient.fetch<SanityCategory[]>(allCategoriesQuery),
       ])
       if (fetchedPosts && fetchedPosts.length > 0) {
-        posts = fetchedPosts
+        // Merger les corrections statiques sur les excerpts Sanity
+        posts = fetchedPosts.map(p => {
+          const override = staticPosts.find(s => s.slug?.current === p.slug?.current)
+          return override ? { ...p, excerpt: override.excerpt ?? p.excerpt } : p
+        })
         categories = fetchedCategories ?? []
         isSanityConnected = true
       }

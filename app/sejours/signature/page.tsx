@@ -413,8 +413,7 @@ export default async function SignaturePage() {
                     s.title.toLowerCase().split(' ').some(w => w.length > 4 && exp.title?.toLowerCase().includes(w))
                   )
                   const isSmala = staticSejour?.code === 'SMALA' || exp.title?.toLowerCase().includes('smala') || exp.title?.toLowerCase().includes('évasion privée')
-                  // Titre, durée, description et highlights depuis le statique si disponible
-                  const displayTitle = staticSejour?.title ?? exp.title
+                  // Durée et highlights depuis le statique si disponible
                   const displayDuration = staticSejour?.duration ?? exp.duration
                   const highlightLabels = staticSejour?.highlights ?? exp.highlights?.map(h =>
                     h.value ? `${h.label} : ${h.value}` : (h.label ?? '')
@@ -485,9 +484,9 @@ export default async function SignaturePage() {
                             {staticSejour.title}
                           </p>
                         )}
-                        {exp.tagline && (
+                        {(staticSejour?.description ?? exp.tagline) && (
                           <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
-                            {exp.tagline}
+                            {staticSejour?.description ?? exp.tagline}
                           </p>
                         )}
                         {highlightLabels.length > 0 && (

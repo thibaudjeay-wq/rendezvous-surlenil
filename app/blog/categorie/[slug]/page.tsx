@@ -30,6 +30,13 @@ type SanityCategory = {
   seo?: { metaTitle?: string; metaDescription?: string }
 }
 
+// Corrections statiques prioritaires sur Sanity (excerpts corrigés par Sophie)
+const STATIC_EXCERPT_OVERRIDES: Record<string, string> = {
+  'dormir-desert-blanc-egypte': "Le désert blanc, dans le Sahara occidental, est l'un des paysages les plus irréels d'Afrique. Des formations calcaires sculptées par le vent, une nuit sous les étoiles, un silence total. Comment organiser cette expérience depuis Bahariya.",
+  'qu-est-ce-qu-une-dahabiya': "Utilisé sur le Nil depuis l'Antiquité, ce voilier traditionnel a séduit Agatha Christie et les grands explorateurs du XIXe siècle. Jusqu'à 24 passagers, équipage de 10 à 14 personnes, guide francophone à bord pendant toute la croisière.",
+  'quand-partir-en-egypte': "L'Égypte se visite toute l'année, mais tous les mois ne se ressemblent pas. Températures, affluence, fêtes locales : voici le calendrier honnête pour choisir votre moment.",
+}
+
 function formatDate(iso?: string): string {
   if (!iso) return ''
   return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -78,7 +85,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       sanityClient.fetch<SanityPost[]>(postsByCategoryQuery, { categorySlug: slug }),
     ])
     category = fetchedCategory
-    posts = fetchedPosts ?? []
+    posts = (fetchedPosts ?? []).map(p => {
+      const override = STATIC_EXCERPT_OVERRIDES[p.slug?.current]
+      return override ? { ...p, excerpt: override } : p
+    })
   } catch {
     notFound()
   }
