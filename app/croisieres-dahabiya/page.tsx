@@ -160,21 +160,26 @@ export default async function CroisiereDahabiyaPage() {
 
   // Formules depuis Sanity si disponibles, sinon fallback statique
   const activeFormules = sanityExps.length > 0
-    ? sanityExps.map((exp) => ({
-        name: exp.title?.replace('Escapade', 'Évasion') ?? exp.title,
-        duration: exp.duration ?? '',
-        price: formatPrice(exp),
-        priceSuffix: exp.priceSuffix ?? '/ personne',
-        highlights: exp.highlights?.map((h) =>
-          h.value === '4 escales majeures'
-            ? 'Escales dans tous les sites majeurs de la vallée du Nil'
-            : h.value === 'À bord inclus'
-            ? 'Guide francophone privé'
-            : h.value
-        ) ?? [],
-        featured: exp.featured ?? false,
-        cta: getWhatsAppUrl(exp.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya. 🛶'),
-      }))
+    ? sanityExps.map((exp) => {
+        const isEvasion = exp.title?.includes('Escapade') || exp.title?.includes('Évasion')
+        return {
+          name: exp.title?.replace('Escapade', 'Évasion') ?? exp.title,
+          duration: isEvasion ? '3 nuits / 4 jours' : (exp.duration ?? ''),
+          price: formatPrice(exp),
+          priceSuffix: exp.priceSuffix ?? '/ personne',
+          highlights: exp.highlights?.map((h) =>
+            h.value === '4 escales majeures'
+              ? 'Escales dans tous les sites majeurs de la vallée du Nil'
+              : h.value === 'À bord inclus'
+              ? 'Guide francophone privé'
+              : h.value === 'Louxor → Assouan' && isEvasion
+              ? 'Assouan → Louxor'
+              : h.value
+          ) ?? [],
+          featured: exp.featured ?? false,
+          cta: getWhatsAppUrl(exp.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya. 🛶'),
+        }
+      })
     : formules
 
   // Inclus / non inclus depuis la première expérience Sanity
