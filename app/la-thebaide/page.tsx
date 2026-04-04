@@ -887,7 +887,6 @@ export default function LaThebaidePage() {
             whatsappUrl={whatsappUrl}
             emailSubject="Disponibilité La Thébaïde"
           />
-          </div>
         </div>
       </section>
     </>
