@@ -162,10 +162,12 @@ export default async function CroisiereDahabiyaPage() {
   const activeFormules = sanityExps.length > 0
     ? sanityExps.map((exp) => {
         const isEvasion = exp.title?.includes('Escapade') || exp.title?.includes('Évasion')
+        const isImmersion = exp.title?.includes('Immersion')
+        const isGrandVoyage = exp.title?.includes('Grand') || exp.title?.includes('Carte Blanche')
         return {
           name: exp.title?.replace('Escapade', 'Évasion') ?? exp.title,
-          duration: isEvasion ? '3 nuits / 4 jours' : (exp.duration ?? ''),
-          price: formatPrice(exp),
+          duration: isEvasion ? '3 nuits / 4 jours' : isImmersion ? '5 nuits / 6 jours' : isGrandVoyage ? 'Sur mesure · 3 nuits minimum' : (exp.duration ?? ''),
+          price: isImmersion ? 'À partir de 4 000 €' : formatPrice(exp),
           priceSuffix: exp.priceSuffix ?? '/ personne',
           highlights: exp.highlights?.map((h) =>
             h.value === '4 escales majeures'
@@ -174,6 +176,16 @@ export default async function CroisiereDahabiyaPage() {
               ? 'Guide francophone privé'
               : h.value === 'Louxor → Assouan' && isEvasion
               ? 'Assouan → Louxor'
+              : h.value === '8 escales sélectionnées' && isImmersion
+              ? 'Sites majeurs de la vallée du Nil'
+              : h.value === 'Incluses' && isImmersion
+              ? 'Excursion à Abou Simbel'
+              : h.value === 'Local francophone' && isImmersion
+              ? 'Guide francophone privé à bord'
+              : h.value === 'Dédié' && isGrandVoyage
+              ? 'Guide francophone dédié'
+              : h.value === 'Totale' && isGrandVoyage
+              ? 'Privatisation totale'
               : h.value
           ) ?? [],
           featured: exp.featured ?? false,
