@@ -510,7 +510,7 @@ export default function LaThebaidePage() {
                 number: '15',
                 unit: 'min',
                 label: 'du temple de Louxor',
-                body: 'En quelques minutes depuis La Thébaïde. La corniche du Nil, elle, est accessible à pied.',
+                body: 'À quelques minutes à pied depuis La Thébaïde. La corniche du Nil invite à la promenade, entre senteurs, felouques et vie locale.',
               },
               {
                 number: '3 500',
