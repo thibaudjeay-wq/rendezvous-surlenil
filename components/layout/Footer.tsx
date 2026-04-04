@@ -69,7 +69,7 @@ export default function Footer() {
                 Carnets & inspirations
               </p>
               <p className="text-xs mb-3" style={{ color: '#8A9BAB' }}>
-                Les articles de Sophie, en avant-première.
+                Conseils de voyage, nouvelles dates et programmes.
               </p>
               <NewsletterInline variant="dark" />
             </div>

@@ -367,7 +367,7 @@ export default async function BlogPage() {
           <p className="text-center text-sm mt-12" style={{ color: '#8A9BAB' }}>
             {isSanityConnected
               ? `${posts.length} article${posts.length > 1 ? 's' : ''} publiés, nouveaux articles chaque mois.`
-              : "De nouveaux articles sont publiés chaque mois. Écrivez à Sophie pour être notifié(e) en avant-première."
+              : "De nouveaux articles sont publiés régulièrement. Inscrivez-vous pour recevoir conseils de voyage et nouvelles dates."
             }
           </p>
         </div>

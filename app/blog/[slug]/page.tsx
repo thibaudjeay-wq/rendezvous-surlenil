@@ -685,7 +685,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   Carnets & inspirations
                 </p>
                 <p className="text-sm mb-4" style={{ color: '#5C6E7E' }}>
-                  Recevoir les prochains articles de Sophie, en avant-première.
+                  Conseils de voyage, nouvelles dates et programmes.
                 </p>
                 <NewsletterInline variant="light" />
               </div>
