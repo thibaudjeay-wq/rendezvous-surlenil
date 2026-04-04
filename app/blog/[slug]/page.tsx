@@ -429,6 +429,23 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   if (!post) post = STATIC_ARTICLES[slug] ?? null
   if (!post) notFound()
 
+  // Override contenu statique prioritaire sur Sanity (corrections Sophie)
+  const staticVersion = STATIC_ARTICLES[slug]
+  if (staticVersion) {
+    post = {
+      ...post,
+      excerpt: staticVersion.excerpt ?? post.excerpt,
+      tags: staticVersion.tags ?? post.tags,
+      body: staticVersion.body ?? post.body,
+    }
+  }
+
+  // Photos hero statiques par article (quand Sanity n'a pas la bonne photo)
+  const STATIC_HERO: Record<string, string> = {
+    'dormir-desert-blanc-egypte': '/photos/blog/desert-blanc-formations.jpg',
+  }
+  const staticHeroImage = STATIC_HERO[slug]
+
   const rt = readTime(post.body)
   const cta = post.ctaInArticle
   const waUrl = getWhatsAppUrl(cta?.whatsappMessage ?? "Bonjour Sophie, j'ai lu votre article et j'aimerais en savoir plus sur un voyage en Égypte 🌿")
@@ -462,7 +479,17 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
       {/* ─── Hero article ──────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '60vh' }}>
         <div className="absolute inset-0">
-          {post.mainImage?.asset ? (
+          {staticHeroImage ? (
+            <Image
+              src={staticHeroImage}
+              alt={post.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ filter: 'brightness(0.65)' }}
+            />
+          ) : post.mainImage?.asset ? (
             <Image
               src={urlFor(post.mainImage).width(1800).height(900).url()}
               alt={post.mainImage.alt ?? post.title}
