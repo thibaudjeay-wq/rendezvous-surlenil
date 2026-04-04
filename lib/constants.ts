@@ -60,6 +60,7 @@ export const FOOTER_LINKS = [
     title: 'Parlons voyage',
     links: [
       { label: 'Nous écrire sur WhatsApp', href: WHATSAPP_URL },
+      { label: 'Nous écrire par email', href: 'mailto:sophie@rendezvous-surlenil.com' },
       { label: 'Mentions légales', href: '/mentions-legales' },
       { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
     ],
