@@ -161,11 +161,17 @@ export default async function CroisiereDahabiyaPage() {
   // Formules depuis Sanity si disponibles, sinon fallback statique
   const activeFormules = sanityExps.length > 0
     ? sanityExps.map((exp) => ({
-        name: exp.title,
+        name: exp.title?.replace('Escapade', 'Évasion') ?? exp.title,
         duration: exp.duration ?? '',
         price: formatPrice(exp),
         priceSuffix: exp.priceSuffix ?? '/ personne',
-        highlights: exp.highlights?.map((h) => h.value) ?? [],
+        highlights: exp.highlights?.map((h) =>
+          h.value === '4 escales majeures'
+            ? 'Escales dans tous les sites majeurs de la vallée du Nil'
+            : h.value === 'À bord inclus'
+            ? 'Guide francophone privé'
+            : h.value
+        ) ?? [],
         featured: exp.featured ?? false,
         cta: getWhatsAppUrl(exp.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya. 🛶'),
       }))
