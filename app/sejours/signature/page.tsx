@@ -411,7 +411,12 @@ export default async function SignaturePage() {
                   const imgSrc = isSmala
                     ? '/photos/voyageurs/selfie-groupe-siwa.jpg'
                     : exp.mainImage ? urlFor(exp.mainImage).width(900).height(600).url() : null
-                  const highlightLabels = exp.highlights?.map(h =>
+                  // Highlights statiques (Sanity contient des données incomplètes)
+                  const staticSejour = sejours.find(s =>
+                    exp.title?.toLowerCase().includes(s.code.toLowerCase()) ||
+                    s.title.toLowerCase().split(' ').some(w => w.length > 4 && exp.title?.toLowerCase().includes(w))
+                  )
+                  const highlightLabels = staticSejour?.highlights ?? exp.highlights?.map(h =>
                     h.value ? `${h.label} : ${h.value}` : (h.label ?? '')
                   ).filter(Boolean) ?? []
                   const ctaMsg = exp.ctaWhatsappMessage
