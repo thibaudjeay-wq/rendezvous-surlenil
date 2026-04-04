@@ -108,7 +108,7 @@ const faq = [
   },
   {
     q: 'Où se trouve exactement La Thébaïde ?',
-    a: 'Sur la rive est de Louxor, à 15 minutes de l\'aéroport et à 15 minutes du temple de Louxor. La corniche du Nil est accessible à pied. Un transfert est organisé à votre arrivée, pas besoin de chercher.',
+    a: 'Sur la rive est de Louxor, à 15 minutes de l\'aéroport et à 15 minutes à pied du temple de Louxor et de la corniche. Un transfert est organisé à votre arrivée, pas besoin de chercher.',
   },
 ]
 
