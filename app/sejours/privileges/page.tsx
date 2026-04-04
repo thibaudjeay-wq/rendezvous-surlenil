@@ -109,8 +109,8 @@ const programmes = [
     duration: '12 jours / 11 nuits',
     theme: 'Aquarelle & dessin',
     spots: 'Places limitées',
-    image: '/photos/privileges/croque-vogue-dessin.jpg',
-    imageAlt: 'Aquarelle en plein air sur le Nil, séjour Croque & Vogue',
+    image: '/photos/privileges/carnet-aquarelle.jpg',
+    imageAlt: 'Carnet aquarelle et pinceau sur le Nil, séjour Croque & Vogue',
     description:
       "Une croisière en dahabiya entre Assouan et Louxor, pinceau en main. Isabelle Corcket et Robbie vous initient à l'aquarelle en plein air sur les plus beaux sites d'Égypte. Aucune expérience artistique requise.",
     highlights: [
@@ -316,30 +316,32 @@ export default async function PrivilegesPage() {
             </h2>
           </div>
 
-          {/* ── Sanity version (avec dates thématiques dynamiques) ── */}
-          {sanityPrivileges.length > 0 ? (
+          {/* ── Rendu avec données statiques + dates dynamiques Sanity ── */}
+          {(() => {
+            const data = programmes.map((prog) => {
+              const sanity = sanityPrivileges.find(p =>
+                p.title?.toLowerCase().includes(prog.code.toLowerCase().split(' ')[0]) ||
+                prog.code.toLowerCase().split(' ').some(w => w.length > 3 && p.title?.toLowerCase().includes(w))
+              )
+              return { prog, thematicDates: sanity?.thematicDates ?? [], sanityId: sanity?._id ?? prog.code, featured: sanity?.featured ?? prog.featured ?? false }
+            })
+            return (
             <div className="flex flex-col gap-20">
-              {sanityPrivileges.map((p, i) => (
+              {data.map(({ prog: p, thematicDates, sanityId, featured }, i) => (
                 <div
-                  key={p._id}
+                  key={sanityId}
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
                 >
                   {/* Image */}
                   <div className="img-section overflow-hidden rounded-sm relative">
-                    {p.mainImage?.asset ? (
-                      <Image
-                        src={urlFor(p.mainImage).width(700).height(500).url()}
-                        alt={p.mainImage.alt ?? p.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover"
-                        placeholder={p.mainImage.asset.metadata?.lqip ? 'blur' : undefined}
-                        blurDataURL={p.mainImage.asset.metadata?.lqip}
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-[#E8D5B7]" />
-                    )}
-                    {p.featured && (
+                    <Image
+                      src={p.image}
+                      alt={p.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                    {featured && (
                       <span className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10" style={{ background: '#C4902A', color: 'white' }}>
                         Coup de cœur
                       </span>
@@ -349,29 +351,27 @@ export default async function PrivilegesPage() {
                   {/* Texte */}
                   <div>
                     <h3 className="mb-2" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>
-                      {p.title}
+                      {p.code}
                     </h3>
-                    {p.tagline && <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.tagline}</p>}
-                    {p.duration && <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration}</p>}
+                    <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.title}</p>
+                    <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration} · {p.dates}</p>
 
-                    {p.highlights && p.highlights.length > 0 && (
-                      <ul className="flex flex-col gap-2.5 mb-8">
-                        {p.highlights.map((h) => (
-                          <li key={h.label} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
-                            <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
-                            {h.value}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <ul className="flex flex-col gap-2.5 mb-8">
+                      {p.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
+                          <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
 
                     {/* Dates thématiques depuis Sanity */}
-                    {p.thematicDates && p.thematicDates.length > 0 && (
+                    {thematicDates.length > 0 && (
                       <div className="flex flex-col gap-3 mb-8">
                         <p className="text-xs font-semibold tracking-[0.1em] uppercase mb-1" style={{ color: '#8A9BAB' }}>
                           Dates disponibles
                         </p>
-                        {p.thematicDates.map((d, di) => {
+                        {thematicDates.map((d, di) => {
                           const statusInfo = STATUS_LABELS[d.status ?? 'available']
                           return (
                             <div
@@ -410,7 +410,7 @@ export default async function PrivilegesPage() {
                     )}
 
                     <a
-                      href={getWhatsAppUrl(p.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par un Séjour Privilèges. 🌿')}
+                      href={getWhatsAppUrl(p.ctaMessage)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-primary"
@@ -422,58 +422,9 @@ export default async function PrivilegesPage() {
                 </div>
               ))}
             </div>
-          ) : (
-            /* ── Fallback statique ── */
-            <div className="flex flex-col gap-20">
-              {programmes.map((p, i) => (
-                <div
-                  key={p.code}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
-                >
-                  <div className="img-section overflow-hidden rounded-sm relative">
-                    <Image src={p.image} alt={p.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                    {p.featured && (
-                      <span className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10" style={{ background: '#C4902A', color: 'white' }}>
-                        Coup de cœur
-                      </span>
-                    )}
-                    <div className="absolute bottom-4 left-4 px-3 py-2 rounded-sm z-10" style={{ background: 'rgba(13,33,55,0.88)', backdropFilter: 'blur(6px)' }}>
-                      <p className="text-[10px] tracking-widest uppercase mb-0.5" style={{ color: '#C4902A' }}>Dates</p>
-                      <p className="text-xs font-medium" style={{ color: 'white' }}>{p.dates}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <span className="text-[10px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-sm" style={{ background: '#0F3D38', color: '#C4902A' }}>{p.code}</span>
-                      <span className="text-xs" style={{ color: '#C4902A' }}>{p.spots}</span>
-                    </div>
-                    <h3 className="mb-1" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>{p.title}</h3>
-                    <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.dates}</p>
-                    <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration} · {p.theme}</p>
-                    <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>{p.description}</p>
-                    <ul className="flex flex-col gap-2.5 mb-4">
-                      {p.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
-                          <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="text-xs mb-6 flex items-center gap-1.5" style={{ color: '#8A9BAB' }}>
-                      <Users size={11} aria-hidden="true" />
-                      Intervenants : {p.intervenants}
-                    </p>
-                    <div className="flex flex-col gap-3">
-                      <a href={getWhatsAppUrl(p.ctaMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-primary inline-flex items-center gap-2">
-                        {WHATSAPP_ICON}
-                        Réserver ma place →
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+            )
+          })()}
+
         </div>
       </section>
 
