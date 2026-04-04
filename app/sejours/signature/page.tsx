@@ -407,7 +407,7 @@ export default async function SignaturePage() {
           <div className="flex flex-col gap-16">
             {sanityExps.length > 0
               ? sanityExps.map((exp, i) => {
-                  const isSmala = exp.code === 'SMALA' || exp.title?.toLowerCase().includes('smala') || exp.title?.toLowerCase().includes('évasion privée')
+                  const isSmala = exp.title?.toLowerCase().includes('smala') || exp.title?.toLowerCase().includes('évasion privée')
                   const imgSrc = isSmala
                     ? '/photos/voyageurs/selfie-groupe-siwa.jpg'
                     : exp.mainImage ? urlFor(exp.mainImage).width(900).height(600).url() : null
