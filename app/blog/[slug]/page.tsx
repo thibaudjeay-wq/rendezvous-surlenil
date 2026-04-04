@@ -779,9 +779,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                     </p>
                   </div>
                 </div>
-                {post.author?.bio && (
-                  <p className="text-xs leading-relaxed" style={{ color: '#5C6E7E' }}>{post.author.bio}</p>
-                )}
+                <p className="text-xs leading-relaxed" style={{ color: '#5C6E7E' }}>
+                  {post.author?.bio ?? "Française expatriée à Louxor depuis 2021, Sophie a construit Rendez-vous sur le Nil avec son mari Nasser. Elle organise des voyages sur mesure, des croisières en dahabiya et des séjours à La Thébaïde, leur maison d'hôtes sur la rive est du Nil."}
+                </p>
               </div>
 
               {/* Catégories */}

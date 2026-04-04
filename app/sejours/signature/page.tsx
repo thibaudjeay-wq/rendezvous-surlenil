@@ -422,7 +422,7 @@ export default async function SignaturePage() {
                     h.value ? `${h.label} : ${h.value}` : (h.label ?? '')
                   ).filter(Boolean) ?? []
                   const imgSrc = isSmala
-                    ? '/photos/voyageurs/selfie-groupe-siwa.jpg'
+                    ? '/photos/dahabiya/pont-transats-nil.jpg'
                     : exp.mainImage ? urlFor(exp.mainImage).width(900).height(600).url() : null
                   const ctaMsg = exp.ctaWhatsappMessage
                     ?? `Bonjour Sophie, je suis intéressé(e) par le séjour "${exp.title}" (${exp.duration ?? ''}). Pouvez-vous m'en dire plus ? 🌿`
