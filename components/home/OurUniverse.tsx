@@ -22,7 +22,7 @@ const experiences = [
   {
     icon: Crown,
     label: 'Séjours Privilèges',
-    description: 'L\'excellence absolue, dans les plus beaux écrins d\'Égypte',
+    description: 'Séjours thématiques en petit groupe, animés par Sophie',
     href: '/sejours/privileges',
     image: '/photos/privileges/siwa-lac-turquoise.jpg',
     tag: null,

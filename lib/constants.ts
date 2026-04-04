@@ -30,7 +30,7 @@ export const NAV_LINKS = [
 
 export const EXPERIENCES_SUBMENU = [
   { label: 'Séjours Signature', href: '/sejours/signature', description: 'Nos séjours curatés premium' },
-  { label: 'Séjours Privilèges', href: '/sejours/privileges', description: "L'excellence absolue en Égypte" },
+  { label: 'Séjours Privilèges', href: '/sejours/privileges', description: "Séjours thématiques en petit groupe, animés par Sophie" },
   { label: 'Escapades Sérénité', href: '/sejours/escapades-serenite', description: 'Guide privé francophone · Chauffeur · Tarifs affichés' },
   { label: 'Travel Planner', href: '/sur-mesure', description: 'Votre Égypte sur mesure' },
 ] as const
