@@ -490,11 +490,8 @@ export default async function CroisiereDahabiyaPage() {
           </div>
 
           <div className="text-center mt-8 max-w-xl mx-auto">
-            <p className="text-sm italic mb-2" style={{ color: '#8A9BAB' }}>
-              Cet itinéraire constitue une base indicative. Le rythme du voyage s&apos;adapte au temps de navigation et au vent. Tous les temples mentionnés sont visités, mais les horaires varient au fil du parcours. Sophie l&apos;adapte à votre rythme et vos envies. Les visites facultatives (Abou Simbel, cataractes, village nubien) sont modulables selon les jours.
-            </p>
             <p className="text-sm italic" style={{ color: '#8A9BAB' }}>
-              Sophie l&apos;adapte à votre rythme et vos envies. Les visites facultatives (Abou Simbel, cataractes, village nubien) sont modulables selon les jours.
+              Cet itinéraire constitue une base indicative. Le rythme du voyage s&apos;adapte au temps de navigation et au vent. Tous les temples mentionnés sont visités, mais les horaires varient au fil du parcours. Sophie l&apos;adapte à votre rythme et vos envies. Les visites facultatives (Abou Simbel, cataractes, village nubien) sont modulables selon les jours.
             </p>
           </div>
         </div>

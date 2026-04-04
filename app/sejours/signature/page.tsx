@@ -478,8 +478,13 @@ export default async function SignaturePage() {
                           className="mb-1"
                           style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
                         >
-                          {displayTitle}
+                          {exp.title}
                         </h3>
+                        {staticSejour?.title && (
+                          <p className="text-sm italic mb-1" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#5C6E7E' }}>
+                            {staticSejour.title}
+                          </p>
+                        )}
                         {exp.tagline && (
                           <p className="text-sm leading-relaxed mb-6" style={{ color: '#5C6E7E' }}>
                             {exp.tagline}
