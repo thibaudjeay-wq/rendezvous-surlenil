@@ -82,7 +82,7 @@ const formules = [
     cta: getWhatsAppUrl('Bonjour Sophie, je suis intéressé(e) par la croisière Immersion (4 ou 5 nuits). Pouvez-vous m\'en dire plus ? 🛶'),
   },
   {
-    name: 'Carte Blanche',
+    name: 'Croisière Privée',
     duration: '7 nuits / 8 jours',
     price: 'À partir de 5 600 €',
     priceSuffix: 'pour 2 personnes',
@@ -165,7 +165,7 @@ export default async function CroisiereDahabiyaPage() {
         const isImmersion = exp.title?.includes('Immersion')
         const isGrandVoyage = exp.title?.includes('Grand') || exp.title?.includes('Carte Blanche')
         return {
-          name: exp.title?.replace('Escapade', 'Évasion') ?? exp.title,
+          name: isGrandVoyage ? 'Croisière Privée' : (exp.title?.replace('Escapade', 'Évasion') ?? exp.title),
           duration: isEvasion ? '3 nuits / 4 jours' : isImmersion ? '5 nuits / 6 jours' : isGrandVoyage ? 'Sur mesure · 3 nuits minimum' : (exp.duration ?? ''),
           price: isImmersion ? 'À partir de 4 000 €' : formatPrice(exp),
           priceSuffix: exp.priceSuffix ?? '/ personne',
