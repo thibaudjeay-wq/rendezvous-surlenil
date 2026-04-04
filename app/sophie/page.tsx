@@ -54,7 +54,7 @@ const engagements = [
     num: '03',
     title: "Des adresses que je ne donnerais pas à tout le monde",
     description:
-      "Les maisons d'hôtes que je recommande, je les ai visitées. Les guides que je missionne, je les connais depuis des années. Chaque prestataire est choisi à la main.",
+      "Les maisons d'hôtes que je recommande, je les ai visitées. Les guides que je missionne, je les connais depuis des années. Chaque prestataire est soigneusement choisi.",
   },
   {
     num: '04',
