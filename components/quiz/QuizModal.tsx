@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { X } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
+import ContactCTA from '@/components/ui/ContactCTA'
 
 // ─── Types ────────────────────────────────────────────────
 type Outcome = 'sig' | 'priv' | 'esc' | 'hybrid'
@@ -412,21 +413,12 @@ export default function QuizModal() {
 
                   {/* CTAs */}
                   <div className="flex flex-col gap-3">
-                    <a
-                      href={getWhatsAppUrl(results[result].ctaMessage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-whatsapp w-full justify-center"
-                    >
-                      <WaIcon />
-                      Parler de mon voyage avec Sophie
-                    </a>
-                    <a
-                      href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte"
-                      className="btn btn-secondary w-full justify-center"
-                    >
-                      Écrire par email →
-                    </a>
+                    <ContactCTA
+                      label="Parler de mon voyage avec Sophie"
+                      whatsappUrl={getWhatsAppUrl(results[result].ctaMessage)}
+                      emailSubject="Projet de voyage en Égypte"
+                      fullWidth
+                    />
                     <Link
                       href={results[result].href}
                       className="btn btn-secondary w-full justify-center"

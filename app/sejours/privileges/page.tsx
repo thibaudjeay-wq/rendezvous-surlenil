@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle, ChevronDown, Users, Calendar } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
+import ContactCTA from '@/components/ui/ContactCTA'
 import { sanityClient } from '@/lib/sanity/client'
 import { privilegesExperiencesQuery } from '@/lib/sanity/queries'
 import { urlFor } from '@/lib/sanity/image'
@@ -239,12 +240,11 @@ export default async function PrivilegesPage() {
               intervenants experts. Siwa, le Nil, Louxor, chaque séjour a son âme.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Réserver via WhatsApp →
-              </a>
-              <a href="mailto:sophie@rendezvous-surlenil.com?subject=Réservation%20Séjour%20Privilèges" className="btn btn-primary">
-                Réserver par email →
-              </a>
+              <ContactCTA
+                label="Réserver une place"
+                whatsappUrl={whatsappUrl}
+                emailSubject="Réservation Séjour Privilèges"
+              />
               <a href="#programmes" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
                 Voir les programmes
               </a>
@@ -476,12 +476,11 @@ export default async function PrivilegesPage() {
           <p className="mb-10 text-sm leading-relaxed" style={{ color: '#8A9BAB' }}>
             Écrivez à Sophie — elle vous envoie le programme détaillé, le tarif et les modalités de réservation sous 24h.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              {WHATSAPP_ICON}
-              Écrire à Sophie →
-            </a>
-          </div>
+          <ContactCTA
+            label="Écrire à Sophie"
+            whatsappUrl={whatsappUrl}
+            emailSubject="Séjour Privilèges"
+          />
         </div>
       </section>
     </>

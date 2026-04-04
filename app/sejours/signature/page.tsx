@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle, ChevronDown, Anchor, Sun } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
+import ContactCTA from '@/components/ui/ContactCTA'
 import { sanityClient } from '@/lib/sanity/client'
 import { signatureExperiencesQuery } from '@/lib/sanity/queries'
 import { urlFor } from '@/lib/sanity/image'
@@ -280,12 +281,11 @@ export default async function SignaturePage() {
               guide dédié, montgolfière. Des bases que Sophie adapte à vos envies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Parlons de votre voyage →
-              </a>
-              <a href="mailto:sophie@rendezvous-surlenil.com?subject=Séjour%20Signature" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
-                Écrire par email →
-              </a>
+              <ContactCTA
+                label="Parlons de votre voyage"
+                whatsappUrl={whatsappUrl}
+                emailSubject="Séjour Signature"
+              />
               <a
                 href="#sejours"
                 className="btn btn-secondary"
@@ -692,9 +692,11 @@ export default async function SignaturePage() {
               </svg>
               Écrire à Sophie sur WhatsApp
             </a>
-            <a href="mailto:sophie@rendezvous-surlenil.com?subject=Séjour%20Signature" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
-              Écrire par email →
-            </a>
+            <ContactCTA
+              label="Écrire à Sophie"
+              whatsappUrl={whatsappUrl}
+              emailSubject="Séjour Signature"
+            />
             <Link href="/sejours" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
               Voir tous nos séjours
             </Link>

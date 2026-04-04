@@ -1,4 +1,5 @@
 import { getWhatsAppUrl } from '@/lib/constants'
+import ContactCTA from '@/components/ui/ContactCTA'
 
 const steps = [
   {
@@ -99,23 +100,11 @@ export default function HowItWorks() {
           >
             Aucun acompte demandé avant que le voyage vous convienne.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={HOW_WA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary inline-flex"
-              title="Commencer à organiser son voyage en Égypte avec Sophie"
-            >
-              Commencer par un message à Sophie →
-            </a>
-            <a
-              href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte"
-              className="btn btn-secondary inline-flex"
-            >
-              Écrire par email →
-            </a>
-          </div>
+          <ContactCTA
+            label="Commencer par un message à Sophie"
+            whatsappUrl={HOW_WA}
+            emailSubject="Projet de voyage en Égypte"
+          />
           <p className="mt-3 text-xs" style={{ color: '#8A9BAB' }}>
             Réponse sous 24h, en français
           </p>

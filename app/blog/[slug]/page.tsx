@@ -8,6 +8,7 @@ import { sanityClient } from '@/lib/sanity/client'
 import { postBySlugQuery, postsQuery } from '@/lib/sanity/queries'
 import { urlFor } from '@/lib/sanity/image'
 import { getWhatsAppUrl } from '@/lib/constants'
+import ContactCTA from '@/components/ui/ContactCTA'
 import NewsletterInline from '@/components/ui/NewsletterInline'
 
 export const revalidate = 3600
@@ -664,13 +665,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   <p className="text-sm mb-4" style={{ color: '#5C6E7E' }}>
                     {cta?.message ?? 'Sophie répond à toutes vos questions.'}
                   </p>
-                  <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full justify-center">
-                    <WaIcon />
-                    Écrire à Sophie
-                  </a>
-                  <a href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte" className="btn btn-secondary w-full justify-center mt-2">
-                    Écrire par email →
-                  </a>
+                  <ContactCTA
+                    label="Écrire à Sophie"
+                    whatsappUrl={waUrl}
+                    emailSubject="Projet de voyage en Égypte"
+                    fullWidth
+                  />
                 </div>
               )}
 
@@ -745,18 +745,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   <p className="text-sm mb-5 leading-relaxed" style={{ color: '#5C6E7E' }}>
                     {cta?.message ?? 'Sophie répond à toutes vos questions en 24h.'}
                   </p>
-                  <a
-                    href={waUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-whatsapp w-full justify-center"
-                  >
-                    <WaIcon />
-                    Écrire à Sophie
-                  </a>
-                  <a href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte" className="btn btn-secondary w-full justify-center mt-2">
-                    Écrire par email →
-                  </a>
+                  <ContactCTA
+                    label="Écrire à Sophie"
+                    whatsappUrl={waUrl}
+                    emailSubject="Projet de voyage en Égypte"
+                    fullWidth
+                  />
                 </div>
               )}
 
@@ -903,15 +897,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             Cet article vous a donné envie ? Sophie répond sous 24h et transforme
             vos envies en un vrai voyage.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={defaultWaUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-              <WaIcon />
-              Écrire à Sophie sur WhatsApp
-            </a>
-            <a href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
-              Écrire par email →
-            </a>
-          </div>
+          <ContactCTA
+            label="Écrire à Sophie"
+            whatsappUrl={defaultWaUrl}
+            emailSubject="Projet de voyage en Égypte"
+          />
         </div>
       </section>
     </>
