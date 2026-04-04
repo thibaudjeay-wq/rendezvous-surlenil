@@ -178,12 +178,9 @@ const sejours = [
 ]
 
 const included = [
-  'Guide francophone dédié sur chaque séjour',
+  'Guide francophone dédié sur tous les sites',
   'Transferts aéroport et inter-sites',
-  'Accompagnement WhatsApp de Sophie avant et pendant',
-  'Petit-déjeuner inclus pour les séjours à La Thébaïde',
-  'Tous les repas inclus les jours de croisière en dahabiya',
-  'Entrées des sites incluses les jours de croisière',
+  'Accompagnement WhatsApp de Sophie avant et pendant le séjour',
 ]
 
 const faq = [
@@ -225,9 +222,8 @@ export default async function SignaturePage() {
     'Bonjour Sophie, je suis intéressé(e) par un Séjour Signature en Égypte. Pouvez-vous me présenter les options disponibles ? 🌿'
   )
 
-  // Included: prefer from first Sanity exp with data, else static
-  const sanityIncluded = sanityExps.find(e => e.included && e.included.length > 0)?.included
-  const activeIncluded = sanityIncluded ?? included
+  // Included: toujours statique (Sanity contient des options spécifiques à certains séjours)
+  const activeIncluded = included
 
   return (
     <>
