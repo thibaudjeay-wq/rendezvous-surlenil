@@ -109,8 +109,8 @@ const programmes = [
     duration: '12 jours / 11 nuits',
     theme: 'Aquarelle & dessin',
     spots: 'Places limitées',
-    image: '/photos/privileges/carnet-aquarelle.jpg',
-    imageAlt: 'Carnet aquarelle et pinceau sur le Nil, séjour Croque & Vogue',
+    image: '/photos/privileges/stage-aquarelle.jpg',
+    imageAlt: 'Stage aquarelle en Égypte, séjour Croque & Vogue',
     description:
       "Une croisière en dahabiya entre Assouan et Louxor, pinceau en main. Isabelle Corcket et Robbie vous initient à l'aquarelle en plein air sur les plus beaux sites d'Égypte. Aucune expérience artistique requise.",
     highlights: [
