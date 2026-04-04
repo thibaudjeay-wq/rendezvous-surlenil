@@ -421,6 +421,12 @@ export default function QuizModal() {
                       <WaIcon />
                       Parler de mon voyage avec Sophie
                     </a>
+                    <a
+                      href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte"
+                      className="btn btn-secondary w-full justify-center"
+                    >
+                      Écrire par email →
+                    </a>
                     <Link
                       href={results[result].href}
                       className="btn btn-secondary w-full justify-center"

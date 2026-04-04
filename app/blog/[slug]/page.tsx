@@ -668,6 +668,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                     <WaIcon />
                     Écrire à Sophie
                   </a>
+                  <a href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte" className="btn btn-secondary w-full justify-center mt-2">
+                    Écrire par email →
+                  </a>
                 </div>
               )}
 
@@ -750,6 +753,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                   >
                     <WaIcon />
                     Écrire à Sophie
+                  </a>
+                  <a href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte" className="btn btn-secondary w-full justify-center mt-2">
+                    Écrire par email →
                   </a>
                 </div>
               )}
@@ -897,10 +903,15 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             Cet article vous a donné envie ? Sophie répond sous 24h et transforme
             vos envies en un vrai voyage.
           </p>
-          <a href={defaultWaUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
-            <WaIcon />
-            Écrire à Sophie sur WhatsApp
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href={defaultWaUrl} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+              <WaIcon />
+              Écrire à Sophie sur WhatsApp
+            </a>
+            <a href="mailto:sophie@rendezvous-surlenil.com?subject=Projet%20de%20voyage%20en%20Égypte" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
+              Écrire par email →
+            </a>
+          </div>
         </div>
       </section>
     </>

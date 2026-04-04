@@ -257,6 +257,9 @@ export default async function CroisiereDahabiyaPage() {
               <a href={whatsappMain} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Parlons de votre voyage →
               </a>
+              <a href="mailto:sophie@rendezvous-surlenil.com?subject=Croisière%20Dahabiya" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
+                Écrire par email →
+              </a>
               <a href="#formules" className="btn btn-secondary" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
                 Voir les formules
               </a>
