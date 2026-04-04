@@ -5,7 +5,7 @@ import { getWhatsAppUrl } from '@/lib/constants'
 
 const highlights = [
   { icon: Ship, label: 'Format', value: 'Petit groupe ou privatisé' },
-  { icon: Users, label: 'Capacité', value: 'Jusqu\'à 12 voyageurs' },
+  { icon: Users, label: 'Capacité', value: 'Jusqu\'à 24 voyageurs' },
   { icon: Star, label: 'Durée', value: '4 à 14 nuits' },
   { icon: Sunset, label: 'Trajet', value: 'Louxor → Assouan' },
 ]
