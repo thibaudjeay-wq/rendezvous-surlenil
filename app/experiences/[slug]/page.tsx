@@ -226,14 +226,38 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     ? "3 nuits à bord d'une dahabiya entre Assouan et Louxor. Une mini-croisière concentrée pour découvrir l'ensemble des sites majeurs de la vallée du Nil, avec toutes les entrées incluses."
     : exp.tagline
 
-  const normalizedIncluded = exp.included?.map(normalizeIncludedItem) ?? []
-  const normalizedNotIncluded = (() => {
-    const filtered = (exp.notIncluded ?? []).filter(
-      item => !ITEMS_TO_REMOVE_FROM_NOT_INCLUDED.some(rx => rx.test(item))
-    )
-    const hasTips = filtered.some(item => /pourboires/i.test(item))
-    return hasTips ? filtered : [...filtered, 'Pourboires']
-  })()
+  const isYalla = slug.includes('yalla') || heroTitle?.toUpperCase().includes('YALLA')
+
+  const YALLA_INCLUDED = [
+    '2 nuits à La Thébaïde avec petit-déjeuner',
+    '4 nuits en dahabiya (Louxor–Assouan) en pension complète',
+    'Excursion Abou Simbel',
+    'Montgolfière au lever du soleil',
+    'Guide francophone dédié',
+    'Transferts aéroport et inter-sites',
+    'Tickets d\'entrées inclus pendant la croisière',
+    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
+  ]
+  const YALLA_NOT_INCLUDED = [
+    'Vols internationaux',
+    'Entrées des sites de la journée de visite avant l\'embarquement',
+    'Déjeuners et dîners avant l\'embarquement',
+    'Pourboires',
+    'Assurance voyage',
+  ]
+
+  const normalizedIncluded = isYalla
+    ? YALLA_INCLUDED
+    : exp.included?.map(normalizeIncludedItem) ?? []
+  const normalizedNotIncluded = isYalla
+    ? YALLA_NOT_INCLUDED
+    : (() => {
+        const filtered = (exp.notIncluded ?? []).filter(
+          item => !ITEMS_TO_REMOVE_FROM_NOT_INCLUDED.some(rx => rx.test(item))
+        )
+        const hasTips = filtered.some(item => /pourboires/i.test(item))
+        return hasTips ? filtered : [...filtered, 'Pourboires']
+      })()
 
   return (
     <>
