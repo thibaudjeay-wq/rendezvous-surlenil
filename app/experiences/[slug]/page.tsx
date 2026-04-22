@@ -334,7 +334,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
       {exp.highlights && exp.highlights.length > 0 && (
         <section style={{ background: '#0F3D38', borderBottom: '1px solid rgba(201,169,110,0.15)' }}>
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-4">
               {exp.highlights.map((h, i) => {
                 const displayValue = (h.value ?? '—')
                   .replace(/francophone\s+dédié\s+sur\s+tous\s+les\s+sites/i, 'Guide francophone dédié')
