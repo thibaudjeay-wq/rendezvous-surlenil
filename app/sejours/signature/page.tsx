@@ -112,7 +112,6 @@ const sejours = [
       'Tous les repas à bord',
       'Escales : temples de Haute-Égypte et petites îles du Nil',
       'Entrées des sites incluses',
-      'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae (tickets d\'entrée inclus)',
     ],
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour PACHA, Nil part ailleurs. Pouvez-vous m\'en dire plus ? 🌿',

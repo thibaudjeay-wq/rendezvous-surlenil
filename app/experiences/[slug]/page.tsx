@@ -227,6 +227,21 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     : exp.tagline
 
   const isYalla = slug.includes('yalla') || heroTitle?.toUpperCase().includes('YALLA')
+  const isPacha = slug.includes('pacha') || heroTitle?.toUpperCase().includes('PACHA')
+
+  const PACHA_INCLUDED = [
+    'Dahabiya sur le Nil (5 ou 7 nuits)',
+    'Guide francophone privé à bord',
+    'Pension complète',
+    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
+    'Tickets d\'entrée inclus',
+    'Transferts depuis votre hôtel ou l\'aéroport',
+  ]
+  const PACHA_NOT_INCLUDED = [
+    'Vols internationaux',
+    'Pourboires',
+    'Assurance voyage',
+  ]
 
   const YALLA_INCLUDED = [
     '2 nuits à La Thébaïde avec petit-déjeuner',
@@ -248,9 +263,13 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 
   const normalizedIncluded = isYalla
     ? YALLA_INCLUDED
+    : isPacha
+    ? PACHA_INCLUDED
     : exp.included?.map(normalizeIncludedItem) ?? []
   const normalizedNotIncluded = isYalla
     ? YALLA_NOT_INCLUDED
+    : isPacha
+    ? PACHA_NOT_INCLUDED
     : (() => {
         const filtered = (exp.notIncluded ?? []).filter(
           item => !ITEMS_TO_REMOVE_FROM_NOT_INCLUDED.some(rx => rx.test(item))
@@ -363,9 +382,11 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
                 const displayValue = (h.value ?? '—')
                   .replace(/francophone\s+dédié\s+sur\s+tous\s+les\s+sites/i, 'Guide francophone privé')
                   .replace(/francophone\s+dédié/i, 'Guide francophone privé')
+                  .replace(/francophone\s+à\s+bord/i, 'Guide francophone privé')
                   .replace(/abou simbel.*option/i, 'Abou Simbel inclus')
                   .replace(/tous les repas.+inclus/i, 'Tous les repas à bord')
                   .replace(/petit-déjeuner\s+inclus/i, 'petit-déjeuner à bord')
+                  .replace(/temples?\s+de\s+Haute-Égypte(?!\s+et)/i, 'Temples de Haute-Égypte et petites îles du Nil')
                 const displayLabel = /guide francophone/i.test(displayValue)
                   ? 'Accompagnement'
                   : h.label
