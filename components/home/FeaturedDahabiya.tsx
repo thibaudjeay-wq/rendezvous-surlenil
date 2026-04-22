@@ -6,8 +6,8 @@ import { getWhatsAppUrl } from '@/lib/constants'
 const highlights = [
   { icon: Ship, label: 'Format', value: 'Petit groupe ou privatisé' },
   { icon: Users, label: 'Capacité', value: 'Jusqu\'à 24 voyageurs' },
-  { icon: Star, label: 'Durée', value: '4 à 14 nuits' },
-  { icon: Sunset, label: 'Trajet', value: 'Louxor → Assouan' },
+  { icon: Star, label: 'Durée', value: '3 à 7 nuits' },
+  { icon: Sunset, label: 'Trajet', value: 'Louxor → Assouan ou inversement' },
 ]
 
 const whatsappMessage = 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya sur le Nil. Pouvez-vous m\'en dire plus ? 🛶'
