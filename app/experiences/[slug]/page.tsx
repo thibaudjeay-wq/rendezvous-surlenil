@@ -199,12 +199,58 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
   const typeLabel = TYPE_LABELS[exp.type] ?? exp.type
   const priceLabel = formatPrice(exp)
 
+  const isSmala = slug.includes('smala') || exp.title?.toLowerCase().includes('smala') || exp.title?.toLowerCase().includes('évasion privée')
+  const heroImageSrc = isSmala ? '/photos/dahabiya/pont-transats-nil.jpg' : null
+
+  const SUBTITLE_OVERRIDES: Record<string, string> = {
+    'YALLA': 'Le voyage de Pharaon',
+  }
+  const [heroTitle, heroSubtitleRaw] = exp.title?.includes(' — ')
+    ? exp.title.split(' — ', 2)
+    : [exp.title, null]
+  const heroSubtitle = SUBTITLE_OVERRIDES[heroTitle?.trim() ?? ''] ?? heroSubtitleRaw
+
+  // ─── Normalize Sanity data ──────────────────────────────────
+  const ITEMS_TO_REMOVE_FROM_NOT_INCLUDED = [
+    /abou simbel.*option/i,
+    /déjeuners? à terre/i,
+  ]
+  const normalizeIncludedItem = (s: string) =>
+    s
+      .replace(/francophone\s+dédié\s+sur\s+tous\s+les\s+sites/i, 'Guide francophone dédié')
+      .replace(/petit-déjeuner\s+inclus/i, 'petit-déjeuner à bord')
+      .replace(/tous les repas.+inclus/i, 'Tous les repas à bord')
+      .replace(/Escales\s*:\s*temples de Haute-Égypte(?!\s+et)/i, 'Escales : temples de Haute-Égypte et petites îles du Nil')
+
+  const normalizedTagline = exp.tagline?.includes('goûter la croisière')
+    ? "3 nuits à bord d'une dahabiya entre Assouan et Louxor. Une mini-croisière concentrée pour découvrir l'ensemble des sites majeurs de la vallée du Nil, avec toutes les entrées incluses."
+    : exp.tagline
+
+  const normalizedIncluded = exp.included?.map(normalizeIncludedItem) ?? []
+  const normalizedNotIncluded = (() => {
+    const filtered = (exp.notIncluded ?? []).filter(
+      item => !ITEMS_TO_REMOVE_FROM_NOT_INCLUDED.some(rx => rx.test(item))
+    )
+    const hasTips = filtered.some(item => /pourboires/i.test(item))
+    return hasTips ? filtered : [...filtered, 'Pourboires']
+  })()
+
   return (
     <>
       {/* ─── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '65vh' }}>
         <div className="absolute inset-0">
-          {exp.mainImage ? (
+          {heroImageSrc ? (
+            <Image
+              src={heroImageSrc}
+              alt={exp.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ filter: 'brightness(0.68)' }}
+            />
+          ) : exp.mainImage ? (
             <Image
               src={urlFor(exp.mainImage).width(1600).height(900).url()}
               alt={exp.mainImage.alt ?? exp.title}
@@ -235,20 +281,25 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
             <span>/</span>
             <Link href="/sejours" className="hover:text-white transition-colors">Nos séjours</Link>
             <span>/</span>
-            <span style={{ color: 'rgba(255,255,255,0.9)' }}>{exp.title}</span>
+            <span style={{ color: 'rgba(255,255,255,0.9)' }}>{heroTitle}</span>
           </nav>
 
           <div className="max-w-2xl">
             <p className="eyebrow mb-4" style={{ color: '#CE8D5C' }}>{typeLabel}</p>
             <h1
-              className="text-display-xl mb-4"
-              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300, lineHeight: 1.15 }}
+              className="mb-1"
+              style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'white', fontWeight: 300, lineHeight: 1.15, fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}
             >
-              {exp.title}
+              {heroTitle}
             </h1>
-            {exp.tagline && (
+            {heroSubtitle && (
+              <p className="mb-4 italic" style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', color: 'rgba(250,247,242,0.75)', fontSize: '1.25rem', fontWeight: 300 }}>
+                {heroSubtitle}
+              </p>
+            )}
+            {normalizedTagline && (
               <p className="mb-8 text-lg" style={{ color: 'rgba(250,247,242,0.85)', maxWidth: '520px', fontWeight: 300 }}>
-                {exp.tagline}
+                {normalizedTagline}
               </p>
             )}
 
@@ -284,16 +335,23 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
         <section style={{ background: '#0F3D38', borderBottom: '1px solid rgba(201,169,110,0.15)' }}>
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
-              {exp.highlights.map((h, i) => (
-                <div key={i} className="flex flex-col items-center text-center gap-1">
-                  <p className="text-xs font-semibold tracking-[0.1em] uppercase" style={{ color: '#C4902A' }}>
-                    {h.value ?? '—'}
-                  </p>
-                  <p className="text-xs" style={{ color: 'rgba(250,247,242,0.65)' }}>
-                    {h.label}
-                  </p>
-                </div>
-              ))}
+              {exp.highlights.map((h, i) => {
+                const displayValue = (h.value ?? '—')
+                  .replace(/francophone\s+dédié\s+sur\s+tous\s+les\s+sites/i, 'Guide francophone dédié')
+                  .replace(/abou simbel.*option/i, 'Abou Simbel inclus')
+                  .replace(/tous les repas.+inclus/i, 'Tous les repas à bord')
+                  .replace(/petit-déjeuner\s+inclus/i, 'petit-déjeuner à bord')
+                return (
+                  <div key={i} className="flex flex-col items-center text-center gap-1">
+                    <p className="text-xs font-semibold tracking-[0.1em] uppercase" style={{ color: '#C4902A' }}>
+                      {displayValue}
+                    </p>
+                    <p className="text-xs" style={{ color: 'rgba(250,247,242,0.65)' }}>
+                      {h.label}
+                    </p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -459,17 +517,17 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
       )}
 
       {/* ─── Inclus / Non inclus ───────────────────────────── */}
-      {((exp.included && exp.included.length > 0) || (exp.notIncluded && exp.notIncluded.length > 0)) && (
+      {(normalizedIncluded.length > 0 || normalizedNotIncluded.length > 0) && (
         <section className="py-16 md:py-20" style={{ background: '#FAF7F2' }}>
           <div className="max-w-[900px] mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {exp.included && exp.included.length > 0 && (
+              {normalizedIncluded.length > 0 && (
                 <div>
                   <p className="text-xs font-bold tracking-[0.15em] uppercase mb-5" style={{ color: '#27AE60' }}>
                     Inclus dans ce séjour
                   </p>
                   <ul className="flex flex-col gap-3">
-                    {exp.included.map((item) => (
+                    {normalizedIncluded.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
                         <CheckCircle size={13} style={{ color: '#27AE60', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
                         {item}
@@ -478,13 +536,13 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
                   </ul>
                 </div>
               )}
-              {exp.notIncluded && exp.notIncluded.length > 0 && (
+              {normalizedNotIncluded.length > 0 && (
                 <div>
                   <p className="text-xs font-bold tracking-[0.15em] uppercase mb-5" style={{ color: '#E74C3C' }}>
                     Non inclus
                   </p>
                   <ul className="flex flex-col gap-3">
-                    {exp.notIncluded.map((item) => (
+                    {normalizedNotIncluded.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
                         <XCircle size={13} style={{ color: '#E74C3C', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
                         {item}

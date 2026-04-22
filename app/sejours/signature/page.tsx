@@ -66,7 +66,7 @@ const sejours = [
     highlights: [
       '7 nuits à La Thébaïde (duplex de Sophie & Nasser)',
       'Visites : sites essentiels de la rive est et de la rive ouest',
-      'Guide francophone dédié sur tous les sites',
+      'Guide francophone dédié',
       'Montgolfière au lever du soleil',
       'Excursion Dendérah ou Esna',
       'Transferts inclus',
@@ -76,7 +76,7 @@ const sejours = [
   },
   {
     code: 'YALLA',
-    title: 'La Haute-Égypte dans toute sa splendeur.',
+    title: 'Le voyage de Pharaon',
     duration: '7 jours / 6 nuits',
     badge: 'Le plus complet',
     image: '/photos/dahabiya/salon-coucher.jpg',
@@ -87,11 +87,12 @@ const sejours = [
       '2 nuits à La Thébaïde',
       '4 nuits en dahabiya (Louxor → Assouan)',
       'Visite de tous les sites majeurs de la vallée du Nil',
-      'Escales : temples de Haute-Égypte',
+      'Escales : temples de Haute-Égypte et petites îles du Nil',
       'Excursion Abou Simbel incluse',
       'Montgolfière au lever du soleil',
       'Guide francophone dédié',
-      'Entrées des sites incluses les jours de croisière',
+      'Entrées des sites incluses pendant la croisière (hors première journée à Louxor)',
+      'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
     ],
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour YALLA, Le voyage de Pharaon (7j/6n). Pouvez-vous m\'en dire plus ? 🌿',
@@ -105,14 +106,15 @@ const sejours = [
     image: '/photos/dahabiya/exterieur-coucher.jpg',
     imageAlt: 'Vue sur le Nil depuis une dahabiya',
     description:
-      "La croisière dahabiya intégrale, de Louxor à Assouan. Temples au fil de l'eau, couchers de soleil sur le fleuve, Abou Simbel inclus. Tous les repas se prennent à bord, inclus. Deux durées possibles selon votre rythme.",
+      "La croisière dahabiya intégrale, de Louxor à Assouan. Temples au fil de l'eau, couchers de soleil sur le fleuve, Abou Simbel inclus. Tous les repas à bord. Deux durées possibles selon votre rythme.",
     highlights: [
       'Dahabiya sur le Nil (5 ou 7 nuits)',
       'Guide francophone à bord',
       'Excursion Abou Simbel incluse',
-      'Tous les repas à bord inclus',
-      'Escales : temples de Haute-Égypte',
+      'Tous les repas à bord',
+      'Escales : temples de Haute-Égypte et petites îles du Nil',
       'Entrées des sites incluses',
+      'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae (tickets d\'entrée inclus)',
     ],
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour PACHA, Nil part ailleurs. Pouvez-vous m\'en dire plus ? 🌿',
@@ -130,7 +132,7 @@ const sejours = [
       '3 nuits en dahabiya Assouan–Louxor',
       'Guide francophone dédié',
       'Excursion Abou Simbel incluse',
-      'Escales : temples de Haute-Égypte',
+      'Escales : temples de Haute-Égypte et petites îles du Nil',
       'Entrées des sites incluses',
       'Transferts inclus',
     ],
@@ -179,7 +181,7 @@ const sejours = [
 ]
 
 const included = [
-  'Guide francophone dédié sur tous les sites',
+  'Guide francophone dédié',
   'Transferts aéroport et inter-sites',
   'Accompagnement WhatsApp de Sophie avant et pendant le séjour',
 ]
@@ -191,7 +193,7 @@ const faq = [
   },
   {
     q: "Qu'est-ce qu'une dahabiya ?",
-    a: "Une dahabiya est une voilière traditionnelle à fond plat, aménagée pour la croisière sur le Nil. Moins grande qu'un paquebot de croisière, elle offre une atmosphère intimiste et romantique. Chaque cabine est privative.",
+    a: "Une dahabiya est un voilier traditionnel à fond plat, aménagé pour la croisière sur le Nil. Moins grand qu'un paquebot de croisière, il offre une atmosphère intimiste et romantique. Chaque cabine est privative.",
   },
   {
     q: 'Ces séjours conviennent-ils aux familles avec enfants ?',
@@ -480,11 +482,11 @@ export default async function SignaturePage() {
                           className="mb-1"
                           style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
                         >
-                          {exp.title}
+                          {exp.title.includes(' — ') ? exp.title.split(' — ')[0] : exp.title}
                         </h3>
-                        {staticSejour?.title && (
+                        {(staticSejour?.title ?? (exp.title.includes(' — ') ? exp.title.split(' — ')[1] : null)) && (
                           <p className="text-sm italic mb-1" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#5C6E7E' }}>
-                            {staticSejour.title}
+                            {staticSejour?.title ?? exp.title.split(' — ')[1]}
                           </p>
                         )}
                         {(staticSejour?.description ?? exp.tagline) && (
@@ -560,8 +562,11 @@ export default async function SignaturePage() {
                       className="mb-1"
                       style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}
                     >
-                      {s.title}
+                      {s.code}
                     </h3>
+                    <p className="text-sm italic mb-1" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.125rem', color: '#5C6E7E' }}>
+                      {s.title}
+                    </p>
                     <p className="text-sm mb-6" style={{ color: '#8A9BAB' }}>
                       {s.duration}
                     </p>
