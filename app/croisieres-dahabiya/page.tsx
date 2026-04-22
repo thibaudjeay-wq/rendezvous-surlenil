@@ -190,7 +190,12 @@ export default async function CroisiereDahabiyaPage() {
               : h.value
           ) ?? [],
           featured: exp.featured ?? false,
-          cta: getWhatsAppUrl(exp.ctaWhatsappMessage ?? 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya. 🛶'),
+          cta: getWhatsAppUrl(
+            isEvasion ? 'Bonjour Sophie, je suis intéressé(e) par la Croisière Évasion (3 nuits). Pouvez-vous m\'en dire plus ? 🛶'
+            : isImmersion ? 'Bonjour Sophie, je suis intéressé(e) par la Croisière Immersion (5 nuits). Pouvez-vous m\'en dire plus ? 🛶'
+            : isGrandVoyage ? 'Bonjour Sophie, je suis intéressé(e) par une Croisière Privée (privatisation dahabiya). Pouvez-vous m\'en dire plus ? 🛶'
+            : 'Bonjour Sophie, je suis intéressé(e) par une croisière en dahabiya. Pouvez-vous m\'en dire plus ? 🛶'
+          ),
         }
       })
     : formules
