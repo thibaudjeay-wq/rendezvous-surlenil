@@ -44,8 +44,8 @@ const destinations = [
       { label: 'Le vieux Caire & bazar Khan el-Khalili' },
       { label: 'Saqqarah (pyramide à degrés) & Dahshur' },
     ],
-    pricing: 'À partir de 60 € par personne / jour',
-    pricingNote: 'Tickets d\'entrée et repas en sus',
+    pricing: 'À partir de 80 € par personne / jour',
+    pricingNote: 'Tout est inclus sauf les pourboires',
     image: '/photos/signature/marche-lanternes.jpg',
 
     imageAlt: 'Boutique de lanternes dorées au Caire, Khan el-Khalili, Escapades Sérénité',
@@ -62,7 +62,7 @@ const destinations = [
       { label: '1 journée', price: '170 €' },
       { label: '2 jours avec nuit en bivouac', price: '250 €' },
     ],
-    pricingNote: 'Combinaisons sur devis',
+    pricingNote: 'Tout est inclus sauf les pourboires',
     image: '/photos/escapades/tunnel-craie.jpg',
     imageAlt: 'Formations calcaires du désert blanc, Égypte, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité au Fayoum. Pouvez-vous me donner plus d\'informations ? 🌿',
@@ -79,7 +79,7 @@ const destinations = [
       { label: '4 jours', price: '400 €' },
       { label: '5 jours', price: '490 €' },
     ],
-    pricingNote: 'Tickets d\'entrée et repas en sus',
+    pricingNote: 'Tout est inclus sauf les pourboires',
     image: '/photos/privileges/siwa-lac-turquoise.jpg',
     imageAlt: 'Lac turquoise de Siwa, Égypte, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Siwa. Pouvez-vous me donner plus d\'informations ? 🌿',
@@ -97,7 +97,7 @@ const destinations = [
       { label: '3 jours + oasis de Bahariya', price: '290 €' },
       { label: '3 jours + Djara Cave', price: '330 €' },
     ],
-    pricingNote: 'Repas en sus',
+    pricingNote: 'Tout est inclus sauf les pourboires',
     image: '/photos/escapades/cuisine-feu-desert-blanc.jpg',
     imageAlt: 'Cuisine au feu dans le désert blanc, Égypte, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité dans le désert occidental. Pouvez-vous me donner plus d\'informations ? 🌿',
@@ -114,7 +114,7 @@ const destinations = [
       { label: 'Vol en montgolfière, 100 € par personne (option)' },
     ],
     pricing: 'À partir de 70 € par personne / jour',
-    pricingNote: 'Tickets d\'entrée et repas en sus',
+    pricingNote: 'Tout est inclus sauf les pourboires',
     image: '/photos/signature/karnak-colonnes.jpg',
     imageAlt: 'Colonnes de Karnak au lever du soleil, Louxor, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Louxor. Pouvez-vous me donner plus d\'informations ? 🌿',
@@ -130,10 +130,24 @@ const destinations = [
       { label: 'Excursion Abou Simbel, +130 € par personne (option)' },
     ],
     pricing: 'À partir de 70 € par personne / jour',
-    pricingNote: 'Tickets d\'entrée et repas en sus',
+    pricingNote: 'Tout est inclus sauf les pourboires',
     image: '/photos/escapades/village-nubien.jpg',
     imageAlt: 'Village nubien, Assouan, Escapades Sérénité',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Assouan. Pouvez-vous me donner plus d\'informations ? 🌿',
+  },
+  {
+    id: 'alexandrie',
+    name: 'Alexandrie',
+    tagline: 'La cité de toutes les mémoires.',
+    accroche:
+      'Alexandrie, fondée par Alexandre le Grand, fut la plus grande bibliothèque du monde antique et un carrefour de civilisations. Entre Méditerranée et mémoire grecque, romaine et arabe, c\'est une Égypte à part entière, cosmopolite et secrète.',
+    options: [],
+    pricing: 'À partir de 80 € par personne / jour',
+    pricingNote: 'Tout est inclus sauf les pourboires',
+    image: '/photos/signature/marche-lanternes.jpg',
+    imageAlt: 'Alexandrie, Méditerranée, Égypte',
+    ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Alexandrie. Pouvez-vous me donner plus d\'informations ? 🌿',
+    comingSoon: true,
   },
 ]
 
@@ -301,7 +315,7 @@ export default function EscapadesPage() {
                   lineHeight: 1.2,
                 }}
               >
-                Six façons de vivre l&apos;Égypte
+                Sept façons de vivre l&apos;Égypte
                 <br />
                 <em style={{ fontWeight: 300, fontStyle: 'italic' }}>autrement.</em>
               </h2>
@@ -332,7 +346,7 @@ export default function EscapadesPage() {
               >
                 {/* Image */}
                 <div
-                  className={`img-section overflow-hidden rounded-sm ${i % 2 === 1 ? 'lg:col-start-2' : ''}`}
+                  className={`img-section overflow-hidden rounded-sm relative ${i % 2 === 1 ? 'lg:col-start-2' : ''}`}
                 >
                   <Image
                     src={d.image}
@@ -340,7 +354,18 @@ export default function EscapadesPage() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
+                    style={'comingSoon' in d && d.comingSoon ? { filter: 'brightness(0.6)' } : undefined}
                   />
+                  {'comingSoon' in d && d.comingSoon && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span
+                        className="text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-sm"
+                        style={{ background: '#C4902A', color: 'white' }}
+                      >
+                        Bientôt disponible
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -423,14 +448,20 @@ export default function EscapadesPage() {
                     )}
                   </div>
 
-                  <a
-                    href={getWhatsAppUrl(d.ctaMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Demander une proposition →
-                  </a>
+                  {'comingSoon' in d && d.comingSoon ? (
+                    <p className="text-sm italic" style={{ color: '#8A9BAB' }}>
+                      Cette destination sera bientôt disponible. Écrivez-nous si vous souhaitez être informé(e).
+                    </p>
+                  ) : (
+                    <a
+                      href={getWhatsAppUrl(d.ctaMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                    >
+                      Demander une proposition →
+                    </a>
+                  )}
                 </div>
               </article>
             ))}

@@ -123,7 +123,7 @@ const itinerary = [
   { day: 'Jour 3', title: 'Edfou, Le temple d\'Horus', description: 'Navigation matinale. Escale à Edfou pour le temple d\'Horus, le mieux conservé d\'Égypte. Nuit à bord, amarrés le long d\'une île.' },
   { day: 'Jour 4', title: 'Île de Bassaw & Kom Ombo', description: 'Escale sur l\'île de Bassaw. Temple de Kom Ombo au coucher du soleil, magie absolue. Baignade possible. Dîner de fête à bord.' },
   { day: 'Jour 5', title: 'Assouan & Philae', description: 'Arrivée à Assouan. Visite du temple d\'Isis à Philae. Excursion dans les cataractes du Nil et village nubien.' },
-  { day: 'Jour 6', title: 'Abou Simbel, La grande finale', description: 'Excursion matinale avec chauffeur privé pour les temples d\'Abou Simbel. Fin de la croisière.' },
+  { day: 'Jour 6', title: 'Abou Simbel, L’apothéose', description: 'Excursion matinale avec chauffeur privé pour les temples d\'Abou Simbel. Fin de la croisière.' },
 ]
 
 const faq = [

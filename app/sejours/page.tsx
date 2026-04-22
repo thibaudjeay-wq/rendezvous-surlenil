@@ -49,7 +49,7 @@ const experiences = [
     href: '/sejours/escapades-serenite',
     image: '/photos/escapades/pique-nique-dunes.jpg',
     tag: null,
-    features: ['6 destinations', 'Guide francophone certifié', 'Chauffeur dédié inclus', 'À partir de 60 € / pers. / jour'],
+    features: ['7 destinations', 'Guide francophone certifié', 'Chauffeur dédié inclus', 'À partir de 80 € / pers. / jour'],
   },
 ]
 

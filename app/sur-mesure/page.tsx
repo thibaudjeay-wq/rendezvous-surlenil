@@ -292,7 +292,16 @@ export default function SurMesurePage() {
                       149 €
                     </span>
                   </div>
-                  <p className="text-xs mt-1" style={{ color: 'rgba(138,155,171,0.8)' }}>
+                  <p className="text-sm mt-1" style={{ color: 'rgba(250,247,242,0.75)' }}>
+                    par groupe · jusqu&apos;à 4 personnes
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ color: 'rgba(138,155,171,0.7)' }}>
+                    +10 € par personne supplémentaire
+                  </p>
+                  <p className="text-xs mt-0.5 italic" style={{ color: 'rgba(138,155,171,0.6)' }}>
+                    Idéal pour couples, familles ou petits groupes
+                  </p>
+                  <p className="text-xs mt-3" style={{ color: 'rgba(138,155,171,0.8)' }}>
                     Offert pour toute réservation d&apos;un Séjour Signature · 49 € si Séjour Signature + villes supplémentaires
                   </p>
                 </div>
@@ -379,7 +388,7 @@ export default function SurMesurePage() {
                     </span>
                   </div>
                   <p className="text-xs mt-1" style={{ color: 'rgba(138,155,171,0.8)' }}>
-                    Tarifs affichés par destination, à partir de 60 €/pers/jour
+                    Tarifs affichés par destination, à partir de 80 €/pers/jour
                   </p>
                 </div>
               </div>
