@@ -45,7 +45,7 @@ const experiences = [
     eyebrow: 'Guide privé · Chauffeur · Tarifs affichés',
     label: 'Escapades Sérénité',
     description:
-      'Six destinations, Le Caire, Fayoum, Siwa, Désert occidental, Louxor, Assouan, avec guide francophone privé certifié et chauffeur dédié. À la journée ou sur plusieurs jours. Tarifs affichés sur la page, combinaisons possibles.',
+      'Sept destinations, Le Caire, Fayoum, Siwa, Désert occidental, Louxor, Assouan, Alexandrie, avec guide francophone privé certifié et chauffeur dédié. À la journée ou sur plusieurs jours. Tarifs affichés sur la page, combinaisons possibles.',
     href: '/sejours/escapades-serenite',
     image: '/photos/escapades/pique-nique-dunes.jpg',
     tag: null,
