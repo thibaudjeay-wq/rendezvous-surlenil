@@ -184,7 +184,7 @@ export default async function CroisiereDahabiyaPage() {
               : h.value === 'Local francophone' && isImmersion
               ? 'Guide francophone privé à bord'
               : h.value === 'Dédié' && isGrandVoyage
-              ? 'Guide francophone dédié'
+              ? 'Guide francophone privé'
               : h.value === 'Totale' && isGrandVoyage
               ? 'Privatisation totale'
               : h.value

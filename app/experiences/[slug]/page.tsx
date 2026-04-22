@@ -251,7 +251,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 
   const SMALA_INCLUDED = [
     'Dahabiya privatisée pour votre groupe',
-    'Guide francophone dédié',
+    'Guide francophone privé',
     'Programme 100% sur mesure',
     'Durée et itinéraire flexibles',
     'Organisation complète par Sophie',
@@ -299,7 +299,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     '4 nuits en dahabiya (Louxor–Assouan) en pension complète',
     'Excursion Abou Simbel',
     'Montgolfière au lever du soleil',
-    'Guide francophone dédié',
+    'Guide francophone privé',
     'Transferts aéroport et inter-sites',
     'Tickets d\'entrées inclus pendant la croisière',
     'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae, Abou Simbel',
