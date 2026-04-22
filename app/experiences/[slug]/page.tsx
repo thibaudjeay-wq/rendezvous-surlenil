@@ -214,6 +214,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
   const ITEMS_TO_REMOVE_FROM_NOT_INCLUDED = [
     /abou simbel.*option/i,
     /déjeuners? à terre/i,
+    /tickets.+repas.+pourboires/i,
   ]
   const normalizeIncludedItem = (s: string) =>
     s
@@ -228,6 +229,56 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 
   const isYalla = slug.includes('yalla') || heroTitle?.toUpperCase().includes('YALLA')
   const isPacha = slug.includes('pacha') || heroTitle?.toUpperCase().includes('PACHA')
+  const isSafara = slug.includes('safara') || heroTitle?.toUpperCase().includes('SAFARA')
+
+  const isHabibi = slug.includes('habibi') || heroTitle?.toUpperCase().includes('HABIBI')
+
+  const HABIBI_INCLUDED = [
+    '4 nuits à La Thébaïde',
+    'Guide francophone privé',
+    'Montgolfière au lever du soleil',
+    'Promenade en felouque sur le Nil',
+    'Transferts aéroport',
+    'Petit-déjeuner chaque matin',
+  ]
+  const HABIBI_NOT_INCLUDED = [
+    'Vols internationaux',
+    'Déjeuners et dîners',
+    'Entrées des sites',
+    'Pourboires',
+    'Assurance voyage',
+  ]
+
+  const SMALA_INCLUDED = [
+    'Dahabiya privatisée pour votre groupe',
+    'Guide francophone dédié',
+    'Programme 100% sur mesure',
+    'Durée et itinéraire flexibles',
+    'Organisation complète par Sophie',
+    'Pension complète à bord',
+  ]
+  const SMALA_NOT_INCLUDED = [
+    'Vols internationaux',
+    'Entrées des sites',
+    'Pourboires',
+    'Assurance voyage',
+  ]
+
+  const SAFARA_INCLUDED = [
+    '3 nuits en dahabiya Assouan–Louxor',
+    '4 sessions avec guide francophone privé',
+    'Excursion Abou Simbel incluse',
+    'Transferts inclus',
+    'Pension complète à bord',
+    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
+    'Tickets d\'entrée inclus',
+  ]
+  const SAFARA_NOT_INCLUDED = [
+    'Vols internationaux',
+    'Pourboires',
+    'Assurance voyage',
+    'Repas après le débarquement',
+  ]
 
   const PACHA_INCLUDED = [
     'Dahabiya sur le Nil (5 ou 7 nuits)',
@@ -265,11 +316,23 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     ? YALLA_INCLUDED
     : isPacha
     ? PACHA_INCLUDED
+    : isSafara
+    ? SAFARA_INCLUDED
+    : isSmala
+    ? SMALA_INCLUDED
+    : isHabibi
+    ? HABIBI_INCLUDED
     : exp.included?.map(normalizeIncludedItem) ?? []
   const normalizedNotIncluded = isYalla
     ? YALLA_NOT_INCLUDED
     : isPacha
     ? PACHA_NOT_INCLUDED
+    : isSafara
+    ? SAFARA_NOT_INCLUDED
+    : isSmala
+    ? SMALA_NOT_INCLUDED
+    : isHabibi
+    ? HABIBI_NOT_INCLUDED
     : (() => {
         const filtered = (exp.notIncluded ?? []).filter(
           item => !ITEMS_TO_REMOVE_FROM_NOT_INCLUDED.some(rx => rx.test(item))
@@ -385,6 +448,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
                   .replace(/francophone\s+à\s+bord/i, 'Guide francophone privé')
                   .replace(/abou simbel.*option/i, 'Abou Simbel inclus')
                   .replace(/tous les repas.+inclus/i, 'Tous les repas à bord')
+                  .replace(/^tous les repas$/i, 'Tous les repas à bord')
                   .replace(/petit-déjeuner\s+inclus/i, 'petit-déjeuner à bord')
                   .replace(/temples?\s+de\s+Haute-Égypte(?!\s+et)/i, 'Temples de Haute-Égypte et petites îles du Nil')
                 const displayLabel = /guide francophone/i.test(displayValue)
