@@ -270,7 +270,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     'Excursion Abou Simbel incluse',
     'Transferts inclus',
     'Pension complète à bord',
-    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
+    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae, Abou Simbel',
     'Tickets d\'entrée inclus',
   ]
   const SAFARA_NOT_INCLUDED = [
@@ -284,7 +284,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     'Dahabiya sur le Nil (5 ou 7 nuits)',
     'Guide francophone privé à bord',
     'Pension complète',
-    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
+    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae, Abou Simbel',
     'Tickets d\'entrée inclus',
     'Transferts depuis votre hôtel ou l\'aéroport',
   ]
@@ -302,7 +302,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     'Guide francophone dédié',
     'Transferts aéroport et inter-sites',
     'Tickets d\'entrées inclus pendant la croisière',
-    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
+    'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae, Abou Simbel',
   ]
   const YALLA_NOT_INCLUDED = [
     'Vols internationaux',
