@@ -87,8 +87,8 @@ export default function Hero() {
             className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 animate-hero-sub"
             style={{ color: 'rgba(250, 247, 242, 0.85)', maxWidth: '520px', fontWeight: 300 }}
           >
-            Sophie Godineau a une connaissance intime du terrain égyptien. Nasser y est né.
-            Ensemble, ils ont construit quelque chose que les tour-opérateurs ne peuvent pas proposer :
+            Sophie Godineau possède une connaissance intime du terrain égyptien. Nasser Awadalla y est né.
+            Ensemble, ils ont construit une approche que les tour-opérateurs ne peuvent pas proposer :
             une relation de confiance profonde avec le pays, nourrie par le temps, les liens et le vécu.
           </p>
 
