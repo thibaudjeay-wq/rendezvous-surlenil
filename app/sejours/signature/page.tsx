@@ -91,8 +91,6 @@ const sejours = [
       'Excursion Abou Simbel incluse',
       'Montgolfière au lever du soleil',
       'Guide francophone dédié',
-      'Entrées des sites incluses pendant la croisière (hors première journée à Louxor)',
-      'Principales visites incluses : vallée des Rois, colosses de Memnon, temples de Louxor, Karnak, Hatchepsout, Edfou, Kom Ombo, Philae',
     ],
     ctaMessage:
       'Bonjour Sophie, je suis intéressé(e) par le séjour YALLA, Le voyage de Pharaon (7j/6n). Pouvez-vous m\'en dire plus ? 🌿',
