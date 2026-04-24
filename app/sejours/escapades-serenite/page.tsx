@@ -357,18 +357,7 @@ export default function EscapadesPage() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
-                    style={'comingSoon' in d && d.comingSoon ? { filter: 'brightness(0.6)' } : undefined}
                   />
-                  {'comingSoon' in d && d.comingSoon && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span
-                        className="text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-sm"
-                        style={{ background: '#C4902A', color: 'white' }}
-                      >
-                        Bientôt disponible
-                      </span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Content */}
@@ -451,20 +440,14 @@ export default function EscapadesPage() {
                     )}
                   </div>
 
-                  {'comingSoon' in d && d.comingSoon ? (
-                    <p className="text-sm italic" style={{ color: '#8A9BAB' }}>
-                      Cette destination sera bientôt disponible. Écrivez-nous si vous souhaitez être informé(e).
-                    </p>
-                  ) : (
-                    <a
-                      href={getWhatsAppUrl(d.ctaMessage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      Demander une proposition →
-                    </a>
-                  )}
+                  <a
+                    href={getWhatsAppUrl(d.ctaMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    Demander une proposition →
+                  </a>
                 </div>
               </article>
             ))}
