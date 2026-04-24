@@ -151,7 +151,6 @@ const destinations = [
     image: '/photos/escapades/alexandrie-port.jpg',
     imageAlt: 'Port d\'Alexandrie et citadelle de Qaitbay, Égypte',
     ctaMessage: 'Bonjour Sophie, je souhaite organiser une Escapade Sérénité à Alexandrie. Pouvez-vous me donner plus d\'informations ? 🌿',
-    comingSoon: true,
   },
 ]
 
