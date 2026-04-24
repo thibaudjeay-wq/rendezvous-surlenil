@@ -440,7 +440,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
       {exp.highlights && exp.highlights.length > 0 && (
         <section style={{ background: '#0F3D38', borderBottom: '1px solid rgba(201,169,110,0.15)' }}>
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-4">
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-4">
               {exp.highlights.map((h, i) => {
                 const displayValue = (h.value ?? '—')
                   .replace(/francophone\s+dédié\s+sur\s+tous\s+les\s+sites/i, 'Guide francophone privé')
@@ -456,7 +456,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
                   : h.label
                 return (
                   <div key={i} className="flex flex-col items-center text-center gap-1">
-                    <p className="text-xs font-semibold tracking-[0.1em] uppercase" style={{ color: '#C4902A' }}>
+                    <p className="text-xs font-semibold tracking-[0.06em] uppercase" style={{ color: '#C4902A' }}>
                       {displayValue}
                     </p>
                     <p className="text-xs" style={{ color: 'rgba(250,247,242,0.65)' }}>
