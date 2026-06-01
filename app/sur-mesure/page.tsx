@@ -301,9 +301,6 @@ export default function SurMesurePage() {
                   <p className="text-xs mt-0.5 italic" style={{ color: 'rgba(138,155,171,0.6)' }}>
                     Idéal pour couples, familles ou petits groupes
                   </p>
-                  <p className="text-xs mt-3" style={{ color: 'rgba(138,155,171,0.8)' }}>
-                    Offert pour toute réservation d&apos;un Séjour Signature · 49 € si Séjour Signature + villes supplémentaires
-                  </p>
                 </div>
               </div>
 
