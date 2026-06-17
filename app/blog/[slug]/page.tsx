@@ -775,12 +775,20 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
                       {post.author?.name ?? 'Sophie Godineau'}
                     </p>
                     <p className="text-xs" style={{ color: '#8A9BAB' }}>
-                      {post.author?.role ?? 'Guide & travel planner, Louxor'}
+                      {(() => {
+                        const r = post.author?.role ?? ''
+                        return /guide francophone/i.test(r) ? 'Co-fondatrice, Rendez-vous sur le Nil' : r || 'Co-fondatrice, Rendez-vous sur le Nil'
+                      })()}
                     </p>
                   </div>
                 </div>
                 <p className="text-xs leading-relaxed" style={{ color: '#5C6E7E' }}>
-                  {post.author?.bio ?? "Française expatriée à Louxor depuis 2021, Sophie a construit Rendez-vous sur le Nil avec son mari Nasser. Elle organise des voyages sur mesure, des croisières en dahabiya et des séjours à La Thébaïde, leur maison d'hôtes sur la rive est du Nil."}
+                  {(() => {
+                    const b = post.author?.bio ?? ''
+                    return /expatriée|mari Nasser|depuis.*ans/i.test(b)
+                      ? "Sophie a fondé Rendez-vous sur le Nil avec Nasser. Elle organise des voyages sur mesure, des croisières en dahabiya et des séjours à La Thébaïde, leur maison d'hôtes sur la rive est du Nil."
+                      : b || "Sophie a fondé Rendez-vous sur le Nil avec Nasser. Elle organise des voyages sur mesure, des croisières en dahabiya et des séjours à La Thébaïde, leur maison d'hôtes sur la rive est du Nil."
+                  })()}
                 </p>
               </div>
 
