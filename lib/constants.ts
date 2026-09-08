@@ -29,6 +29,7 @@ export const NAV_LINKS = [
 ] as const
 
 export const EXPERIENCES_SUBMENU = [
+  { label: 'Éclipse à Louxor · 2 août 2027', href: '/eclipse-louxor-2027', description: "L'éclipse du siècle depuis un rooftop privatif face au Nil" },
   { label: 'Séjours Signature', href: '/sejours/signature', description: 'Nos séjours curatés premium' },
   { label: 'Séjours Privilèges', href: '/sejours/privileges', description: "Séjours thématiques en petit groupe, animés par Sophie" },
   { label: 'Escapades Sérénité', href: '/sejours/escapades-serenite', description: 'Guide privé francophone · Chauffeur · Tarifs affichés' },

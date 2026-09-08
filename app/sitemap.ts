@@ -12,6 +12,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/sejours/privileges`,                 priority: 0.8, changeFrequency: 'monthly' },
   { url: `${BASE_URL}/sejours/escapades-serenite`,         priority: 0.7, changeFrequency: 'monthly' },
   { url: `${BASE_URL}/sur-mesure`,                         priority: 0.75, changeFrequency: 'monthly' },
+  { url: `${BASE_URL}/eclipse-louxor-2027`,                priority: 0.9, changeFrequency: 'weekly' },
   { url: `${BASE_URL}/blog`,                               priority: 0.8, changeFrequency: 'weekly' },
   { url: `${BASE_URL}/guide-egypte`,                       priority: 0.75, changeFrequency: 'monthly' },
   { url: `${BASE_URL}/contact`,                            priority: 0.6, changeFrequency: 'monthly' },
