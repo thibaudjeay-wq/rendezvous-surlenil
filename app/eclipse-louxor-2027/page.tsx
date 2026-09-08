@@ -42,10 +42,10 @@ export const metadata: Metadata = {
       "Privatisez La Thébaïde pour votre groupe et vivez l'éclipse solaire totale du 2 août 2027 depuis un rooftop privatif face au Nil.",
     images: [
       {
-        url: 'https://rendezvous-surlenil.com/photos/thebaide/thebaide-hero.jpg',
+        url: 'https://rendezvous-surlenil.com/photos/eclipse/solar-eclipse-og.jpg',
         width: 1200,
         height: 630,
-        alt: "Rooftop de La Thébaïde face au Nil, Louxor",
+        alt: "Éclipse solaire totale au-dessus des temples de Louxor",
       },
     ],
   },
@@ -71,7 +71,7 @@ const jsonLd = {
       addressCountry: 'EG',
     },
   },
-  image: ['https://rendezvous-surlenil.com/photos/thebaide/thebaide-hero.jpg'],
+  image: ['https://rendezvous-surlenil.com/photos/eclipse/solar-eclipse-og.jpg'],
   organizer: {
     '@type': 'TravelAgency',
     name: 'Rendez-vous sur le Nil',
@@ -207,22 +207,22 @@ export default function EclipseLouxor2027Page() {
       />
 
       {/* ─── Hero ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: '92vh' }}>
-        <div className="absolute inset-0">
+      <section className="relative overflow-hidden" style={{ minHeight: '92vh', background: '#0D2137' }}>
+        <div className="absolute inset-0" style={{ background: '#0D2137' }}>
           <Image
-            src="/photos/thebaide/thebaide-hero.jpg"
-            alt="Rooftop de La Thébaïde face au Nil, Louxor"
+            src="/photos/eclipse/solar-eclipse.webp"
+            alt="Éclipse solaire totale au-dessus des temples de Karnak, Louxor"
             fill
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ filter: 'brightness(0.62)', objectPosition: 'center 55%' }}
+            style={{ opacity: 0.55, objectPosition: 'center 30%' }}
           />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(13,33,55,0.35) 0%, rgba(13,33,55,0.25) 35%, rgba(13,33,55,0.7) 75%, rgba(13,33,55,0.95) 100%)',
+                'linear-gradient(to bottom, rgba(13,33,55,0.55) 0%, rgba(13,33,55,0.45) 30%, rgba(13,33,55,0.78) 72%, rgba(13,33,55,0.96) 100%)',
             }}
           />
           <div
