@@ -14,6 +14,7 @@ import {
   MapPin,
   ChevronDown,
   Check,
+  Download,
 } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
 import ContactCTA from '@/components/ui/ContactCTA'
@@ -635,6 +636,21 @@ export default function EclipseLouxor2027Page() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+            <a
+              href="/photos/eclipse/affiche-programme.jpg"
+              download="rendez-vous-sur-le-nil-eclipse-louxor-2027.jpg"
+              className="btn btn-secondary"
+              style={{ color: '#FAF7F2', borderColor: 'rgba(201,169,110,0.5)' }}
+            >
+              <Download size={14} aria-hidden="true" />
+              Télécharger le programme
+            </a>
+            <span className="text-xs" style={{ color: 'rgba(138,155,171,0.8)' }}>
+              L&apos;affiche complète du séjour, à partager avec votre groupe.
+            </span>
           </div>
         </div>
       </section>
