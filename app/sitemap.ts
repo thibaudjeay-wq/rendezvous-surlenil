@@ -30,12 +30,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         categories: Array<{ slug: { current: string }; _updatedAt: string }>
       }>(sitemapQuery)
 
-      const experienceRoutes: MetadataRoute.Sitemap = (data?.experiences ?? []).map((e) => ({
-        url: `${BASE_URL}/experiences/${e.slug.current}`,
-        lastModified: e._updatedAt,
-        priority: 0.8,
-        changeFrequency: 'monthly' as const,
-      }))
+      // eclipse-louxor-2027 a sa propre landing statique (déjà dans staticRoutes) et /experiences/… y redirige
+      const experienceRoutes: MetadataRoute.Sitemap = (data?.experiences ?? [])
+        .filter((e) => e.slug.current !== 'eclipse-louxor-2027')
+        .map((e) => ({
+          url: `${BASE_URL}/experiences/${e.slug.current}`,
+          lastModified: e._updatedAt,
+          priority: 0.8,
+          changeFrequency: 'monthly' as const,
+        }))
 
       const postRoutes: MetadataRoute.Sitemap = (data?.posts ?? []).map((p) => ({
         url: `${BASE_URL}/blog/${p.slug.current}`,

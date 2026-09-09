@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
@@ -148,12 +148,19 @@ const ptComponents: PortableTextComponents = {
   },
 }
 
+// Séjours ayant leur propre landing statique : /experiences/<slug> redirige vers elle.
+const STATIC_EXPERIENCE_REDIRECTS: Record<string, string> = {
+  'eclipse-louxor-2027': '/eclipse-louxor-2027',
+}
+
 // ─── generateStaticParams ──────────────────────────────────
 export async function generateStaticParams() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return []
   try {
     const data = await sanityClient.fetch<{ experiences: Array<{ slug: { current: string } }> }>(sitemapQuery)
-    return (data.experiences ?? []).map(e => ({ slug: e.slug.current }))
+    return (data.experiences ?? [])
+      .filter(e => !STATIC_EXPERIENCE_REDIRECTS[e.slug.current])
+      .map(e => ({ slug: e.slug.current }))
   } catch {
     return []
   }
@@ -182,6 +189,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 // ─── Page ──────────────────────────────────────────────────
 export default async function ExperiencePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+
+  if (STATIC_EXPERIENCE_REDIRECTS[slug]) redirect(STATIC_EXPERIENCE_REDIRECTS[slug])
 
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) notFound()
 

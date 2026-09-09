@@ -71,7 +71,13 @@ function formatDate(iso?: string): string {
   return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
+// Séjours dont la page est une landing statique dédiée (hors listes Sanity).
+const STATIC_EXPERIENCE_PAGES: Record<string, string> = {
+  'eclipse-louxor-2027': '/eclipse-louxor-2027',
+}
+
 function experienceHref(type: string, slug: string): string {
+  if (STATIC_EXPERIENCE_PAGES[slug]) return STATIC_EXPERIENCE_PAGES[slug]
   const map: Record<string, string> = {
     dahabiya: '/croisieres-dahabiya',
     'sejour-signature': '/sejours/signature',

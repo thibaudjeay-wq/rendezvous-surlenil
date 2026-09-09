@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "node -r dotenv/config scripts/seed.mjs"
+    "seed": "node -r dotenv/config scripts/seed.mjs",
+    "add:eclipse": "node scripts/add-eclipse-experience.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^2.0.3",
