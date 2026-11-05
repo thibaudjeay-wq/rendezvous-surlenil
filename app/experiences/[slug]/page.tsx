@@ -6,6 +6,7 @@ import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { CheckCircle, XCircle, ChevronDown, ArrowLeft, MapPin, Clock, Users } from 'lucide-react'
 import { sanityClient } from '@/lib/sanity/client'
 import { experienceBySlugQuery, sitemapQuery } from '@/lib/sanity/queries'
+import { getPrivilegeBySlug } from '@/lib/privileges'
 import { urlFor } from '@/lib/sanity/image'
 import { getWhatsAppUrl } from '@/lib/constants'
 
@@ -29,7 +30,7 @@ type ThematicDate = {
   priceAmount?: number
   availableSpots?: number
   spotsLeft?: number
-  status?: 'available' | 'limited' | 'full'
+  status?: 'available' | 'limited' | 'full' | 'upcoming'
 }
 
 type ProgramDay = {
@@ -60,6 +61,7 @@ type Experience = {
   duration?: string
   thematicDates?: ThematicDate[]
   ctaWhatsappMessage?: string
+  datesNote?: string
   seo?: { metaTitle?: string; metaDescription?: string; noIndex?: boolean }
 }
 
@@ -78,6 +80,24 @@ const STATUS_LABELS = {
   available: { label: 'Disponible', color: '#27AE60', bg: '#F0FDF4' },
   limited: { label: 'Quelques places', color: '#E67E22', bg: '#FFF7ED' },
   full: { label: 'Complet', color: '#E74C3C', bg: '#FEF2F2' },
+  upcoming: { label: 'À venir', color: '#8A9BAB', bg: '#F4F6F8' },
+}
+
+// Séjours Privilèges : le contenu statique (lib/privileges.ts) prime sur Sanity
+function withPrivilegeOverride(slug: string, exp: Experience): Experience {
+  const priv = getPrivilegeBySlug(slug)
+  if (!priv) return exp
+  return {
+    ...exp,
+    title: `${priv.code} — ${priv.title}`,
+    duration: priv.duration,
+    highlights: priv.overrideDetailHighlights
+      ? priv.highlights.map((h) => ({ label: h.label, value: h.value }))
+      : exp.highlights?.map((h) => ({ ...h, value: h.value?.replace(/\s*avec Louise/i, '') })),
+    thematicDates: priv.sessions.map((d, i) => ({ _key: `priv-${i}`, ...d })),
+    ctaWhatsappMessage: priv.ctaMessage,
+    datesNote: priv.sessionsNote,
+  }
 }
 
 function formatDateFr(iso?: string): string {
@@ -171,8 +191,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return {}
   try {
-    const exp = await sanityClient.fetch<Experience | null>(experienceBySlugQuery, { slug })
-    if (!exp) return {}
+    const raw = await sanityClient.fetch<Experience | null>(experienceBySlugQuery, { slug })
+    if (!raw) return {}
+    const exp = withPrivilegeOverride(slug, raw)
     const title = exp.seo?.metaTitle ?? exp.title
     const description = exp.seo?.metaDescription ?? exp.tagline ?? ''
     return {
@@ -201,6 +222,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
     notFound()
   }
   if (!exp) notFound()
+  exp = withPrivilegeOverride(slug, exp)
 
   const ctaMsg = exp.ctaWhatsappMessage
     ?? `Bonjour Sophie, je suis intéressé(e) par "${exp.title}"${exp.duration ? ` (${exp.duration})` : ''}. Pouvez-vous m'en dire plus ? 🌿`
@@ -621,7 +643,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
                         {status.label}
                       </span>
                     </div>
-                    {!isFull && (
+                    {!isFull && d.status !== 'upcoming' && (
                       <a
                         href={getWhatsAppUrl(`Bonjour Sophie, je suis intéressé(e) par "${d.label ?? exp.title}" (${formatDateFr(d.startDate)}${d.endDate ? ` → ${formatDateFr(d.endDate)}` : ''}). Pouvez-vous m'en dire plus ? 🌿`)}
                         target="_blank"
@@ -636,6 +658,9 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
                 )
               })}
             </div>
+            {exp.datesNote && (
+              <p className="text-center text-sm mt-6" style={{ color: '#5C6E7E' }}>{exp.datesNote}</p>
+            )}
           </div>
         </section>
       )}

@@ -90,7 +90,7 @@ const results: Record<Outcome, {
   priv: {
     title: 'Il existe un voyage fait pour vous, et pour d\'autres qui vous ressemblent.',
     text: 'Vous cherchez une expérience thématique, en petit groupe, avec une ambiance. Les Séjours Privilèges sont trois programmes à dates fixes, yoga à Siwa, aquarelle sur le Nil, voyage féminin. Sophie est présente du début à la fin. Places limitées.',
-    itinerary: 'CROQUE & VOGUE (15–26 nov. 2026), Dahabiya + ateliers aquarelle\nou DÉESSE DU NIL (27 jan.–3 fév. 2027), Voyage 100 % féminin à Louxor',
+    itinerary: 'DÉESSE DU NIL (6j/5n, janv.–fév. 2027), Louxor au féminin, 2 à 4 participantes\nou OASIS FLOW SIWA (dates à venir), Yoga, oasis & sérénité',
     href: '/sejours/privileges',
     ctaMessage: 'Bonjour Sophie, j\'ai complété le quiz et il me suggère un Séjour Privilèges. Pouvez-vous me dire quelles places sont encore disponibles ? 🌿',
   },

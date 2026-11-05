@@ -4,48 +4,7 @@ import Link from 'next/link'
 import { CheckCircle, ChevronDown, Users, Calendar } from 'lucide-react'
 import { getWhatsAppUrl } from '@/lib/constants'
 import ContactCTA from '@/components/ui/ContactCTA'
-import { sanityClient } from '@/lib/sanity/client'
-import { privilegesExperiencesQuery } from '@/lib/sanity/queries'
-import { urlFor } from '@/lib/sanity/image'
-
-export const revalidate = 3600
-
-type ThematicDate = {
-  label: string
-  startDate?: string
-  endDate?: string
-  priceAmount?: number
-  availableSpots?: number
-  spotsLeft?: number
-  status?: 'available' | 'limited' | 'full'
-}
-
-type SanityPrivilegeExp = {
-  _id: string
-  title: string
-  slug: { current: string }
-  tagline?: string
-  duration?: string
-  priceDisplay?: string
-  priceAmount?: number
-  priceSuffix?: string
-  highlights?: Array<{ label: string; value: string }>
-  thematicDates?: ThematicDate[]
-  ctaWhatsappMessage?: string
-  featured?: boolean
-  mainImage?: { asset: { _id: string; url: string; metadata: { lqip?: string } }; alt?: string }
-}
-
-function formatDateFr(iso?: string) {
-  if (!iso) return ''
-  return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-}
-
-const STATUS_LABELS: Record<string, { label: string; color: string; bg: string }> = {
-  available: { label: 'Disponible', color: '#27AE60', bg: 'rgba(39,174,96,0.1)' },
-  limited: { label: 'Quelques places', color: '#E67E22', bg: 'rgba(230,126,34,0.1)' },
-  full: { label: 'Complet', color: '#C0392B', bg: 'rgba(192,57,43,0.1)' },
-}
+import { PRIVILEGES, PRIVILEGE_STATUS_LABELS, formatSessionDates } from '@/lib/privileges'
 
 export const metadata: Metadata = {
   title: 'Séjours Privilèges, Yoga à Siwa & Aquarelle sur le Nil | Rendez-vous sur le Nil',
@@ -65,11 +24,11 @@ const jsonLd = {
   name: 'Séjours Privilèges, Rendez-vous sur le Nil',
   description: 'Séjours thématiques en petit groupe avec Sophie Godineau : yoga, aquarelle, voyage féminin.',
   url: 'https://rendezvous-surlenil.com/sejours/privileges',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'OASIS FLOW SIWA — Yoga, oasis & sérénité, 8 jours / 7 nuits, novembre 2026' },
-    { '@type': 'ListItem', position: 2, name: 'CROQUE & VOGUE — Aquarelle & croisière sur le Nil, 12 jours / 11 nuits, novembre 2026' },
-    { '@type': 'ListItem', position: 3, name: 'DÉESSE DU NIL — Voyage 100% féminin, 8 jours / 7 nuits, janvier 2027' },
-  ],
+  itemListElement: PRIVILEGES.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${p.code} — ${p.title}, ${p.duration}, ${p.datesSummary}`,
+  })),
 }
 
 const WHATSAPP_ICON = (
@@ -78,85 +37,10 @@ const WHATSAPP_ICON = (
   </svg>
 )
 
-const programmes = [
-  {
-    code: 'OASIS FLOW SIWA',
-    title: 'Yoga, oasis & sérénité',
-    dates: '8 au 15 novembre 2026',
-    duration: '8 jours / 7 nuits',
-    theme: 'Yoga & bien-être',
-    spots: 'Places limitées, 8 pers. max.',
-    image: '/photos/privileges/siwa-lac-turquoise.jpg',
-    imageAlt: "Oasis de Siwa au coucher du soleil, Égypte",
-    description:
-      "L'oasis au bout du monde. Yoga du matin sur les dunes, baignades dans les lacs salés, randonnées à dos de dromadaire, dîners sous les étoiles. Louise vous accompagne pour les séances de yoga.",
-    highlights: [
-      'Siwa, oasis isolée à 750 km du Caire',
-      'Séances de yoga quotidiennes avec Louise',
-      'Baignades dans les lacs salés, dunes',
-      'Nuits en lodge traditionnel',
-      'Sophie présente sur toute la durée',
-      'Transferts et repas inclus',
-    ],
-    intervenants: 'Sophie Godineau + Louise (yoga)',
-    ctaMessage:
-      'Bonjour Sophie, je suis intéressé(e) par le séjour OASIS FLOW SIWA (8-15 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
-    urgency: 'Départ : 8 novembre 2026',
-  },
-  {
-    code: 'CROQUE & VOGUE',
-    title: 'Aquarelle & croisière sur le Nil',
-    dates: '15 au 26 novembre 2026',
-    duration: '12 jours / 11 nuits',
-    theme: 'Aquarelle & dessin',
-    spots: 'Places limitées',
-    image: '/photos/privileges/stage-aquarelle.jpg',
-    imageAlt: 'Stage aquarelle en Égypte, séjour Croque & Vogue',
-    description:
-      "Une croisière en dahabiya entre Assouan et Louxor, pinceau en main. Isabelle Corcket et Robbie vous initient à l'aquarelle en plein air sur les plus beaux sites d'Égypte. Aucune expérience artistique requise.",
-    highlights: [
-      'Croisière en dahabiya',
-      'Ateliers aquarelle quotidiens avec Isabelle Corcket & Robbie',
-      'Temples peints depuis le bateau ou sur site',
-      'Assouan, Kom Ombo, Esna, Louxor',
-      'Sophie présente sur toute la durée',
-      'Repas à bord, hébergement en cabine privée',
-    ],
-    intervenants: 'Sophie Godineau + Isabelle Corcket & Robbie (aquarelle)',
-    ctaMessage:
-      'Bonjour Sophie, je suis intéressé(e) par le séjour CROQUE & VOGUE (15-26 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
-    urgency: 'Départ : 15 novembre 2026',
-    featured: true,
-  },
-  {
-    code: 'DÉESSE DU NIL',
-    title: 'Voyage 100 % féminin',
-    dates: '27 janvier au 3 février 2027',
-    duration: '8 jours / 7 nuits',
-    theme: 'Voyage entre femmes',
-    spots: 'Réservé aux femmes, places limitées',
-    image: '/photos/voyageurs/trio-femmes-nil.jpg',
-    imageAlt: 'Temple de Louxor au lever du soleil',
-    description:
-      "Un voyage entre femmes, convivial et en toute sécurité. Louxor, temples, rencontres. Un séjour pensé pour se reconnecter à soi-même, dans la puissance des sites les plus sacrés d'Égypte.",
-    highlights: [
-      'Louxor & temples, sites féminins sacrés',
-      'Temps libres, échanges, bien-être',
-      'Moments pour se reconnecter à soi-même',
-      'Montgolfière au lever du soleil',
-      'Séjour exclusivement féminin',
-    ],
-    intervenants: 'Sophie',
-    ctaMessage:
-      'Bonjour Sophie, je suis intéressée par le séjour DÉESSE DU NIL (27 janvier–3 février 2027). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
-    urgency: 'Départ : 27 janvier 2027',
-  },
-]
-
 const faq = [
   {
     q: 'Qu\'est-ce qui distingue les Séjours Privilèges des Séjours Signature ?',
-    a: 'Les Séjours Privilèges sont des programmes collectifs en petit groupe (8 à 12 personnes max.), à dates fixes, animés par Sophie et un ou plusieurs intervenants experts (yoga, aquarelle…). Les Séjours Signature sont privatifs, adaptés à votre agenda et à votre groupe.',
+    a: 'Les Séjours Privilèges sont des programmes collectifs en petit groupe (de 2 à 12 personnes), à dates fixes, animés par Sophie et un ou plusieurs intervenants experts (yoga, aquarelle…). Les Séjours Signature sont privatifs, adaptés à votre agenda et à votre groupe.',
   },
   {
     q: 'Comment réserver ma place ?',
@@ -172,17 +56,10 @@ const faq = [
   },
 ]
 
-export default async function PrivilegesPage() {
+export default function PrivilegesPage() {
   const whatsappUrl = getWhatsAppUrl(
     'Bonjour Sophie, je suis intéressé(e) par un Séjour Privilèges en Égypte. Pouvez-vous me présenter les programmes disponibles ? 🌿'
   )
-
-  let sanityPrivileges: SanityPrivilegeExp[] = []
-  try {
-    if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
-      sanityPrivileges = await sanityClient.fetch<SanityPrivilegeExp[]>(privilegesExperiencesQuery)
-    }
-  } catch { /* fallback statique */ }
 
   return (
     <>
@@ -237,7 +114,7 @@ export default async function PrivilegesPage() {
             </h1>
             <p className="text-lg mb-10" style={{ color: 'rgba(250,247,242,0.85)', maxWidth: '520px', fontWeight: 300 }}>
               Trois programmes thématiques à dates fixes, en petit groupe, avec Sophie et des
-              intervenants experts. Siwa, le Nil, Louxor, chaque séjour a son âme.
+              intervenants experts. Le Nil, Louxor, Siwa, chaque séjour a son âme.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
               <ContactCTA
@@ -273,7 +150,7 @@ export default async function PrivilegesPage() {
               {
                 icon: <Users size={18} style={{ color: '#C4902A' }} aria-hidden="true" />,
                 title: 'Petit groupe exclusif',
-                desc: '8 à 12 personnes maximum. Le temps de créer des liens, pas une file d\'attente.',
+                desc: 'De 2 à 12 personnes. Le temps de créer des liens, pas une file d\'attente.',
               },
               {
                 icon: <Calendar size={18} style={{ color: '#C4902A' }} aria-hidden="true" />,
@@ -316,114 +193,97 @@ export default async function PrivilegesPage() {
             </h2>
           </div>
 
-          {/* ── Rendu avec données statiques + dates dynamiques Sanity ── */}
-          {(() => {
-            const data = programmes.map((prog) => {
-              const sanity = sanityPrivileges.find(p =>
-                p.title?.toLowerCase().includes(prog.code.toLowerCase().split(' ')[0]) ||
-                prog.code.toLowerCase().split(' ').some(w => w.length > 3 && p.title?.toLowerCase().includes(w))
-              )
-              return { prog, thematicDates: sanity?.thematicDates ?? [], sanityId: sanity?._id ?? prog.code, featured: sanity?.featured ?? prog.featured ?? false }
-            })
-            return (
-            <div className="flex flex-col gap-20">
-              {data.map(({ prog: p, thematicDates, sanityId, featured }, i) => (
-                <div
-                  key={sanityId}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
-                >
-                  {/* Image */}
-                  <div className="img-section overflow-hidden rounded-sm relative">
-                    <Image
-                      src={p.image}
-                      alt={p.imageAlt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                    {featured && (
-                      <span className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10" style={{ background: '#C4902A', color: 'white' }}>
-                        Coup de cœur
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Texte */}
-                  <div>
-                    <h3 className="mb-2" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>
-                      {p.code}
-                    </h3>
-                    <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.title}</p>
-                    <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration} · {p.dates}</p>
-
-                    <ul className="flex flex-col gap-2.5 mb-8">
-                      {p.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
-                          <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Dates thématiques depuis Sanity */}
-                    {thematicDates.length > 0 && (
-                      <div className="flex flex-col gap-3 mb-8">
-                        <p className="text-xs font-semibold tracking-[0.1em] uppercase mb-1" style={{ color: '#8A9BAB' }}>
-                          Dates disponibles
-                        </p>
-                        {thematicDates.map((d, di) => {
-                          const statusInfo = STATUS_LABELS[d.status ?? 'available']
-                          return (
-                            <div
-                              key={di}
-                              className="flex items-center justify-between gap-4 p-4 rounded-sm"
-                              style={{ background: '#FDF8F0', border: '1px solid #E8D5B7' }}
-                            >
-                              <div>
-                                {d.label && <p className="text-sm font-medium mb-0.5" style={{ color: '#0F3D38' }}>{d.label}</p>}
-                                <p className="text-xs flex items-center gap-1.5" style={{ color: '#5C6E7E' }}>
-                                  <Calendar size={11} aria-hidden="true" />
-                                  {d.startDate && formatDateFr(d.startDate)}
-                                  {d.endDate && ` → ${formatDateFr(d.endDate)}`}
-                                </p>
-                                {(d.spotsLeft !== undefined || d.availableSpots !== undefined) && (
-                                  <p className="text-xs mt-1" style={{ color: '#8A9BAB' }}>
-                                    {d.spotsLeft !== undefined ? `${d.spotsLeft} place${d.spotsLeft > 1 ? 's' : ''} restante${d.spotsLeft > 1 ? 's' : ''}` : `${d.availableSpots} places`}
-                                  </p>
-                                )}
-                              </div>
-                              <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                                {d.priceAmount && (
-                                  <p className="text-sm font-semibold" style={{ color: '#0F3D38' }}>{d.priceAmount.toLocaleString('fr-FR')} €</p>
-                                )}
-                                <span
-                                  className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
-                                  style={{ background: statusInfo.bg, color: statusInfo.color }}
-                                >
-                                  {statusInfo.label}
-                                </span>
-                              </div>
-                            </div>
-                          )
-                        })}
-                      </div>
-                    )}
-
-                    <a
-                      href={getWhatsAppUrl(p.ctaMessage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      {WHATSAPP_ICON}
-                      Réserver ma place →
-                    </a>
-                  </div>
+          <div className="flex flex-col gap-20">
+            {PRIVILEGES.map((p, i) => (
+              <div
+                key={p.slug}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
+              >
+                {/* Image */}
+                <div className="img-section overflow-hidden rounded-sm relative">
+                  <Image
+                    src={p.image}
+                    alt={p.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                  {p.featured && (
+                    <span className="absolute top-4 left-4 text-[10px] font-semibold tracking-[0.14em] uppercase px-3 py-1 rounded-sm z-10" style={{ background: '#C4902A', color: 'white' }}>
+                      Coup de cœur
+                    </span>
+                  )}
                 </div>
-              ))}
-            </div>
-            )
-          })()}
+
+                {/* Texte */}
+                <div>
+                  <h3 className="mb-2" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.875rem', color: '#0F3D38', fontWeight: 400 }}>
+                    {p.code}
+                  </h3>
+                  <p className="mb-1 text-sm font-medium" style={{ color: '#C4902A' }}>{p.title}</p>
+                  <p className="mb-6 text-sm" style={{ color: '#8A9BAB' }}>{p.duration} · {p.datesSummary}</p>
+
+                  <ul className="flex flex-col gap-2.5 mb-8">
+                    {p.highlights.map((h) => (
+                      <li key={h.value} className="flex items-start gap-2.5 text-sm" style={{ color: '#5C6E7E' }}>
+                        <CheckCircle size={13} style={{ color: '#C4902A', flexShrink: 0, marginTop: '2px' }} aria-hidden="true" />
+                        {h.value}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Dates */}
+                  <div className="flex flex-col gap-3 mb-8">
+                    <p className="text-xs font-semibold tracking-[0.1em] uppercase mb-1" style={{ color: '#8A9BAB' }}>
+                      {p.sessions.length > 1 ? 'Dates disponibles' : 'Date'}
+                    </p>
+                    <div className={p.sessions.length > 1 ? 'grid grid-cols-1 sm:grid-cols-2 gap-3' : 'flex flex-col gap-3'}>
+                      {p.sessions.map((d) => {
+                        const statusInfo = PRIVILEGE_STATUS_LABELS[d.status]
+                        const dates = formatSessionDates(d)
+                        return (
+                          <div
+                            key={`${d.label ?? ''}${d.startDate ?? ''}`}
+                            className={`flex items-center justify-between rounded-sm ${p.sessions.length > 1 ? 'gap-2 px-3 py-3' : 'gap-4 p-4'}`}
+                            style={{ background: '#FDF8F0', border: '1px solid #E8D5B7', opacity: d.status === 'full' ? 0.75 : 1 }}
+                          >
+                            <div>
+                              {d.label && <p className="text-sm font-medium mb-0.5" style={{ color: '#0F3D38' }}>{d.label}</p>}
+                              {dates && (
+                                <p className={`flex items-center gap-1.5 whitespace-nowrap ${d.label ? 'text-xs' : 'text-[13px] font-medium'}`} style={{ color: d.label ? '#5C6E7E' : '#0F3D38' }}>
+                                  <Calendar size={11} aria-hidden="true" />
+                                  {dates}
+                                </p>
+                              )}
+                            </div>
+                            <span
+                              className="text-[10px] font-semibold px-2.5 py-1 rounded-full flex-shrink-0"
+                              style={{ background: statusInfo.bg, color: statusInfo.color }}
+                            >
+                              {statusInfo.label}
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    {p.sessionsNote && (
+                      <p className="text-xs mt-1" style={{ color: '#5C6E7E' }}>{p.sessionsNote}</p>
+                    )}
+                  </div>
+
+                  <a
+                    href={getWhatsAppUrl(p.ctaMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    {WHATSAPP_ICON}
+                    {p.ctaLabel}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
 
         </div>
       </section>

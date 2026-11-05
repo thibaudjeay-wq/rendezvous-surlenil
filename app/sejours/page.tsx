@@ -34,11 +34,11 @@ const experiences = [
     eyebrow: 'Dates fixes · Petit groupe · Places limitées',
     label: 'Séjours Privilèges',
     description:
-      'Trois séjours thématiques à dates fixes, en petit groupe (8 à 12 pers. max.), avec Sophie et des intervenants experts. OASIS FLOW SIWA (yoga), CROQUE & VOGUE (aquarelle sur dahabiya), DÉESSE DU NIL (voyage féminin). Saison 2026–2027.',
+      'Trois séjours thématiques à dates fixes, en petit groupe (de 2 à 12 pers.), avec Sophie et des intervenants experts. CROQUE & VOGUE (aquarelle sur dahabiya), DÉESSE DU NIL (Louxor au féminin), OASIS FLOW SIWA (yoga). Saison 2026–2027.',
     href: '/sejours/privileges',
     image: '/photos/privileges/femme-pont-dahabiya.jpg',
     tag: 'Places limitées',
-    features: ['3 départs 2026–2027', 'Max 8–12 personnes', 'Yoga · Aquarelle · Féminin', 'Sophie présente'],
+    features: ['3 départs 2026–2027', 'De 2 à 12 personnes', 'Yoga · Aquarelle · Féminin', 'Sophie présente'],
   },
   {
     icon: Compass,

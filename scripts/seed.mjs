@@ -664,7 +664,7 @@ async function seedPrivileges() {
       ctaWhatsappMessage: 'Bonjour Sophie, je suis intéressé(e) par le séjour OASIS FLOW SIWA (8-15 novembre 2026). Pouvez-vous me donner les informations pour réserver ma place ? 🌿',
       highlights: [
         hl('Lieu', 'Siwa, oasis isolée à 500 km du Caire'),
-        hl('Activité', 'Séances de yoga quotidiennes avec Louise'),
+        hl('Activité', 'Séances de yoga quotidiennes'),
         hl('Expériences', 'Sources naturelles, baignades, dunes'),
         hl('Hébergement', 'Lodge traditionnel'),
         hl('Accompagnement', 'Sophie présente sur toute la durée'),
