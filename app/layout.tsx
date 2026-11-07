@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import ScrollReveal from '@/components/layout/ScrollReveal'
+import HorsStudio from '@/components/layout/HorsStudio'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -57,11 +58,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${cormorant.variable} ${manrope.variable}`} suppressHydrationWarning>
       <body>
-        <Header />
+        <HorsStudio>
+          <Header />
+        </HorsStudio>
         <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <ScrollReveal />
+        <HorsStudio>
+          <Footer />
+          <WhatsAppButton />
+          <ScrollReveal />
+        </HorsStudio>
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-3BR59P7TXJ" strategy="afterInteractive" />
         <Script id="ga-init" strategy="afterInteractive">{`
